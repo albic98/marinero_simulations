@@ -1,0 +1,4 @@
+source;share/marinero_simulations/local_setup.bash
+source;share/marinero_simulations/local_setup.dsv
+source;share/marinero_simulations/local_setup.sh
+source;share/marinero_simulations/local_setup.zsh
