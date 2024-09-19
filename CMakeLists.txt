@@ -5,9 +5,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# find dependencies
+# Find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 # uncomment the following section in order to fill in
@@ -28,7 +27,8 @@ install(DIRECTORY
   scripts
   DESTINATION share/${PROJECT_NAME}/
   )
-  
+
+
 # Create Cpp executable
 add_executable(cpp_executable src/marinero_cpp.cpp)
 ament_target_dependencies(cpp_executable rclcpp)
@@ -44,8 +44,7 @@ ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
   scripts/parse_sdf2marker.py
-  scripts/ply_publisher.py
-  scripts/ply_extractor.py
+  scripts/segmented_sdf2marker.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
