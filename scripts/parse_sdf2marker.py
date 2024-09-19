@@ -16,21 +16,22 @@ from geometry_msgs.msg import TransformStamped
 class SdfToUrdfConverter(Node):
 
     def __init__(self, file_path, output_urdf_file_path):
-        super().__init__('sdf_to_urdf_converter')
+        super().__init__("sdf_to_urdf_converter")
         self.output_urdf_file_path = output_urdf_file_path
-        self.declare_parameter('euler_angles', [0.0, 0.0, 0.0])  # in degrees
-        self.declare_parameter('translation', [-100.0, -48.0, 1.25])
-        self.euler_angles = [angle * math.pi / 180 for angle in self.get_parameter('euler_angles').get_parameter_value().double_array_value]
-        self.translation = self.get_parameter('translation').get_parameter_value().double_array_value
+        self.declare_parameter("euler_angles", [0.0, 0.0, 0.0])         # in degrees
+        # self.declare_parameter("translation", [-100.0, -48.0, 1.25])  # for the other sdf model written in line 180
+        self.declare_parameter("translation", [-100.0, -48.0, 0.2])
+        self.euler_angles = [angle * math.pi / 180 for angle in self.get_parameter("euler_angles").get_parameter_value().double_array_value]
+        self.translation = self.get_parameter("translation").get_parameter_value().double_array_value
 
-        self.sdf_publisher = self.create_publisher(MarkerArray, '/sdf_markers', 10) 
+        self.sdf_publisher = self.create_publisher(MarkerArray, "/sdf_markers", 10) 
         self.counter = 0       
         self.br = TransformBroadcaster(self)
         self.tf_broad = StaticTransformBroadcaster(self)
         
         
         # Read SDF file
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             sdf_xml_string = file.read()
 
         # Convert SDF to URDF and publish Marker Array
@@ -41,7 +42,7 @@ class SdfToUrdfConverter(Node):
         # self.get_logger().info("Generated URDF.")
         
         # # Write URDF to file
-        # with open(self.output_urdf_file_path, 'w') as urdf_file:
+        # with open(self.output_urdf_file_path, "w") as urdf_file:
         #     urdf_file.write(urdf_string)
 
 
@@ -49,6 +50,7 @@ class SdfToUrdfConverter(Node):
         self.marina_timer = self.create_timer(5.0, self.publish_marker_array)
 
     def convert_sdf_to_urdf(self, sdf_xml_string):
+        # sourcery skip: use-fstring-for-concatenation
         root = ET.fromstring(sdf_xml_string)
 
         # Extract model name
@@ -142,7 +144,7 @@ class SdfToUrdfConverter(Node):
 
         # Create visual marker
         visual_marker = Marker()
-        visual_marker.header.frame_id = 'sdf_frame'
+        visual_marker.header.frame_id = "sdf_frame"
         visual_marker.type = Marker.MESH_RESOURCE
         visual_marker.action = Marker.ADD
         visual_marker.pose.position = Point(x=0.0, 
@@ -168,21 +170,20 @@ class SdfToUrdfConverter(Node):
             self.static_transform_publisher()
             self.sdf_publisher.publish(self.marker_array)
             self.counter += 1
-        else:
-            pass
 
 def main(args=None):
     
     rclpy.init(args=args)
 
     # Replace with the path to your SDF file
-    sdf_file_path = '/home/albert/marinero_ws/src/marinero_simulations/models/Marina_dokovi/model.sdf'
-    output_urdf_file_path = '/home/albert/marinero_ws/src/marinero_simulations/robot_description/marina.urdf.xacro'
+    # sdf_file_path = "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_dokovi/model.sdf"
+    sdf_file_path = "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf"
+    output_urdf_file_path = "/home/albert/marinero_ws/src/marinero_simulations/robot_description/marina.urdf.xacro"
 
     converter = SdfToUrdfConverter(sdf_file_path, output_urdf_file_path)
     rclpy.spin(converter)
     converter.destroy_node()
     rclpy.shutdown()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

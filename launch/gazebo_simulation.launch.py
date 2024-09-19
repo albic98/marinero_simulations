@@ -28,7 +28,9 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A_B.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina.world'),
         description='Full path to new world.'
     )
 
@@ -52,33 +54,40 @@ def generate_launch_description():
 
     x_pose_arg = DeclareLaunchArgument(
             'x_pose',
-            default_value='96.75', # -98,
+            default_value='97.2', # '105.0', # '-98'
             description='Define x coordinate when spawning marinero robot'
     )
 
     y_pose_arg = DeclareLaunchArgument(
             'y_pose',
-            default_value='-10.75', # -44,
+            default_value='285.8', # '175.0', # '-44'
             description='Define y coordinate when spawning marinero robot'
     )
 
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
-        default_value="1.66", # 1.57
+        default_value="-3.085", # 1.66
         description='Direction in which the robot will be oriented'
     )
 
     launch_gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')]),
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')
+            ]
+        ),
         launch_arguments={
-                        'world':world, 
-                        'extra_gazebo_args': '--ros-args --params_file' + gazebo_params_file,
-                        }.items()
+            'world': world,
+            'extra_gazebo_args': f'--ros-args --params_file{gazebo_params_file}',
+        }.items(),
     )
 
     launch_robot_state_publisher = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(pkg_name),'launch','robot_state_publisher.launch.py')]),
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(get_package_share_directory(pkg_name),'launch','robot_state_publisher.launch.py')
+            ]
+        ),
         launch_arguments={
             'use_sim_time': use_sim_time,
             'use_ros2_control': use_ros2_control,
@@ -91,7 +100,7 @@ def generate_launch_description():
         executable='static_transform_publisher',
         arguments="--x 0 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id world --child-frame-id odom".split(' '),
     )
-    
+
     world_map_trans_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -106,7 +115,7 @@ def generate_launch_description():
             "-entity", "marinero",
             "-x", x_pose,
             "-y", y_pose,
-            "-z", "1.1",
+            "-z", "1.275",
             "-R", "0.0",
             "-P", "0.0",
             "-Y", yaw_pose
@@ -115,9 +124,11 @@ def generate_launch_description():
     )
 
     launch_controller_manager = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(pkg_name),'launch','controllers.launch.py')
-        ]),
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(get_package_share_directory(pkg_name),'launch','controllers.launch.py')
+            ]
+        ),
         condition=IfCondition(use_ros2_control)
     )
 
@@ -136,12 +147,12 @@ def generate_launch_description():
 
     marina_marker_node = Node(
         package='marinero_simulations',
-        executable='parse_sdf2marker.py',
+        executable='segmented_sdf2marker.py',
     )
 
     pointcloud_node = Node(
-        package='marinero_simulations',
-        executable='ply_publisher.py',
+        package='marinero_pointclouds',
+        executable='remapped_segmented_pcd_publisher_thread',
     )
 
     odometry_node = Node(
@@ -180,7 +191,7 @@ def generate_launch_description():
 
     delayed_nodes = TimerAction(
         period = 15.0,
-        actions = [tracker_node, marina_marker_node, marinero_yolo_node, pointcloud_node]
+        actions = [tracker_node, marina_marker_node,] # marinero_yolo_node, pointcloud_node]
     )
 
     return LaunchDescription([
