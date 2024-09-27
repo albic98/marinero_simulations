@@ -29,15 +29,17 @@ def generate_launch_description():
     world_arg = DeclareLaunchArgument(
         'world',
         # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A.world'),
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A_B.world'),
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_B.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_C.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A_B_C.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
         description='Full path to new world.'
     )
 
     sim_time_arg = DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='true',
-            description='Use sim time if true'
+        'use_sim_time',
+        default_value='true',
+        description='Use sim time if true'
     )
 
     use_4wis4wid_arg = DeclareLaunchArgument(
@@ -53,15 +55,15 @@ def generate_launch_description():
     )
 
     x_pose_arg = DeclareLaunchArgument(
-            'x_pose',
-            default_value='97.2', # '105.0', # '-98'
-            description='Define x coordinate when spawning marinero robot'
+        'x_pose',
+        default_value='97.2', # '105.0', # '-98'
+        description='Define x coordinate when spawning marinero robot'
     )
 
     y_pose_arg = DeclareLaunchArgument(
-            'y_pose',
-            default_value='285.8', # '175.0', # '-44'
-            description='Define y coordinate when spawning marinero robot'
+        'y_pose',
+        default_value='285.8', # '175.0', # '-44'
+        description='Define y coordinate when spawning marinero robot'
     )
 
     direction_arg = DeclareLaunchArgument(
@@ -177,6 +179,11 @@ def generate_launch_description():
         package='marinero_control',
         executable='marinero_tracker',
     )
+    
+    gazebo_marker_node = Node(
+        package='marinero_control',
+        executable='gazebo_marker',
+    )   
 
     rviz2_node = Node(
         executable='rviz2',
@@ -191,7 +198,7 @@ def generate_launch_description():
 
     delayed_nodes = TimerAction(
         period = 15.0,
-        actions = [tracker_node, marina_marker_node,] # marinero_yolo_node, pointcloud_node]
+        actions = [tracker_node, marina_marker_node, gazebo_marker_node ,pointcloud_node, marinero_yolo_node]
     )
 
     return LaunchDescription([

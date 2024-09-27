@@ -1,0 +1,6 @@
+{
+  "package_name": "marinero_simulations",
+  "non_idl_tuples": [
+    "/home/albert/marinero_ws/src/marinero_simulations:action/PublishPointCloud.action"
+  ]
+}

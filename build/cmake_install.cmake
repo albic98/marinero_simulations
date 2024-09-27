@@ -102,8 +102,8 @@ endif()
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/marinero_simulations" TYPE PROGRAM FILES
     "/home/albert/marinero_ws/src/marinero_simulations/scripts/parse_sdf2marker.py"
-    "/home/albert/marinero_ws/src/marinero_simulations/scripts/ply_publisher.py"
-    "/home/albert/marinero_ws/src/marinero_simulations/scripts/ply_extractor.py"
+    "/home/albert/marinero_ws/src/marinero_simulations/scripts/segmented_sdf2marker.py"
+    "/home/albert/marinero_ws/src/marinero_simulations/scripts/segmented_world_publisher.py"
     )
 endif()
 

@@ -16,7 +16,6 @@ from visualization_msgs.msg import Marker, MarkerArray
 from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 
 
-
 class SDF2Marker(Node):
 
     def __init__(self):
@@ -30,13 +29,13 @@ class SDF2Marker(Node):
         self.zone_B = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
             "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [93.35, 305.75, 0.08],
+            "translation": [94.45, 292.77, 0.08],
         }
-        # self.zone_C = {
-        #     "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
-        #     "euler_angles": [0.0, 0.0, 0.0],
-        #     "translation": [140.85, 598.8, 0.08],
-        # }
+        self.zone_C = {
+            "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
+            "euler_angles": [0.0, 0.0, 0.0],
+            "translation": [140.60, 587.60, 0.08],
+        }
         
         self.current_zone = None
         self.sdf_published = False
@@ -62,27 +61,30 @@ class SDF2Marker(Node):
         self.pose_x = msg.pose.pose.position.x
         self.pose_y = msg.pose.pose.position.y
         
-        if 250.0 <= self.pose_y < 296.0 and -100.0 < self.pose_x < -95.0:
-            if self.current_zone == self.zone_B:
-                pass
-            else:
+        zone_A_limit_1, zone_A_limit_2 = 250.0, 296.0
+        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 296.5, 598.0, 624.0
+        zone_C_limit = 598.5
+        zone_x_min, zone_x_max = -100, -95
+        
+        x_pose_condition = zone_x_min < self.pose_x < zone_x_max
+        
+        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition:
+            if self.current_zone != self.zone_B:
                 self.switch_to_zone(self.zone_B, "Opening zone B.")
                 
-        elif self.pose_y < 296.0 and self.current_zone != self.zone_A:
+        elif self.pose_y < zone_A_limit_2 and self.current_zone != self.zone_A:
             self.switch_to_zone(self.zone_A, "Opening zone A.")
             
-        elif 296.5 <= self.pose_y < 598.0 and self.current_zone != self.zone_B:
+        elif zone_B_limit_1 <= self.pose_y < zone_B_limit_2 and self.current_zone != self.zone_B:
             self.switch_to_zone(self.zone_B, "Opening zone B.")
             
-        elif 598.0 <= self.pose_y < 624.0 and -100.0 < self.pose_x < -95.0:
-            if self.current_zone == self.zone_B:
-                pass
-            else:
+        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition:
+            if self.current_zone != self.zone_B:
                 self.switch_to_zone(self.zone_B, "Opening zone B.")
-                
-        # elif self.pose_y > 598.5 and self.current_zone != self.zone_C:
-        #     self.switch_to_zone(self.zone_C, "Opening zone C.")
-        
+
+        elif self.pose_y > zone_C_limit and self.current_zone != self.zone_C:
+            self.switch_to_zone(self.zone_C, "Opening zone C.")
+
         self.declare_parameter_if_not_declared("sdf_file_path", self.current_zone["sdf_file_path"])
         self.declare_parameter_if_not_declared("euler_angles", self.current_zone["euler_angles"])
         self.declare_parameter_if_not_declared("translation", self.current_zone["translation"])

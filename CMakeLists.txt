@@ -45,6 +45,7 @@ ament_python_install_package(${PROJECT_NAME})
 install(PROGRAMS
   scripts/parse_sdf2marker.py
   scripts/segmented_sdf2marker.py
+  scripts/segmented_world_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
