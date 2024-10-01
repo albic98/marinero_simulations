@@ -31,7 +31,7 @@
           <script>
             <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_zone_B/materials/scripts</uri>
             <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_zone_B/materials/textures/tarmac.png</uri>
-            <name>asphalt2/texture</name>
+            <name>asphalt_B/texture</name>
           </script>
           <shader type='pixel'>
             <normal_map>__default__</normal_map>

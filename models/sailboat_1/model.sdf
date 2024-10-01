@@ -4,11 +4,11 @@
     <static>true</static>
     <link name='link'>
       <visual name='visual'>
-        <pose>0 0 10.5 1.57 0 0</pose>
+        <pose>0 0 1.0 0 0 -1.507</pose>
         <geometry>
           <mesh>
             <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1/meshes/Sailboat.stl</uri>
-            <scale>1800.0 1800.0 1800.0</scale>
+            <scale>1.8 1.8 1.8</scale>
           </mesh>
         </geometry>
         <material>
@@ -19,11 +19,11 @@
         </material>
       </visual>
       <collision name='collision'>
-        <pose>0 0 10.5 1.57 0 0</pose>
+        <pose>0 0 1.0 0 0 -1.507</pose>
         <geometry>
           <mesh>
             <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1/meshes/Sailboat.stl</uri>
-            <scale>1800.0 1800.0 1800.0</scale>
+            <scale>1.8 1.8 1.8</scale>
           </mesh>
         </geometry>
       </collision>

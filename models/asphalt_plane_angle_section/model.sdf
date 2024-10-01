@@ -30,7 +30,7 @@
         <material>
           <script>
             <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/materials/scripts</uri>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/materials/textures</uri>
+            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/materials/textures/tarmac.png</uri>
             <name>asphalt/texture</name>
           </script>
 			<shader type='pixel'>
