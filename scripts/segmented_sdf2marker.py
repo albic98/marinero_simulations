@@ -10,7 +10,6 @@ import tf_transformations as tf
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point
 from rclpy.parameter import Parameter
-from tf2_ros import TransformBroadcaster
 from geometry_msgs.msg import TransformStamped
 from visualization_msgs.msg import Marker, MarkerArray
 from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
@@ -24,17 +23,17 @@ class SDF2Marker(Node):
         self.zone_A = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf",
             "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [-100.0, -48.0, 0.08],
+            "translation": [-100.25, -48.18, 0.08],
         }
         self.zone_B = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
             "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [94.45, 292.77, 0.08],
+            "translation": [94.30, 292.77, 0.08],
         }
         self.zone_C = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
             "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [140.60, 587.60, 0.08],
+            "translation": [140.34, 587.60, 0.08],
         }
         
         self.current_zone = None
@@ -42,8 +41,6 @@ class SDF2Marker(Node):
 
         self.sdf_publisher = self.create_publisher(MarkerArray, "/sdf_markers", 10)
         self.pose_subsriber = self.create_subscription(Odometry, "/marinero/odom", self.odom_callback, 50)
-        self.counter = 0       
-        self.br = TransformBroadcaster(self)
         self.tf_broad = StaticTransformBroadcaster(self)
 
     def publish_marker(self, file_path):

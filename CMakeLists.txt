@@ -46,6 +46,7 @@ install(PROGRAMS
   scripts/parse_sdf2marker.py
   scripts/segmented_sdf2marker.py
   scripts/segmented_world_publisher.py
+  scripts/marina_sdf2marker.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

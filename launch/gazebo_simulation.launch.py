@@ -198,7 +198,7 @@ def generate_launch_description():
 
     delayed_nodes = TimerAction(
         period = 15.0,
-        actions = [tracker_node, marina_marker_node, gazebo_marker_node ,pointcloud_node, marinero_yolo_node]
+        actions = [tracker_node, gazebo_marker_node, marinero_yolo_node]
     )
 
     return LaunchDescription([
