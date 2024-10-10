@@ -23,7 +23,7 @@
         <cast_shadows>0</cast_shadows>
         <geometry>
           <box>
-            <size>200 72 0.25</size>
+            <size>205 75 0.25</size>
           </box>
         </geometry>
         <material>
@@ -49,7 +49,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>200 72 0.25</size>
+            <size>205 75 0.25</size>
           </box>
         </geometry>
         <surface>

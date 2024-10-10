@@ -1,46 +1,12 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name="world_zona_A">
+  <model name="world_zona_A_objects">
     <static>true</static>
     <pose>0 0 0 0 0 0</pose>
 
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A</uri>
-      <pose>-100.225000 -48.323200 0.08 0 0 0</pose>
-    </include>
 
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane</uri>
-      <pose>2.397394 135.096924 0.125 0 0 0</pose>
-    </include>
 
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane</uri>
-      <name>asphalt_plane_0</name>
-      <pose>105.629000 23.144600 0.0 0 0 -1.498001</pose>
-    </include>
 
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane</uri>
-      <name>asphalt_plane_1</name>
-      <pose>100.536000 92.423200 0.0 0 0 -1.496700</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section</uri>
-      <pose>96.299700 149.474000 0.0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane</uri>
-      <name>asphalt_plane_2</name>
-      <pose>112.968155 209.914383 0.0 0 0 -1.500000</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane</uri>
-      <pose>108.020000 279.688000 0 0 0 -1.500000</pose>
-    </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_2</uri>
@@ -105,13 +71,19 @@
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_1</uri>
       <name>parking_10</name>
-      <pose>91.799726 149.236596 1.265 0 0 -3.072</pose>
+      <pose>91.830926 148.785596 1.265 0 0 -3.072</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_2</uri>
       <name>parking_11</name>
-      <pose>97.707316 171.169571 1.265 0 0 1.608770</pose>
+      <pose>99.608170 169.837784 1.265 0 0 1.608770</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_11</uri>
+      <name>parking_12</name>
+      <pose>107.957146 184.494171 1.265 0 0 -3.072</pose>
     </include>
 
 

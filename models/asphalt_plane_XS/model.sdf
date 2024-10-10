@@ -1,11 +1,11 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='asphalt_plane_S'>
+  <model name='asphalt_plane_XS'>
     <link name='link'>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose>0 0 1.015 0 0 -1.5905</pose>
+      <pose>0 0 1.015 0 0 -1.4981</pose>
       <gravity>1</gravity>
       <inertial>
         <mass>1</mass>
@@ -23,14 +23,14 @@
         <cast_shadows>0</cast_shadows>
         <geometry>
           <box>
-            <size>200 10 0.5</size>
+            <size>20 20 0.5</size>
           </box>
         </geometry>
         <material>
           <script>
-            <uri>model://asphalt_plane/materials/scripts</uri>
-            <uri>model://asphalt_plane/materials/textures</uri>
-            <name>vrc/asphalt</name>
+            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XS/materials/scripts</uri>
+            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XS/materials/textures/tarmac.png</uri>
+            <name>asphalt_XS/texture</name>
           </script>
           <shader type='pixel'>
             <normal_map>__default__</normal_map>
@@ -49,7 +49,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>200 10 0.5</size>
+            <size>20 20 0.5</size>
           </box>
         </geometry>
         <surface>

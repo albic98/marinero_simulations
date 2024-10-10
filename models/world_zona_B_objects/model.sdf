@@ -1,40 +1,8 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='world_zona_B'>
+  <model name='world_zona_B_objects'>
     <static>true</static>
     <pose>0 0 0 0 0 0</pose>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B</uri>
-      <pose>94.318800 292.840000 0.08 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_L</uri>
-      <pose>19.899900 470.602000 0.125 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_S</uri>
-      <pose>-0.099828 284.852692 0.125 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_zone_B</uri>
-      <pose>96.063000 307.449000 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XS</uri>
-      <pose>106.434952 302.698639 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XXS</uri>
-      <pose>147.875534 594.663513 0 0 0 0</pose>
-    </include>
-
-
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_1</uri>

@@ -4,10 +4,10 @@
     <static>true</static>
     <link name='link'>
       <visual name='visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.35 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_1/meshes/Yacht_v2.dae</uri>
+            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_1/meshes/Yacht_1.stl</uri>
             <scale>2.2 2.2 2.2</scale>
           </mesh>
         </geometry>
@@ -19,14 +19,13 @@
         </material>
       </visual>
       <collision name='collision'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.35 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_1/meshes/Yacht_v2.dae</uri>
+            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_1/meshes/Yacht_1.stl</uri>
             <scale>2.2 2.2 2.2</scale>
           </mesh>
         </geometry>
- 
         <max_contacts>10</max_contacts>
       </collision>
     </link>

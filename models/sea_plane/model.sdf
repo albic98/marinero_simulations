@@ -5,11 +5,11 @@
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose>0 0 0 0 -0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <gravity>1</gravity>
       <inertial>
         <mass>5.27875e+06</mass>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <inertia>
           <ixx>4.66688e+09</ixx>
           <ixy>0</ixy>
