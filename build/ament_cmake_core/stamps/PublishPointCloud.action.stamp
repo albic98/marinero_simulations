@@ -1,0 +1,8 @@
+# Request: Provide the file path of the point cloud to publish
+string pcd_file_path
+---
+# Result: Whether the point cloud was successfully published
+bool success
+---
+# Feedback: Progress percentage of the point cloud publishing
+float32 progress

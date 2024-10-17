@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Marina_dokovi">
+
+  <link name="odom"></link>
+
+  <joint name="Marina_dokovi_joint" type="fixed">
+    <origin xyz="-100.0 -48.0 1.25" rpy="0.0 0.0 0.0" />
+    <parent link="odom" />
+    <child link="Marina_dokovi_link" />
+  </joint>
+
+  <link name="Marina_dokovi">
+    <visual name="visual">
+      <geometry>
+        <mesh filename="/home/albert/marinero_ws/src/marinero_simulations/models/Marina_dokovi/meshes/Marina_bez_razmaka_1m.dae"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <material name="Gazebo/Brown">
+        <color rgba="0.278 0.129 0.02 1"/>
+      </material>
+    </visual>
+
+    <collision name="collision">
+      <geometry>
+        <mesh filename="/home/albert/marinero_ws/src/marinero_simulations/models/Marina_dokovi/meshes/Marina_bez_razmaka_1m.dae"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </collision>
+
+    <inertial>
+      <mass value="100000.0"/>
+      <inertia ixx="0.0" ixy="0" ixz="0" iyy="0.0" iyz="0" izz="0.0"/>
+    </inertial>
+
+  </link>
+</robot>

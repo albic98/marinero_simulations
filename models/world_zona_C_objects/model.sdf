@@ -1,0 +1,302 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='world_zona_C_objects'>
+    <static>true</static>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
+      <name>catamaran_0</name>
+      <pose>-16.439100 749.760000 0 0 0 -3.138681</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
+      <name>catamaran_1</name>
+      <pose>-5.177370 749.925000 0 0 0 -3.138681</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
+      <name>catamaran_2</name>
+      <pose>41.988500 750.447000 0 0 0 -3.138681</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
+      <name>catamaran_3</name>
+      <pose>41.988500 750.447000 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
+      <name>catamaran_4</name>
+      <pose>64.413000 711.984000 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
+      <name>catamaran_5</name>
+      <pose>64.413000 711.984000 0 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_0</name>
+      <pose>126.669000 753.428000 0 0 0 -1.562020</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_1</name>
+      <pose>108.754000 753.201000 0 0 0 -1.562020</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_2</name>
+      <pose>90.105200 753.079000 0 0 0 -1.562020</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_3</name>
+      <pose>54.250400 709.389000 0 0 0 1.571071</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_4</name>
+      <pose>-18.432100 709.241000 0 0 0 1.571071</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_5</name>
+      <pose>122.727000 690.238000 0 0 0 -1.562020</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_6</name>
+      <pose>15.447800 689.755000 0 0 0 -1.562020</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_7</name>
+      <pose>-19.869900 689.704000 0 0 0 -1.562020</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_8</name>
+      <pose>135.437000 647.304000 0 0 0 1.571071</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_9</name>
+      <pose>114.967000 646.850000 0 0 0 1.571071</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_10</name>
+      <pose>34.385900 646.636000 0 0 0 1.571071</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_11</name>
+      <pose>-9.265670 628.015000 0 0 0 -1.562020</pose>
+    </include>
+
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_2</uri>
+      <name>yacht_2_0</name>
+      <pose>83.882400 752.219000 0 0 0 3.140831</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_2</uri>
+      <name>yacht_2_1</name>
+      <pose>78.391200 752.156000 0 0 0 3.140831</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_2</uri>
+      <name>yacht_2_2</name>
+      <pose>72.883100 752.174000 0 0 0 3.140831</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/yacht_2</uri>
+      <name>yacht_2_3</name>
+      <pose>73.056200 710.666000 0 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_6</uri>
+      <name>vessel_6_0</name>
+      <pose>56.033800 751.741000 0 0 0 -1.561511</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_6</uri>
+      <name>vessel_6_1</name>
+      <pose>27.337800 751.785000 0 0 0 -1.561511</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_6</uri>
+      <name>vessel_6_2</name>
+      <pose>14.804900 751.829000 0 0 0 -1.561511</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_6</uri>
+      <name>vessel_6_3</name>
+      <pose>84.606700 647.628000 0 0 0 1.572749</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_6</uri>
+      <name>vessel_6_4</name>
+      <pose>41.654200 647.425000 0 0 0 1.572749</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_6</uri>
+      <name>vessel_6_5</name>
+      <pose>15.484900 647.5970000 0 0 0 1.572749</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_0</name>
+      <pose>121.721000 754.240000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_1</name>
+      <pose>117.959000 754.183000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_2</name>
+      <pose>114.212000 754.124000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_3</name>
+      <pose>103.640000 754.106000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_4</name>
+      <pose>99.625300 754.109000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_5</name>
+      <pose>95.506000 753.963000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_6</name>
+      <pose>67.744000 754.075000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_7</name>
+      <pose>83.815900 691.024000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_8</name>
+      <pose>34.711900 690.235000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_9</name>
+      <pose>68.605600 628.792000 0 0 0 -3.128821</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_10</name>
+      <pose>33.198800 628.868000 0 0 0 -3.128821</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_0</name>
+      <pose>128.904000 647.228000 0 0 0 -0.077596</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_1</name>
+      <pose>121.633000 647.090000 0 0 0 -0.077596</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_2</name>
+      <pose>77.943400 647.569000 0 0 0 -0.077596</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_0</name>
+      <pose>140.829529 607.775879 1.26 0 0 -0.0155</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_1</name>
+      <pose>141.025000 618.580000 1.26 0 0 -0.0155</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_2</name>
+      <pose>141.485000 644.044000 1.26 0 0 -0.0155</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
+      <name>SMART_cabinet_0</name>
+      <pose>141.029480 618.395508 1.26 0 0 -0.0155</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
+      <name>SMART_cabinet_1</name>
+      <pose>135.723633 635.979614 1.26 0 0 1.58</pose>
+    </include>
+  </model>
+</sdf>
