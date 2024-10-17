@@ -103,7 +103,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/marinero_simulations" TYPE PROGRAM FILES
     "/home/albert/marinero_ws/src/marinero_simulations/scripts/parse_sdf2marker.py"
     "/home/albert/marinero_ws/src/marinero_simulations/scripts/segmented_sdf2marker.py"
+    "/home/albert/marinero_ws/src/marinero_simulations/scripts/marina_sdf2marker.py"
     "/home/albert/marinero_ws/src/marinero_simulations/scripts/segmented_world_publisher.py"
+    "/home/albert/marinero_ws/src/marinero_simulations/scripts/segmented_gazebo_publisher.py"
     )
 endif()
 

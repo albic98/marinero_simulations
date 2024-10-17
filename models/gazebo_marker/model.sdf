@@ -37,5 +37,24 @@
         <cast_shadows>0</cast_shadows>
       </visual>
     </link>
+
+    <link name="cylinder_link_2">
+      <pose>2.5 0 10.5 1.57 0 1.57</pose>
+      
+      <visual name="cylinder_visual_2">
+        <geometry>
+          <cylinder>
+            <radius>0.25</radius>
+            <length>3.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1.0 0.0 0.0 1.0</ambient>
+          <diffuse>1.0 0.0 0.0 1.0</diffuse>
+        </material>
+        <cast_shadows>0</cast_shadows>
+      </visual>
+    </link>
+
   </model>
 </sdf>

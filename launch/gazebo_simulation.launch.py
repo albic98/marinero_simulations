@@ -1,9 +1,8 @@
-#usr/env/bin python3
+#!/usr/bin/env python3
 
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
-# from launch.event_handlers import OnProcessStart
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
 from ament_index_python.packages import get_package_share_directory
@@ -28,9 +27,6 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A.world'),
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_B.world'),
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_C.world'),
         default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_zona_A_B_C.world'),
         # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
         description='Full path to new world.'
@@ -56,19 +52,19 @@ def generate_launch_description():
 
     x_pose_arg = DeclareLaunchArgument(
         'x_pose',
-        default_value='97.2', # '105.0', # '-98'
+        default_value= '138.06', # '96.820', # '105.0', # '-98'
         description='Define x coordinate when spawning marinero robot'
     )
 
     y_pose_arg = DeclareLaunchArgument(
         'y_pose',
-        default_value='285.8', # '175.0', # '-44'
+        default_value= '325.44', # '278.33', # '175.0', # '-44'
         description='Define y coordinate when spawning marinero robot'
     )
 
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
-        default_value="-3.085", # 1.66
+        default_value="2.53", # 1.66
         description='Direction in which the robot will be oriented'
     )
 
@@ -109,7 +105,14 @@ def generate_launch_description():
         arguments="--x 0 --y 0 --z 1.1 --roll 0 --pitch 0 --yaw 0 --frame-id world --child-frame-id map".split(' '),
     )
 
-    spawner_node = Node(
+    zones_spawner_node = Node(
+        package='marinero_simulations',
+        executable='segmented_gazebo_publisher.py',
+        arguments= [x_pose, y_pose],
+        output= "screen"
+    )
+
+    marinero_spawner_node = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
         arguments=[
@@ -117,7 +120,7 @@ def generate_launch_description():
             "-entity", "marinero",
             "-x", x_pose,
             "-y", y_pose,
-            "-z", "1.275",
+            "-z", "1.30",
             "-R", "0.0",
             "-P", "0.0",
             "-Y", yaw_pose
@@ -179,7 +182,7 @@ def generate_launch_description():
         package='marinero_control',
         executable='marinero_tracker',
     )
-    
+
     gazebo_marker_node = Node(
         package='marinero_control',
         executable='gazebo_marker',
@@ -191,29 +194,35 @@ def generate_launch_description():
         arguments=['-d', rviz2_full_config],
     )
 
+    delayed_marinero_spawner_node = TimerAction(
+        period = 2.0,
+        actions = [marinero_spawner_node]
+    )
+    
     delayed_controller_manager = TimerAction(
-        period = 5.0,
+        period = 4.0,
         actions = [launch_controller_manager]
     )
 
     delayed_nodes = TimerAction(
-        period = 15.0,
-        actions = [tracker_node, gazebo_marker_node, marinero_yolo_node]
+        period = 6.0,
+        actions = [tracker_node, marina_marker_node, gazebo_marker_node, pointcloud_node, marinero_yolo_node]
     )
 
     return LaunchDescription([
         world_arg,
+        sim_time_arg,
+        use_4wis4wid_arg,
+        ros2_control_arg,
         x_pose_arg,
         y_pose_arg,
         direction_arg,
-        sim_time_arg,
-        ros2_control_arg,
-        use_4wis4wid_arg,
+        launch_gazebo,
+        # zones_spawner_node,
+        launch_robot_state_publisher,
+        delayed_marinero_spawner_node,
         world_odom_trans_publisher,
         world_map_trans_publisher,
-        launch_robot_state_publisher,
-        launch_gazebo,
-        spawner_node,
         joy_node,
         control_node,
         odometry_node,

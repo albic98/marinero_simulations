@@ -1,8 +1,14 @@
 <sdf version='1.7'>
-  <world name='default'>
+  <world name='marina_base'>
+    <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>1.0</update_rate>
+    </plugin>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
-      <pose>0 0 10 0 -0 0</pose>
+      <pose>0 0 10 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
       <specular>0.2 0.2 0.2 1</specular>
       <attenuation>
@@ -100,7 +106,7 @@
         <linear>0.01</linear>
         <quadratic>0.001</quadratic>
       </attenuation>
-      <cast_shadows>1</cast_shadows>
+      <cast_shadows>0</cast_shadows>
     </light>
     <state world_name='default'>
       <sim_time>1494 244000000</sim_time>

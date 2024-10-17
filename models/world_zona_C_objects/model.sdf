@@ -2,7 +2,6 @@
 <sdf version='1.7'>
   <model name='world_zona_C_objects'>
     <static>true</static>
-    <pose>0 0 0 0 0 0</pose>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/catamaran</uri>
@@ -267,5 +266,37 @@
     </include>
 
 
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_0</name>
+      <pose>140.829529 607.775879 1.26 0 0 -0.0155</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_1</name>
+      <pose>141.025000 618.580000 1.26 0 0 -0.0155</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_2</name>
+      <pose>141.485000 644.044000 1.26 0 0 -0.0155</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
+      <name>SMART_cabinet_0</name>
+      <pose>141.029480 618.395508 1.26 0 0 -0.0155</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
+      <name>SMART_cabinet_1</name>
+      <pose>135.723633 635.979614 1.26 0 0 1.58</pose>
+    </include>
   </model>
 </sdf>

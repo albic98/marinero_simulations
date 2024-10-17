@@ -2,11 +2,6 @@
 <sdf version='1.7'>
   <model name="world_zona_A_objects">
     <static>true</static>
-    <pose>0 0 0 0 0 0</pose>
-
-
-
-
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_2</uri>
@@ -77,14 +72,15 @@
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_2</uri>
       <name>parking_11</name>
-      <pose>99.608170 169.837784 1.265 0 0 1.608770</pose>
+      <pose>99.065567 169.817154 1.265 0 0 1.608770</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/parking_version_11</uri>
       <name>parking_12</name>
-      <pose>107.957146 184.494171 1.265 0 0 -3.072</pose>
+      <pose>108.723358 184.226028 1.265 0 0 -3.072</pose>
     </include>
+
 
 
     <include>
@@ -133,6 +129,12 @@
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
       <name>vessel_5_8</name>
       <pose>-41.295500 -29.118400 0 0 0 -1.505461</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/vessel_5</uri>
+      <name>vessel_5_9</name>
+      <pose>89.469600 183.980000 0 0 0 1.633240</pose>
     </include>
 
 
@@ -240,6 +242,23 @@
       <pose>87.906300 270.830000 0 0 0 1.581901</pose>
     </include>
 
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_10</name>
+      <pose>53.425600 81.566200 0 0 0 -3.133881</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_11</name>
+      <pose>-39.756900 44.973800 0 0 0 0</pose>t
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_12</name>
+      <pose>-16.315900 77.412100 0 0 0 -3.133881</pose>
+    </include>
 
 
     <include>
@@ -328,5 +347,326 @@
       <pose>-92.700600 99.213600 0 0 0 3.137771</pose>
     </include>
 
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_0</name>
+      <pose>84.741500 182.830000 0 0 0 0.057422</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/speedboat</uri>
+      <name>speedboat_1</name>
+      <pose>80.877500 182.684000 0 0 0 0.057422</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://bush_1</uri>
+      <name>bush_1_0</name>
+      <pose>99.375366 -6.173660 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_1</uri>
+      <name>bush_1_1</name>
+      <pose>94.640472 57.823601 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_1</uri>
+      <name>bush_1_2</name>
+      <pose>92.456741 88.347153 1.265 1.570791 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_0</name>
+      <pose>91.789345 171.986237 1.3 1.570801 0 -3.092022</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_1</name>
+      <pose>94.043335 172.102737 1.3 1.570801 0 -0.852331</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_2</name>
+      <pose>98.981700 172.332000 1.3 1.570801 0 -3.092022</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_3</name>
+      <pose>97.341835 21.981888 1.570795 0 -1.495215</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_4</name>
+      <pose>96.465897 33.248428 1.3 1.5708 0 -1.495210</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_5</name>
+      <pose>90.440600 118.231000 1.3 1.5708 0 -1.495210</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_6</name>
+      <pose>90.333600 119.929000 1.3 1.5708 0 -1.495210</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_2</uri>
+      <name>bush_2_7</name>
+      <pose>90.231200 121.541000 1.3 1.5708 0 -1.495210</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_0</name>
+      <pose>97.526200 18.595300 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_1</name>
+      <pose>96.339600 172.290000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_2</name>
+      <pose>101.483154 172.594391 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_3</name>
+      <pose>95.024500 54.132500 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_4</name>
+      <pose>93.201400 79.206900 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_5</name>
+      <pose>92.917800 82.190700 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_6</name>
+      <pose>92.725600 85.199400 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_7</name>
+      <pose>91.607000 99.798800 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_8</name>
+      <pose>87.373300 158.485000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_9</name>
+      <pose>87.219700 161.549000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_10</name>
+      <pose>87.022700 164.473000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_11</name>
+      <pose>86.788400 167.485000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bush_3</uri>
+      <name>bush_3_12</name>
+      <pose>86.645400 170.503000 1.265 1.570791 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://tree_5</uri>
+      <name>tree_5_0</name>
+      <pose>95.220078 50.087143 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://tree_5</uri>
+      <name>tree_5_1</name>
+      <pose>91.445300 103.040000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://tree_5</uri>
+      <name>tree_5_2</name>
+      <pose>89.812800 126.500000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://tree_5</uri>
+      <name>tree_5_3</name>
+      <pose>89.622300 130.254000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://tree_5</uri>
+      <name>tree_5_4</name>
+      <pose>88.751900 140.657000 1.265 1.570791 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://tree_5</uri>
+      <name>tree_5_5</name>
+      <pose>88.533500 144.741000 1.265 1.570791 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://tree_7</uri>
+      <name>tree_7_0</name>
+      <pose>99.339272 0.167751 1.300000 1.570791 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://palm_tree</uri>
+      <name>palm_tree_0</name>
+      <pose>97.651596 15.823912 1.265000 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://palm_tree</uri>
+      <name>palm_tree_1</name>
+      <pose>94.217000 64.617900 1.265000 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://palm_tree</uri>
+      <name>palm_tree_2</name>
+      <pose>93.940163 69.337288 1.265000 0 0 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_0</name>
+      <static>1</static>
+      <pose>98.492900 265.584000 1.26 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_1</name>
+      <static>1</static>
+      <pose>99.752429 224.102023 1.26 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_2</name>
+      <static>1</static>
+      <pose>103.472988 197.280864 1.26 0 0 -3.07</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_3</name>
+      <static>1</static>
+      <pose>101.546000 197.281994 1.26 0 0 -3.07</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_4</name>
+      <static>1</static>
+      <pose>104.681995 181.482066 1.26 0 0 -0.041167</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_5</name>
+      <static>1</static>
+      <pose>84.484016 134.311019 1.26 0 0 1.803347</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_6</name>
+      <static>1</static>
+      <pose>88.831037 107.602982 1.26 0 0 -0.034988</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_0</name>
+      <pose>83.207924 -13.493295 1.260000 0 0 1.635000</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_1</name>
+      <pose>101.977127 176.823746 1.260000 0 0 -1.53</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_2</name>
+      <pose>104.707733 189.509781 1.260000 0 0 -3.075</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
+      <name>SMART_FIRE_cabinet_3</name>
+      <pose>103.237305 210.230423 1.260000 0 0 -3.075</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
+      <name>SMART_cabinet_0</name>
+      <pose>72.155861 -10.953532 1.260000 0 0 -1.510000</pose>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
+      <name>SMART_cabinet_1</name>
+      <pose>103.743103 203.051971 1.260000 0 0 -3.075000</pose>
+    </include>
+
+    </include>
   </model>
 </sdf>
