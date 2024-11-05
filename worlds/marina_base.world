@@ -1,14 +1,16 @@
 <sdf version='1.7'>
   <world name='marina_base'>
+  
     <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
       <ros>
         <namespace>/gazebo</namespace>
       </ros>
       <update_rate>1.0</update_rate>
     </plugin>
+
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
-      <pose>0 0 10 0 0 0</pose>
+      <pose>0 0 10 0 -0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
       <specular>0.2 0.2 0.2 1</specular>
       <attenuation>
@@ -107,17 +109,22 @@
         <quadratic>0.001</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
     </light>
-    <state world_name='default'>
-      <sim_time>1494 244000000</sim_time>
-      <real_time>1499 429862247</real_time>
-      <wall_time>1727250077 988469170</wall_time>
-      <iterations>1494244</iterations>
+    <state world_name='marina_base'>
+      <sim_time>1522 998000000</sim_time>
+      <real_time>29 79746492</real_time>
+      <wall_time>1730725248 487550169</wall_time>
+      <iterations>28754</iterations>
       <model name='ground_plane'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>50 50 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>50 50 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -132,7 +139,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-107.143 266.614 800.675 0 1.4658 0.008191</pose>
+        <pose>84.2973 150.435 758.421 -1e-06 1.5698 -0.03181</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

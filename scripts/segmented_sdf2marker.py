@@ -22,18 +22,18 @@ class SDF2Marker(Node):
 
         self.zone_A = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf",
-            "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [-100.25, -48.18, 0.08],
+            "euler_angles": [0.0, 0.0, 3.896],
+            "translation": [0.0, 0.0, 0.08]
         }
         self.zone_B = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
-            "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [94.30, 292.77, 0.08],
+            "euler_angles": [0.0, 0.0, 3.810],
+            "translation": [170.954, 353.30, 0.08]
         }
         self.zone_C = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
-            "euler_angles": [0.0, 0.0, 0.0],
-            "translation": [140.34, 587.60, 0.08],
+            "euler_angles": [0.0, 0.0, 4.011],
+            "translation": [197.298, 650.23, 0.08]
         }
         
         self.current_zone = None
@@ -58,14 +58,15 @@ class SDF2Marker(Node):
         self.pose_x = msg.pose.pose.position.x
         self.pose_y = msg.pose.pose.position.y
         
-        zone_A_limit_1, zone_A_limit_2 = 250.0, 296.0
-        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 296.5, 598.0, 624.0
-        zone_C_limit = 598.5
-        zone_x_min, zone_x_max = -100, -95
+        zone_A_limit_1, zone_A_limit_2 = 301.0, 357.0
+        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 357.0, 661.1, 668.5
+        zone_C_limit = 661.1
+        zone_x_min_1, zone_x_max_1 = -23.25, -4.0
+        x_pose_condition_1 = zone_x_min_1 < self.pose_x < zone_x_max_1
+        zone_x_min_2, zone_x_max_2 = -44.0, -38.0
+        x_pose_condition_2 = zone_x_min_2 < self.pose_x < zone_x_max_2
         
-        x_pose_condition = zone_x_min < self.pose_x < zone_x_max
-        
-        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition:
+        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition_1:
             if self.current_zone != self.zone_B:
                 self.switch_to_zone(self.zone_B, "Opening zone B.")
                 
@@ -75,7 +76,7 @@ class SDF2Marker(Node):
         elif zone_B_limit_1 <= self.pose_y < zone_B_limit_2 and self.current_zone != self.zone_B:
             self.switch_to_zone(self.zone_B, "Opening zone B.")
             
-        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition:
+        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition_2:
             if self.current_zone != self.zone_B:
                 self.switch_to_zone(self.zone_B, "Opening zone B.")
 

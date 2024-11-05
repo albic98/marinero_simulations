@@ -22,14 +22,15 @@ class SDF2Marker(Node):
         self.declare_parameter("sdf_file_path", ["/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf",
                                                 "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
                                                 "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf"])
-        
-        self.declare_parameter("translation", [-100.25, -48.18, 0.08,
-                                                94.30, 292.77, 0.08, 
-                                                140.34, 587.60, 0.08])
-        
-        self.declare_parameter("euler_angles", [0.0, 0.0, 0.0])
 
-        
+        self.declare_parameter("euler_angles", [0.0, 0.0, 3.896,
+                                                0.0, 0.0, 3.810,
+                                                0.0, 0.0, 4.011])
+
+        self.declare_parameter("translation", [0.0, 0.0, 0.08,
+                                                170.954, 353.30, 0.08, 
+                                                197.298, 650.23, 0.08])
+
         self.labels = ["A", "B", "C"]
         self.sdf_publishers = [self.create_publisher(MarkerArray, f"/sdf_marker_{self.labels[i]}", 10) for i in range (len(self.labels))]   
         self.tf_broad = StaticTransformBroadcaster(self)
@@ -38,7 +39,10 @@ class SDF2Marker(Node):
         translations_inline = self.get_parameter("translation").get_parameter_value().double_array_value
         self.translation = [translations_inline[i:i+3] for i in range(0, len(translations_inline), 3)]
         euler_inline = self.get_parameter("euler_angles").get_parameter_value().double_array_value
-        self.euler_angles = [angle * math.pi / 180 for angle in euler_inline]
+        euler_radians = [angle * math.pi / 180 for angle in euler_inline] 
+        self.euler_angles = [euler_radians[i:i+3] for i in range(0, len(euler_radians), 3)]
+        
+        time.sleep(0.5)
         
         self.publish_markers()
         
@@ -47,6 +51,7 @@ class SDF2Marker(Node):
             file_path = self.sdf_file_path[i]
             frame_id = f"sdf_marker_zone_{self.labels[i]}"
             translation = self.translation[i]
+            euler_angles = self.euler_angles[i]
             
             # Read SDF file
             with open(file_path, "r") as file:
@@ -55,14 +60,15 @@ class SDF2Marker(Node):
             # Publish SDF as Marker Array
             self.marker_array = self.create_marker_array_from_sdf(sdf_xml_string, frame_id)
 
-            self.static_transform_publisher(frame_id, translation)
+            self.static_transform_publisher(frame_id, translation, euler_angles)
             self.sdf_publishers[i].publish(self.marker_array)
             self.get_logger().info(f"Publishing SDF data: {file_path}")
+            time.sleep(0.5)
 
 
-    def static_transform_publisher(self, frame_id, translation):
+    def static_transform_publisher(self, frame_id, translation, euler_angles):
         
-        rotation_angle = tf.quaternion_from_euler(self.euler_angles[0], self.euler_angles[1], self.euler_angles[2])
+        rotation_angle = tf.quaternion_from_euler(euler_angles[0], euler_angles[1], euler_angles[2])
         
         try:
             t = TransformStamped()

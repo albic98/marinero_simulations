@@ -12,21 +12,21 @@ class GazeboSpawner(Node):
     ZONES = {
         "A": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
-            "translation_1": [0.0, 0.0, 0.0], # [-100.225, -48.3232, 0.0],
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_A_objects.world",
-            "translation_2": [0.0, 0.0, 0.0],
+            "euler_angles": [0.0, 0.0, 3.896],
+            "translation": [96.710, 55.0214, 0.0],
             },
         "B": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
-            "translation_1": [0.0, 0.0, 0.0], # [94.3188, 292.84, 0.0],
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
-            "translation_2": [0.0, 0.0, 0.0],
+            "euler_angles": [0.0, 0.0, 3.810],
+            "translation": [170.954, 353.30, 0.0],
             },
         "C": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
-            "translation_1": [0.0, 0.0, 0.0], # [140.34, 587.60, 0.0],
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
-            "translation_2": [0.0, 0.0, 0.0],
+            "euler_angles": [0.0, 0.0, 4.011],
+            "translation": [197.298, 650.23, 0.0],
             }
         }
 
@@ -67,20 +67,22 @@ class GazeboSpawner(Node):
         self.pose_x = msg.pose.position.x
         self.pose_y = msg.pose.position.y
 
-        zone_A_limit_1, zone_A_limit_2 = 250.0, 296.0
-        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 296.5, 598.0, 624.0
-        zone_C_limit = 598.5
-        zone_x_min, zone_x_max = -100.0, -95.0     
-        x_pose_condition = zone_x_min < self.pose_x < zone_x_max
+        zone_A_limit_1, zone_A_limit_2 = 301.0, 357.0
+        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 357.0, 661.1, 668.5
+        zone_C_limit = 661.1
+        zone_x_min_1, zone_x_max_1 = -23.25, -4.0
+        x_pose_condition_1 = zone_x_min_1 < self.pose_x < zone_x_max_1
+        zone_x_min_2, zone_x_max_2 = -44.0, -38.0
+        x_pose_condition_2 = zone_x_min_2 < self.pose_x < zone_x_max_2
 
-        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition:
+        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition_1:
             if self.current_zone != "B":
                 self.switch_zone("B")
         elif self.pose_y < zone_A_limit_2 and self.current_zone != "A":
             self.switch_zone("A")
         elif zone_B_limit_1 <= self.pose_y < zone_B_limit_2 and self.current_zone != "B":
             self.switch_zone("B")
-        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition:
+        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition_2:
             if self.current_zone != "B":
                 self.switch_zone("B")
         elif self.pose_y > zone_C_limit and self.current_zone != "C":
@@ -106,7 +108,9 @@ class GazeboSpawner(Node):
 
     def spawn_entity(self, zone_data, entity_name, objects=False):
         file_path = zone_data["sdf_path_2" if objects else "sdf_path_1"]
-        translation = zone_data["translation_2"if objects else "translation_1"]
+        euler_angles_degrees = zone_data["euler_angles"]
+
+        translation = zone_data["translation"]
             
         with open(file_path, "r") as f:
             sdf_content = f.read()
