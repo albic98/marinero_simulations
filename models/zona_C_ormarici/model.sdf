@@ -5,7 +5,7 @@
       <self_collide>0</self_collide>
       <gravity>1</gravity>
       <inertial>
-        <mass>50000</mass>
+        <mass>5000</mass>
         <pose>0 0 0 0 0 0</pose>
         <inertia>
           <ixx>0</ixx>

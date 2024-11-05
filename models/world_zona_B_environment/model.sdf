@@ -11,12 +11,12 @@
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_B1</uri>
-      <pose>19.899900 470.602000 0.125 0 0 0</pose>
+      <pose>24.067 475.0 0 0 0 0.0015</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_B2</uri>
-      <pose>-0.099828 284.852692 0.125 0 0 0</pose>
+      <pose>-3.1477 285.0 0 0 0 0.0015</pose>
     </include>
 
     <include>
@@ -27,11 +27,6 @@
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XS</uri>
       <pose>106.578583 301.612610 0 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XXS</uri>
-      <pose>147.875534 594.663513 0 0 0 0</pose>
     </include>
 
     <include>

@@ -20,13 +20,13 @@ class GazeboSpawner(Node):
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
             "euler_angles": [0.0, 0.0, 3.810],
-            "translation": [170.954, 353.30, 0.0],
+            "translation": [96.3032, 54.8397, 0.0],
             },
         "C": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
             "euler_angles": [0.0, 0.0, 4.011],
-            "translation": [197.298, 650.23, 0.0],
+            "translation": [98.4001, 54.2532, 0.0],
             }
         }
 

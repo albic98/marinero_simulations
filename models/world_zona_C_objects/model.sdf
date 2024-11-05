@@ -265,12 +265,18 @@
       <pose>77.943400 647.569000 0 0 0 -0.077596</pose>
     </include>
 
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
+      <name>sailboat_1_3</name>
+      <pose>128.441 710.0 0 0 0 -0.077596</pose>
+    </include>
+
 
 
     <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1</uri>
-      <name>sailboat_1_2</name>
-      <pose>196.4406 670.00317 1.26 0 0 0</pose>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/zona_C_ormarici</uri>
+      <name>ormarici</name>
+      <pose>140.8351 607.3855 0 0 0 0</pose>
     </include>
 
   </model>
