@@ -10,12 +10,12 @@
     </include>
 
     <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_L</uri>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_B1</uri>
       <pose>19.899900 470.602000 0.125 0 0 0</pose>
     </include>
 
     <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_S</uri>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_B2</uri>
       <pose>-0.099828 284.852692 0.125 0 0 0</pose>
     </include>
 

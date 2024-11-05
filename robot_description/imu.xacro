@@ -13,22 +13,72 @@
             <geometry>
                 <box size="0.1 0.1 0.02" />
             </geometry>
-            <material name="dark"/>
+            <material name="grey"/>
         </visual>
 
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="0.2 0.2 0.2" />
+                <box size="0.2 0.2 0.02" />
             </geometry>   
         </collision>
     </link>
 
-    <!-- <gazebo>
-        <plugin name="marinero_imu_link" filename="">
+    <gazebo reference="imu_link">
+        <gravity>true</gravity>
+        <sensor name="imu_sensor" type="imu">
+            <always_on>true</always_on>
+            <update_rate>100</update_rate>
+            <visualize>true</visualize>
+            <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+                <ros>
+                    <remapping>~/out:=/marinero/imu_sensor</remapping>
+                </ros>
+                <body_name>imu_link</body_name>
+                <update_rate_hz>10.0</update_rate_hz>
+                <gaussian_noise>0.0</gaussian_noise>
+                <xyz_offset>0 0 0</xyz_offset>
+                <rpy_offset>0 0 0</rpy_offset>
+                <frame_name>imu_link</frame_name>
+                <initial_orientation_as_reference>false</initial_orientation_as_reference>
+            </plugin>
+            <pose>0 0 0 0 0 0</pose>
+        </sensor>
+    </gazebo>
 
+    <joint name="gps_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="gps_link"/>
+        <origin xyz="0 0 0.32" rpy="0 0 0"/>
+    </joint>
 
-        </plugin>
-    </gazebo> -->
+    <link name="gps_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 0.02" />
+            </geometry>
+            <material name="white"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.2 0.2 0.02" />
+            </geometry>   
+        </collision>
+    </link>
+
+    <gazebo reference="gps_link">
+        <sensor name="gps_sensor" type="gps">
+            <always_on>true</always_on>
+            <update_rate>30</update_rate>
+            <plugin name="my_gps_plugin" filename="libgazebo_ros_gps_sensor.so">
+                <ros>
+                    <remapping>~/out:=/marinero/gps_sensor</remapping>
+                </ros>
+            </plugin>
+        </sensor>
+    </gazebo>
 
 </robot>

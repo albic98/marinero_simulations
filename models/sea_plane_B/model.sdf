@@ -1,15 +1,15 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='sea_plane'>
+  <model name='sea_plane_B'>
     <link name='link'>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0 0 -0 0</pose>
       <gravity>1</gravity>
       <inertial>
         <mass>5.27875e+06</mass>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <inertia>
           <ixx>4.66688e+09</ixx>
           <ixy>0</ixy>
@@ -23,7 +23,7 @@
         <cast_shadows>0</cast_shadows>
         <geometry>
           <box>
-            <size>210 375 0.25</size>
+            <size>266 284 0.25</size>
           </box>
         </geometry>
         <material>
@@ -49,7 +49,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>210 375 0.25</size>
+            <size>266 284 0.25</size>
           </box>
         </geometry>
         <surface>
