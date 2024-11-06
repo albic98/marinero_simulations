@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
 import sys
+import math
 import rclpy
 from rclpy.node import Node
 from std_srvs.srv import Empty
+import tf_transformations as tf
 from geometry_msgs.msg import PoseStamped
 from gazebo_msgs.srv import SpawnEntity, DeleteEntity
 
@@ -108,10 +110,11 @@ class GazeboSpawner(Node):
 
     def spawn_entity(self, zone_data, entity_name, objects=False):
         file_path = zone_data["sdf_path_2" if objects else "sdf_path_1"]
-        euler_angles_degrees = zone_data["euler_angles"]
-
         translation = zone_data["translation"]
-            
+        euler_angles_degrees = zone_data["euler_angles"]
+        euler_angles_radians = [angle * math.pi /180 for angle in euler_angles_degrees]
+        rotation_angle = tf.quaternion_from_euler(euler_angles_radians[0], euler_angles_radians[1], euler_angles_radians[2])
+
         with open(file_path, "r") as f:
             sdf_content = f.read()
 
@@ -121,6 +124,10 @@ class GazeboSpawner(Node):
         zone_request.initial_pose.position.x = translation[0]
         zone_request.initial_pose.position.y = translation[1]
         zone_request.initial_pose.position.z = translation[2]
+        zone_request.initial_pose.orientation.x = rotation_angle[0]
+        zone_request.initial_pose.orientation.y = rotation_angle[1]
+        zone_request.initial_pose.orientation.z = rotation_angle[2]
+        zone_request.initial_pose.orientation.w = rotation_angle[3]
 
         future = self.spawn_client.call_async(zone_request)
         future.add_done_callback(self.handle_spawn_response)
