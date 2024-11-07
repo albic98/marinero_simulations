@@ -27,13 +27,13 @@ class SDF2Marker(Node):
         }
         self.zone_B = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
-            "euler_angles": [0.0, 0.0, 3.810],
+            "euler_angles": [0.0, 0.0, 3.8732],
             "translation": [170.954, 353.30, 0.08]
         }
         self.zone_C = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
-            "euler_angles": [0.0, 0.0, 4.011],
-            "translation": [197.298, 650.23, 0.08]
+            "euler_angles": [0.0, 0.0, 3.925],
+            "translation": [196.9555, 650.585, 0.08]
         }
         
         self.current_zone = None

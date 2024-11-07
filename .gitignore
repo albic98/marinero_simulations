@@ -1,6 +1,9 @@
 robot_description/meshes/MARINERO_chassis.dae
 robot_description/meshes/MARINERO_chassis.stl
+robot_description/meshes/MARINERO_chassis_06_11.zip
 models/zona_C_ormarici/meshes/
+models/zona_A_ormarici/meshes/
 models/model_bush_pattern_old.sdf
 models/model_bush_pattern_2_old.sdf
+models/zona_C_ormarici_06_11.zip
 yolov8x.pt

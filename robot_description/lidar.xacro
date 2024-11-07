@@ -53,20 +53,20 @@
     <!-- 3D LIDAR -->
 
     <gazebo reference="lidar_link">
-        <sensor name="3D_lidar" type="ray">
+        <sensor name="3D_lidar" type="gpu_ray">
             <pose>0 0 0 0 0 0</pose>
-            <update_rate>5.0</update_rate>
+            <update_rate>50.0</update_rate>
             <visualize>false</visualize>
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>180.0</samples>
+                        <samples>360.0</samples>
                         <resolution>1.0</resolution>
-                        <min_angle>${-pi/2}</min_angle>
-                        <max_angle>${pi/2}</max_angle>
+                        <min_angle>${-2*pi/3}</min_angle>
+                        <max_angle>${2*pi/3}</max_angle>
                     </horizontal>
                     <vertical>
-                        <samples>100.0</samples>
+                        <samples>180.0</samples>
                         <resolution>1.0</resolution>
                         <min_angle>-0.25</min_angle>
                         <max_angle>1.25</max_angle>
@@ -75,12 +75,12 @@
                 <range>
                     <min>0.5</min>
                     <max>5.0</max>
-                    <resolution>0.005</resolution>
+                    <resolution>0.001</resolution>
                 </range>
             </ray>
-            <plugin name="laser_3D_controller" filename="libgazebo_ros_ray_sensor.so">
+            <plugin name="laser_3D_plugin" filename="libgazebo_ros_ray_sensor.so">
                 <ros>
-                    <remapping>~/out:=lidar_3D/scan</remapping>
+                    <remapping>~/out:=/lidar_3D/scan</remapping>
                 </ros>
                 <output_type>sensor_msgs/PointCloud2</output_type>
                 <frame_name>lidar_link</frame_name>

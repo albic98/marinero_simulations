@@ -21,13 +21,13 @@ class GazeboSpawner(Node):
         "B": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
-            "euler_angles": [0.0, 0.0, 3.810],
+            "euler_angles": [0.0, 0.0, 3.8732],
             "translation": [96.3032, 54.8397, 0.0],
             },
         "C": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
-            "euler_angles": [0.0, 0.0, 4.011],
+            "euler_angles": [0.0, 0.0, 3.925],
             "translation": [98.4001, 54.2532, 0.0],
             }
         }
@@ -52,9 +52,9 @@ class GazeboSpawner(Node):
         self.initialize_zones(y_pose)
 
     def initialize_zones(self, y_pose):
-        if y_pose < 296.0:
+        if y_pose < 301.0:
             self.switch_zone("A")
-        elif 296.0 <= y_pose < 598.0:
+        elif 301.0 <= y_pose < 668.5:
             self.switch_zone("B")
         else:
             self.switch_zone("C")
@@ -74,7 +74,7 @@ class GazeboSpawner(Node):
         zone_C_limit = 661.1
         zone_x_min_1, zone_x_max_1 = -23.25, -4.0
         x_pose_condition_1 = zone_x_min_1 < self.pose_x < zone_x_max_1
-        zone_x_min_2, zone_x_max_2 = -44.0, -38.0
+        zone_x_min_2, zone_x_max_2 = -46.0, -38.0
         x_pose_condition_2 = zone_x_min_2 < self.pose_x < zone_x_max_2
 
         if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition_1:

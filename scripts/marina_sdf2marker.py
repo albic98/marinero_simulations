@@ -24,12 +24,12 @@ class SDF2Marker(Node):
                                                 "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf"])
 
         self.declare_parameter("euler_angles", [0.0, 0.0, 3.896,
-                                                0.0, 0.0, 3.810,
-                                                0.0, 0.0, 4.011])
+                                                0.0, 0.0, 3.8732,
+                                                0.0, 0.0, 3.925])
 
         self.declare_parameter("translation", [0.0, 0.0, 0.08,
                                                 170.954, 353.30, 0.08, 
-                                                197.298, 650.23, 0.08])
+                                                196.9555, 650.585, 0.08])
 
         self.labels = ["A", "B", "C"]
         self.sdf_publishers = [self.create_publisher(MarkerArray, f"/sdf_marker_{self.labels[i]}", 10) for i in range (len(self.labels))]   
