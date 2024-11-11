@@ -7,4 +7,5 @@ models/model_bush_pattern_old.sdf
 models/model_bush_pattern_2_old.sdf
 models/zona_A_ormarici_7_11.zip
 models/zona_C_ormarici_06_11.zip
+.vscode/
 yolov8x.pt
