@@ -366,19 +366,19 @@
     <include>
       <uri>model://bush_1</uri>
       <name>bush_1_0</name>
-      <pose>99.375366 -6.173660 1.265 1.570791 0 0</pose>
+      <pose>99.70 -6.174 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_1</uri>
       <name>bush_1_1</name>
-      <pose>94.640472 57.823601 1.265 1.570791 0 0</pose>
+      <pose>95.125 57.8236 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_1</uri>
       <name>bush_1_2</name>
-      <pose>92.456741 88.347153 1.265 1.570791 0 0</pose>
+      <pose>92.94 88.3472 1.265 1.570791 0 0</pose>
     </include>
 
 
@@ -386,49 +386,49 @@
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_0</name>
-      <pose>91.789345 171.986237 1.3 1.570801 0 -3.092022</pose>
+      <pose>91.789345 171.986237 1.3 1.5708 0 -3.092022</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_1</name>
-      <pose>94.043335 172.102737 1.3 1.570801 0 -0.852331</pose>
+      <pose>94.043335 172.102737 1.3 1.5708 0 -0.852331</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_2</name>
-      <pose>98.981700 172.332000 1.3 1.570801 0 -3.092022</pose>
+      <pose>98.981700 172.332000 1.3 1.5708 0 -3.092022</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_3</name>
-      <pose>97.341835 21.981888 1.570795 0 -1.495215</pose>
+      <pose>97.60 21.982 1.3 1.5708 0 -1.495215</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_4</name>
-      <pose>96.465897 33.248428 1.3 1.5708 0 -1.495210</pose>
+      <pose>96.8 33.248 1.3 1.5708 0 -1.495210</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_5</name>
-      <pose>90.440600 118.231000 1.3 1.5708 0 -1.495210</pose>
+      <pose>90.7 118.0 1.3 1.5708 0 -1.495210</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_6</name>
-      <pose>90.333600 119.929000 1.3 1.5708 0 -1.495210</pose>
+      <pose>90.60 119.90 1.3 1.5708 0 -1.495210</pose>
     </include>
 
     <include>
       <uri>model://bush_2</uri>
       <name>bush_2_7</name>
-      <pose>90.231200 121.541000 1.3 1.5708 0 -1.495210</pose>
+      <pose>90.5 121.541000 1.3 1.5708 0 -1.495210</pose>
     </include>
 
 
@@ -436,7 +436,7 @@
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_0</name>
-      <pose>97.526200 18.595300 1.265 1.570791 0 0</pose>
+      <pose>98.0 18.595300 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
@@ -454,61 +454,61 @@
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_3</name>
-      <pose>95.024500 54.132500 1.265 1.570791 0 0</pose>
+      <pose>95.5 53.85 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_4</name>
-      <pose>93.201400 79.206900 1.265 1.570791 0 0</pose>
+      <pose>93.85 77.25 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_5</name>
-      <pose>92.917800 82.190700 1.265 1.570791 0 0</pose>
+      <pose>93.50 82.190700 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_6</name>
-      <pose>92.725600 85.199400 1.265 1.570791 0 0</pose>
+      <pose>93.30 85.199400 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_7</name>
-      <pose>91.607000 99.798800 1.265 1.570791 0 0</pose>
+      <pose>92.18 99.5 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_8</name>
-      <pose>87.373300 158.485000 1.265 1.570791 0 0</pose>
+      <pose>87.90 158.485000 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_9</name>
-      <pose>87.219700 161.549000 1.265 1.570791 0 0</pose>
+      <pose>87.70 161.549000 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_10</name>
-      <pose>87.022700 164.473000 1.265 1.570791 0 0</pose>
+      <pose>87.55 164.473000 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_11</name>
-      <pose>86.788400 167.485000 1.265 1.570791 0 0</pose>
+      <pose>87.15 167.485000 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://bush_3</uri>
       <name>bush_3_12</name>
-      <pose>86.645400 170.503000 1.265 1.570791 0 0</pose>
+      <pose>86.9 170.503000 1.265 1.570791 0 0</pose>
     </include>
 
 
@@ -516,37 +516,37 @@
     <include>
       <uri>model://tree_5</uri>
       <name>tree_5_0</name>
-      <pose>95.220078 50.087143 1.265 1.570791 0 0</pose>
+      <pose>95.82 50.0871 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://tree_5</uri>
       <name>tree_5_1</name>
-      <pose>91.445300 103.040000 1.265 1.570791 0 0</pose>
+      <pose>91.90 102.90 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://tree_5</uri>
       <name>tree_5_2</name>
-      <pose>89.812800 126.500000 1.265 1.570791 0 0</pose>
+      <pose>90.25 126.0 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://tree_5</uri>
       <name>tree_5_3</name>
-      <pose>89.622300 130.254000 1.265 1.570791 0 0</pose>
+      <pose>89.90 130.254000 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://tree_5</uri>
       <name>tree_5_4</name>
-      <pose>88.751900 140.657000 1.265 1.570791 0 0</pose>
+      <pose>89.20 140.60 1.265 1.570791 0 0</pose>
     </include>
 
     <include>
       <uri>model://tree_5</uri>
       <name>tree_5_5</name>
-      <pose>88.533500 144.741000 1.265 1.570791 0 0</pose>
+      <pose>88.90 144.70 1.265 1.570791 0 0</pose>
     </include>
 
 
@@ -554,7 +554,7 @@
     <include>
       <uri>model://tree_7</uri>
       <name>tree_7_0</name>
-      <pose>99.339272 0.167751 1.300000 1.570791 0 0</pose>
+      <pose>99.23 0.16775 1.300000 1.570791 0 0</pose>
     </include>
 
 
@@ -562,19 +562,19 @@
     <include>
       <uri>model://palm_tree</uri>
       <name>palm_tree_0</name>
-      <pose>97.651596 15.823912 1.265000 0 0 0</pose>
+      <pose>98.23 15.83 1.265000 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://palm_tree</uri>
       <name>palm_tree_1</name>
-      <pose>94.217000 64.617900 1.265000 0 0 0</pose>
+      <pose>94.70 64.617900 1.265000 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://palm_tree</uri>
       <name>palm_tree_2</name>
-      <pose>93.940163 69.337288 1.265000 0 0 0</pose>
+      <pose>93.44 69.3373 1.265000 0 0 0</pose>
     </include>
 
 
@@ -618,7 +618,7 @@
       <uri>model://person_walking</uri>
       <name>walking_person_5</name>
       <static>1</static>
-      <pose>84.484016 134.311019 1.26 0 0 1.803347</pose>
+      <pose>84.484 134.15 1.26 0 0 1.65335</pose>
     </include>
 
     <include>

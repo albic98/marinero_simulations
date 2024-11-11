@@ -27,7 +27,7 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R2_marina.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
         # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
         description='Full path to new world.'
     )
@@ -53,9 +53,9 @@ def generate_launch_description():
     x_pose_arg = DeclareLaunchArgument(
         'x_pose',
         default_value= # '194.195', # zone A
-                        # '189.384', # zone A
+                        '189.384', # zone A
                         # '212.37', # zone B
-                        '200.380', # zone B
+                        # '200.380', # zone B
                         # '191.31', # zone C
         description='Define x coordinate when spawning marinero robot'
     )
@@ -63,9 +63,9 @@ def generate_launch_description():
     y_pose_arg = DeclareLaunchArgument(
         'y_pose',
         default_value= # '50.486', # zone A
-                        # '236.609', # zone A
+                        '236.609', # zone A
                         # '388.67', # zone B
-                        '651.398', # zone B
+                        # '651.398', # zone B
                         # '826.93', # zone C
         description='Define y coordinate when spawning marinero robot'
     )
@@ -73,9 +73,9 @@ def generate_launch_description():
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
         default_value= # -3.025', # zone A
-                        # '2.481', # zone A
+                        '2.481', # zone A
                         # '2.51', # zone B
-                        '2.288', # zone B
+                        #'2.288', # zone B
                         # '-2.332', # zone C
         description='Direction in which the robot will be oriented'
     )

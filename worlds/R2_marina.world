@@ -1,11 +1,15 @@
 <sdf version='1.7'>
   <world name='default'>
+
+
     <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
       <ros>
         <namespace>/gazebo</namespace>
       </ros>
       <update_rate>1.0</update_rate>
     </plugin>
+
+
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -88,13 +92,17 @@
       <device>default</device>
     </audio>
     <wind/>
+
+
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>45.0271</latitude_deg>
-      <longitude_deg>14.6258</longitude_deg>
+      <latitude_deg>45.0270961</latitude_deg>
+      <longitude_deg>14.625763</longitude_deg>
       <elevation>1.5</elevation>
       <heading_deg>180</heading_deg>
     </spherical_coordinates>
+
+
     <model name='Marina_Zona_A'>
       <link name='link'>
         <self_collide>0</self_collide>
@@ -614,10 +622,10 @@
       <pose>86.1562 722.536 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>23585 88000000</sim_time>
-      <real_time>112 345204362</real_time>
-      <wall_time>1731061451 954319788</wall_time>
-      <iterations>111721</iterations>
+      <sim_time>25735 453000000</sim_time>
+      <real_time>2165 947295344</real_time>
+      <wall_time>1731328548 694339609</wall_time>
+      <iterations>2150365</iterations>
       <model name='Marina_Zona_A'>
         <pose>0 0 0.08 0 -0 0.067999</pose>
         <scale>1 1 1</scale>
@@ -709,7 +717,7 @@
         </link>
       </model>
       <model name='zona_C_ormarici'>
-        <pose>196.099 670.358 -0 0 -0 0.0685</pose>
+        <pose>196.099 670.358 0 0 -0 0.0685</pose>
         <scale>1 1 1</scale>
         <link name='link'>
           <pose>196.099 670.358 1.26 0 -0 0.0685</pose>
@@ -745,7 +753,7 @@
     </light>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-263.553 135.197 882.491 -0 1.1378 0.499204</pose>
+        <pose>109.894 398.215 855.914 -2e-06 1.5698 0.071212</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

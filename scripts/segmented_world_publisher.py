@@ -14,19 +14,19 @@ class WorldSpawner(Node):
 
         self.zone_A = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
-            "translation": [0.0, 0.0, 0.0], # [-100.225, -48.3232, 0.0],
+            "translation": [0.0, 0.0, 0.0],
             "sdf_objects": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_objects/model.sdf",
             "translation_objects": [0.0, 0.0, 0.0],
         }
         self.zone_B = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
-            "translation": [0.0, 0.0, 0.0], # [94.3188, 292.84, 0.0],
+            "translation": [0.0, 0.0, 0.0],
             "sdf_objects": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_objects/model.sdf",
             "translation_objects": [0.0, 0.0, 0.0],
         }
         self.zone_C = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
-            "translation": [0.0, 0.0, 0.0], # [140.34, 587.60, 0.0],
+            "translation": [0.0, 0.0, 0.0],
             "sdf_objects": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_objects/model.sdf",
             "translation_objects": [0.0, 0.0, 0.0],
         }
@@ -67,13 +67,15 @@ class WorldSpawner(Node):
         self.pose_x = msg.pose.position.x
         self.pose_y = msg.pose.position.y
 
-        zone_A_limit_1, zone_A_limit_2 = 250.0, 296.0
-        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 296.5, 598.0, 624.0
-        zone_C_limit = 598.5
-        zone_x_min, zone_x_max = -100.0, -95.0     
-        x_pose_condition = zone_x_min < self.pose_x < zone_x_max
+        zone_A_limit_1, zone_A_limit_2 = 301.0, 357.0
+        zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 357.0, 661.1, 668.5
+        zone_C_limit = 661.1
+        zone_x_min_1, zone_x_max_1 = -23.25, -4.0
+        x_pose_condition_1 = zone_x_min_1 < self.pose_x < zone_x_max_1
+        zone_x_min_2, zone_x_max_2 = -45.0, -38.0
+        x_pose_condition_2 = zone_x_min_2 < self.pose_x < zone_x_max_2
 
-        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition:
+        if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition_1:
             if self.current_zone != self.zone_B:
                 self.spawn_zone(self.zone_B, self.labels[1])
                 self.delete_zone(self.previous_zone)
@@ -89,7 +91,7 @@ class WorldSpawner(Node):
             self.delete_zone(self.previous_zone)
             self.spawn_objects(self.zone_B, self.labels[1])
             self.delete_objects(self.previous_objects)
-        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition:
+        elif zone_B_limit_2 <= self.pose_y < zone_B_limit_3 and x_pose_condition_2:
             if self.current_zone != self.zone_B:
                 self.spawn_zone(self.zone_B, self.labels[1])
                 self.delete_zone(self.previous_zone)

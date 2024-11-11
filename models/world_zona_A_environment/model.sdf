@@ -48,90 +48,84 @@
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_0</name>
-      <pose>99.204880 -3.165798 0 0 0 0.0925</pose>
+      <pose>99.5246 -3.165798 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_1</name>
-      <pose>98.630577 4.711878 0 0 0 0.0925</pose>
+      <pose>98.95 4.711878 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_M</uri>
       <name>grass_2</name>
-      <pose>96.828117 27.652849 0 0 0 0.0925</pose>
+      <pose>97.35 27.6528 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_3</name>
-      <pose>95.069450 52.757706 0 0 0 0.0925</pose>
+      <pose>95.6044 52.7577 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>model://grass_plane</uri>
       <name>grass_4</name>
-      <pose>93.624466 72.563652 0 0 0 0.0925</pose>
+      <pose>94.16 72.5637 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_5</name>
-      <pose>91.615623 100.810623 0 0 0 0.0925</pose>
+      <pose>92.0607 100.811 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_6</name>
-      <pose>91.154915 107.126816 0 0 0 0.0925</pose>
+      <pose>91.6 107.127 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_7</name>
-      <pose>90.312439 120.106323 0 0 0 0.0925</pose>
+      <pose>90.676 120.106 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_8</name>
-      <pose>89.736740 128.004425 0 0 0 0.0925</pose>
+      <pose>90.1 128.004425 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_9</name>
-      <pose>89.736740 128.004425 0 0 0 0.0925</pose>
+      <pose>89.10 142.509000 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_10</name>
-      <pose>88.458100 142.509000 0 0 0 0.0925</pose>
+      <pose>87.75 160.180000 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_11</name>
-      <pose>86.954200 160.180000 0 0 0 0.0925</pose>
+      <pose>87.17 168.135000 0 0 0 0.0925</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
       <name>grass_12</name>
-      <pose>86.360900 168.135000 0 0 0 0.0925</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
-      <name>grass_13</name>
       <pose>98.691666 172.331558 0 0 0 -1.510000</pose>
     </include>
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_SM</uri>
-      <name>grass_14</name>
+      <name>grass_13</name>
       <pose>94.449425 172.158798 0 0 0 -1.510000</pose>
     </include>
 
