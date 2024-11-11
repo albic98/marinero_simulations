@@ -55,8 +55,8 @@ def generate_launch_description():
         default_value= # '194.195', # zone A
                         # '189.384', # zone A
                         # '212.37', # zone B
-                        # '200.380', # zone B
-                        '191.470', # zone C
+                        '200.380', # zone B
+                        # '191.31', # zone C
         description='Define x coordinate when spawning marinero robot'
     )
 
@@ -65,18 +65,18 @@ def generate_launch_description():
         default_value= # '50.486', # zone A
                         # '236.609', # zone A
                         # '388.67', # zone B
-                        # '651.398', # zone B
-                        '826.58', # zone C
+                        '651.398', # zone B
+                        # '826.93', # zone C
         description='Define y coordinate when spawning marinero robot'
     )
 
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
-        default_value= # '-3.025', # zone A
+        default_value= # -3.025', # zone A
                         # '2.481', # zone A
                         # '2.51', # zone B
-                        # '2.288', # zone B
-                        '-2.332', # zone C
+                        '2.288', # zone B
+                        # '-2.332', # zone C
         description='Direction in which the robot will be oriented'
     )
 
@@ -218,7 +218,7 @@ def generate_launch_description():
 
     delayed_nodes = TimerAction(
         period = 6.0,
-        actions = [tracker_node, gazebo_marker_node, ] # marina_marker_node, pointcloud_node, marinero_yolo_node]
+        actions = [tracker_node, gazebo_marker_node, marina_marker_node, pointcloud_node, marinero_yolo_node]
     )
 
     return LaunchDescription([

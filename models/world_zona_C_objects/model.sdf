@@ -275,7 +275,7 @@
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/zona_C_ormarici</uri>
-      <name>ormarici</name>
+      <name>ormarici_zona_C</name>
       <pose>140.8351 607.3855 0 0 0 0</pose>
     </include>
 

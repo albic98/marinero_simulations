@@ -15,20 +15,20 @@ class GazeboSpawner(Node):
         "A": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_A_objects.world",
-            "euler_angles": [0.0, 0.0, 3.896],
+            "euler_angles": [0.0, 0.0, 3.896], # 0.068 rad
             "translation": [96.710, 55.0214, 0.0],
             },
         "B": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
-            "euler_angles": [0.0, 0.0, 3.8732],
-            "translation": [96.3032, 54.8397, 0.0],
+            "euler_angles": [0.0, 0.0, 3.8732], # 0.0676 rad
+            "translation": [96.6318, 54.7578, 0.0],
             },
         "C": {
             "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
             "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
-            "euler_angles": [0.0, 0.0, 3.925],
-            "translation": [98.4001, 54.2532, 0.0],
+            "euler_angles": [0.0, 0.0, 3.925], # 0.0685 rad
+            "translation": [97.16365, 54.75736, 0.0],
             }
         }
 

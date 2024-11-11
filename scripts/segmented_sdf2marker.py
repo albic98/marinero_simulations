@@ -63,7 +63,7 @@ class SDF2Marker(Node):
         zone_C_limit = 661.1
         zone_x_min_1, zone_x_max_1 = -23.25, -4.0
         x_pose_condition_1 = zone_x_min_1 < self.pose_x < zone_x_max_1
-        zone_x_min_2, zone_x_max_2 = -44.0, -38.0
+        zone_x_min_2, zone_x_max_2 = -45.0, -38.0
         x_pose_condition_2 = zone_x_min_2 < self.pose_x < zone_x_max_2
         
         if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition_1:

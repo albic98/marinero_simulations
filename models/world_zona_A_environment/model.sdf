@@ -39,6 +39,7 @@
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane</uri>
+      <name>asphalt_plane_3</name>
       <pose>108.119179 279.695282 0 0 0 -1.500000</pose>
     </include>
 

@@ -631,42 +631,10 @@
 
 
     <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
-      <name>SMART_FIRE_cabinet_0</name>
-      <pose>83.207924 -13.493295 1.260000 0 0 1.635000</pose>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/zona_A_ormarici</uri>
+      <name>ormarici_zona_A</name>
+      <pose>-100.0897 -37.535 0 0 0 0</pose>
     </include>
 
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
-      <name>SMART_FIRE_cabinet_1</name>
-      <pose>101.977127 176.823746 1.260000 0 0 -1.53</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
-      <name>SMART_FIRE_cabinet_2</name>
-      <pose>104.707733 189.509781 1.260000 0 0 -3.075</pose>
-    </include>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
-      <name>SMART_FIRE_cabinet_3</name>
-      <pose>103.237305 210.230423 1.260000 0 0 -3.075</pose>
-    </include>
-
-
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
-      <name>SMART_cabinet_0</name>
-      <pose>72.155861 -10.953532 1.260000 0 0 -1.510000</pose>
-
-    <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
-      <name>SMART_cabinet_1</name>
-      <pose>103.743103 203.051971 1.260000 0 0 -3.075000</pose>
-    </include>
-
-    </include>
   </model>
 </sdf>
