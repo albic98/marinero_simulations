@@ -1,7 +1,7 @@
 <sdf version='1.7'>
   <world name='marina_base'>
 
-  
+
     <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
       <ros>
         <namespace>/gazebo</namespace>
@@ -122,15 +122,15 @@
       </spot>
     </light>
     <state world_name='marina_base'>
-      <sim_time>1574 129000000</sim_time>
-      <real_time>51 547929931</real_time>
-      <wall_time>1730815781 62114456</wall_time>
-      <iterations>51131</iterations>
+      <sim_time>1613 264000000</sim_time>
+      <real_time>41 317307942</real_time>
+      <wall_time>1731394704 381003850</wall_time>
+      <iterations>39135</iterations>
       <model name='ground_plane'>
-        <pose>50 50 0 0 -0 0</pose>
+        <pose>50 50 -1 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>50 50 0 0 -0 0</pose>
+          <pose>50 50 -1 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -145,7 +145,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>167.187 486.425 1612.97 0 1.5698 0.02819</pose>
+        <pose>-39.9174 53.4106 118.335 0 1.0298 -0.063809</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

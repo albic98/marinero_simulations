@@ -27,8 +27,8 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
         description='Full path to new world.'
     )
 
@@ -230,7 +230,7 @@ def generate_launch_description():
         y_pose_arg,
         direction_arg,
         launch_gazebo,
-        # zones_spawner_node,
+        zones_spawner_node,
         launch_robot_state_publisher,
         delayed_marinero_spawner_node,
         world_odom_trans_publisher,
