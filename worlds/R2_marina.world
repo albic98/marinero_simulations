@@ -1,15 +1,11 @@
 <sdf version='1.7'>
   <world name='default'>
-
-
     <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
       <ros>
         <namespace>/gazebo</namespace>
       </ros>
       <update_rate>1.0</update_rate>
     </plugin>
-
-
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -622,10 +618,10 @@
       <pose>86.1562 722.536 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>25735 453000000</sim_time>
-      <real_time>2165 947295344</real_time>
-      <wall_time>1731328548 694339609</wall_time>
-      <iterations>2150365</iterations>
+      <sim_time>25899 25000000</sim_time>
+      <real_time>165 322755198</real_time>
+      <wall_time>1731416845 250473077</wall_time>
+      <iterations>163572</iterations>
       <model name='Marina_Zona_A'>
         <pose>0 0 0.08 0 -0 0.067999</pose>
         <scale>1 1 1</scale>
@@ -667,10 +663,10 @@
         </link>
       </model>
       <model name='ground_plane'>
-        <pose>50 50 0 0 -0 0</pose>
+        <pose>50 50 -1 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>50 50 0 0 -0 0</pose>
+          <pose>50 50 -1 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -707,10 +703,10 @@
         </link>
       </model>
       <model name='zona_A_ormarici'>
-        <pose>-0.59775 10.7703 0 0 -0 0.067999</pose>
+        <pose>-0.59775 10.7703 0 0 -0 0.068</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>-0.59775 10.7703 1.26 0 -0 0.067999</pose>
+          <pose>-0.59775 10.7703 1.26 0 -0 0.068</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -753,7 +749,7 @@
     </light>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>109.894 398.215 855.914 -2e-06 1.5698 0.071212</pose>
+        <pose>89.9244 406.554 781.252 0 1.5698 0.071221</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -1146,7 +1142,7 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose>-0.859323 12.1581 0 0 -0 0</pose>
+      <pose>1.6613 11.3192 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>
