@@ -565,7 +565,7 @@
       <uri>model://person_walking</uri>
       <name>walking_person_2</name>
       <static>1</static>
-      <pose>138.688000 385.536167 1.26 0 0 -1.566824</pose>
+      <pose>138.95 385.0 1.26 0 0 -0.05</pose>
     </include>
 
 
