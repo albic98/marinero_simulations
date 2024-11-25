@@ -25,7 +25,7 @@ def generate_launch_description():
     
     camera_node = Node(
         package='marinero_control',
-        executable='marinero_camera_w_joy'
+        executable='marinero_camera_w_joy',
     )
     
     return LaunchDescription([

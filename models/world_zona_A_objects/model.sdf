@@ -583,14 +583,14 @@
       <uri>model://person_walking</uri>
       <name>walking_person_0</name>
       <static>1</static>
-      <pose>98.492900 265.584000 1.26 0 0 0</pose>
+      <pose>97.1 260.584 1.26 0 0 -3.1</pose>
     </include>
 
     <include>
       <uri>model://person_walking</uri>
       <name>walking_person_1</name>
       <static>1</static>
-      <pose>99.752429 224.102023 1.26 0 0 0</pose>
+      <pose>99.5646 223.8788 1.26 0 0 0.058576</pose>
     </include>
 
     <include>
@@ -626,6 +626,73 @@
       <name>walking_person_6</name>
       <static>1</static>
       <pose>88.831037 107.602982 1.26 0 0 -0.034988</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_7</name>
+      <static>1</static>
+      <pose>-1.46816 39.03785 1.26 0 0 1.682140</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_8</name>
+      <static>1</static>
+      <pose>-34.179497 -18.013168 1.26 0 0 1.642</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_9</name>
+      <static>1</static>
+      <pose>60.634501 -12.121763 1.26 0 0 0.53285</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_10</name>
+      <static>1</static>
+      <pose>93.366724 49.397993 1.26 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_11</name>
+      <static>1</static>
+      <pose>71.9088 44.2583 1.26 0 0 -1.4958</pose>
+    </include>
+
+
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/casual_female</uri>
+      <name>woman_0</name>
+      <pose>3.715090 169.916000 1.26 0 0 1.651829</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/casual_female</uri>
+      <name>woman_1</name>
+      <pose>21.618200 89.911300 1.26 0 0 1.651829</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/casual_female</uri>
+      <name>woman_2</name>
+      <pose>98.4929 265.584 1.26 0 0 0.004628</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/casual_female</uri>
+      <name>woman_3</name>
+      <pose>92.4907 31.5765 1.26 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/casual_female</uri>
+      <name>woman_4</name>
+      <pose>97.5198 -8.1788 1.26 0 0 -3.069</pose>
     </include>
 
 

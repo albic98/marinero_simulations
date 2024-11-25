@@ -122,10 +122,10 @@
       </spot>
     </light>
     <state world_name='marina_base'>
-      <sim_time>1613 264000000</sim_time>
-      <real_time>41 317307942</real_time>
-      <wall_time>1731394704 381003850</wall_time>
-      <iterations>39135</iterations>
+      <sim_time>1931 367000000</sim_time>
+      <real_time>286 834474999</real_time>
+      <wall_time>1732270848 804629631</wall_time>
+      <iterations>285348</iterations>
       <model name='ground_plane'>
         <pose>50 50 -1 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -145,7 +145,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-39.9174 53.4106 118.335 0 1.0298 -0.063809</pose>
+        <pose>181.688 448.672 834.563 0 1.5258 0.024192</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

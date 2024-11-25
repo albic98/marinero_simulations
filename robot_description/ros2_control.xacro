@@ -180,7 +180,7 @@
             </ros>
             <frame_name>world</frame_name>
             <body_name>base_link</body_name>
-            <update_rate>100</update_rate>
+            <update_rate>150</update_rate>
             <gaussian_noise>0.01</gaussian_noise>
         </plugin>
     </gazebo>

@@ -542,7 +542,7 @@
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/casual_female</uri>
       <name>female_0</name>
-      <pose>127.000000 325.972000 1.265 0 0 -1.474469</pose>
+      <pose>127.000000 325.972000 1.26 0 0 -1.474469</pose>
     </include>
 
 
@@ -568,9 +568,29 @@
       <pose>138.95 385.0 1.26 0 0 -0.05</pose>
     </include>
 
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_3</name>
+      <static>1</static>
+      <pose>131.366 577.460352 1.26 0 0 -1.564166</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
+      <name>walking_person_4</name>
+      <static>1</static>
+      <pose>138.193040 574.382681 1.26 0 0 1.603565</pose>
+    </include>
+
 
 
     <include>
+      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/zona_B_ormarici</uri>
+      <name>ormarici_zona_B</name>
+      <pose>96.021 304.672400 0 0 0 0</pose>
+    </include>
+
+    <!-- <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_FIRE_cabinet</uri>
       <name>SMART_FIRE_cabinet_0</name>
       <pose>134.661591 326.803284 1.260000 0 0 -1.49</pose>
@@ -606,7 +626,7 @@
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/SMART_cabinet</uri>
       <name>SMART_cabinet_2</name>
       <pose>96.229797 304.993927 1.260000 0 0 -3.065</pose>
-    </include>
+    </include> -->
 
   </model>
 </sdf>

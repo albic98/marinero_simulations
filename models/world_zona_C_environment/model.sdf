@@ -11,7 +11,7 @@
 
     <include>
       <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sea_plane_C</uri>
-      <pose>34.2668 681.2485 0 0 0 -0.0005</pose>
+      <pose>31.2865 682.602 0 0 0 -0.0005</pose>
     </include>
 
   </model>

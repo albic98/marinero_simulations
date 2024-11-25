@@ -3,7 +3,7 @@
 <package format="3">
   <name>marinero_simulations</name>
   <version>0.0.0</version>
-  <description>Package for ROS2 simulations in the Marinero project</description>
+  <description>Package for ROS2 simulations in the MARINERO project</description>
   <maintainer email="albert.androsic2@gmail.com">albert</maintainer>
   <license>Apache-2.0</license>
 
