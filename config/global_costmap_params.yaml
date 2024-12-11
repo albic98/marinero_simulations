@@ -1,0 +1,22 @@
+global_costmap:
+  ros__parameters:
+    global_frame: map
+    robot_base_frame: base_link
+    update_frequency: 5.0
+    publish_frequency: 2.0
+    resolution: 1.0
+    size_x: 950.0
+    size_y: 500.0
+    origin_x: 0.0
+    origin_y: 0.0
+    plugins:
+      - static_layer
+      - inflation_layer
+
+    static_layer:
+      map_subscribe_transient_local: true
+      map_topic: /map
+
+    inflation_layer:
+      inflation_radius: 0.5
+      cost_scaling_factor: 10.0

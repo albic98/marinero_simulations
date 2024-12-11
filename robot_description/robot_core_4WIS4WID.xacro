@@ -21,21 +21,33 @@
         <visual>
             <origin xyz="0.0 0.0 0.014" />
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/MARINERO_chassis.dae" scale="1.0 1.0 1.0" />
+                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes//MARINERO_chassis_no_driving_assembly.dae" scale="1.0 1.0 1.0" />
             </geometry>
         </visual>
 
         <collision>
-            <origin xyz="0.0 0.0 0.1" />
+            <origin xyz="0.0 0.0 0.08" />
             <geometry>
-                <box size="0.6655 1.075 0.2"/>
+                <box size="0.6656 1.077 0.165"/>
             </geometry>
         </collision>
-        
+        <collision>
+            <origin xyz="0.0 -0.23 0.305"/>
+            <geometry>
+                    <cylinder length="0.29" radius="0.18"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0.0 0.28 0.195" rpy="0 0 0"/>
+            <geometry>
+                    <box size="0.36 0.45 0.075"/>
+            </geometry>
+        </collision>
+
         <!-- <xacro:inertial_box mass="40.254" x="0.6655" y="1.075" z="0.2">
             <origin xyz="0 0 0.1" rpy="0.0 0.0 0.0" />
         </xacro:inertial_box> -->
-
+        
         <inertial>
             <mass value="40.254" />
             <origin xyz="0.002148 -0.100388 0.1982" />     
@@ -108,7 +120,9 @@
         <axis xyz="0 0 1" />
         <dynamics friction="2.0"/>
     </joint>
-
+            <geometry>
+                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Camera_R.stl" scale="1.0 1.0 1.0"/>
+            </geometry>
     <link name="fl_wheel">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>

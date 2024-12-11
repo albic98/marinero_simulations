@@ -43,10 +43,11 @@ install(TARGETS
 ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
+  scripts/pose_z_offset.py
+  scripts/pgm_image_rotator.py
   scripts/parse_sdf2marker.py
   scripts/segmented_sdf2marker.py
   scripts/marina_sdf2marker.py
-  scripts/segmented_world_publisher.py
   scripts/segmented_gazebo_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )

@@ -1,0 +1,30 @@
+local_costmap:
+  ros__parameters:
+    global_frame: odom
+    robot_base_frame: base_link
+    update_frequency: 10.0
+    publish_frequency: 5.0
+    resolution: 0.5
+    rolling_window: true
+    width: 20.0
+    height: 20.0
+    plugins:
+      - obstacle_layer
+      - inflation_layer
+
+    obstacle_layer:
+      enabled: true
+      max_obstacle_height: 2.0
+      obstacle_range: 10.0
+      raytrace_range: 15.0
+      observation_sources: scan
+      scan:
+        topic: /scan
+        sensor_frame: lidar_link
+        data_type: LaserScan
+        marking: true
+        clearing: true
+
+    inflation_layer:
+      inflation_radius: 1.0
+      cost_scaling_factor: 10.0

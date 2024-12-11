@@ -40,9 +40,7 @@ class GazeboSpawner(Node):
         self.unpause_client = self.create_client(Empty, "/unpause_physics")
         self.spawn_client = self.create_client(SpawnEntity, "/spawn_entity")
         self.delete_client = self.create_client(DeleteEntity, "/delete_entity")
-
-        self.pause_client.wait_for_service(timeout_sec=1.0)
-        self.unpause_client.wait_for_service(timeout_sec=1.0)
+        
         self.spawn_client.wait_for_service(timeout_sec=1.0)
         self.delete_client.wait_for_service(timeout_sec=1.0)
 
@@ -53,17 +51,16 @@ class GazeboSpawner(Node):
 
     def initialize_zones(self, y_pose):
         if y_pose < 301.0:
-            self.switch_zone("A")
+            new_zone_label = "A"
         elif 301.0 <= y_pose < 668.5:
-            self.switch_zone("B")
+            new_zone_label = "B"
         else:
-            self.switch_zone("C")
+            new_zone_label = "C"
 
-    def pause_simulation(self):
-        self.pause_client.call(Empty.Request())
-
-    def unpause_simulation(self):
-        self.unpause_client.call(Empty.Request())
+        new_zone = self.ZONES[new_zone_label]
+        self.spawn_entity(new_zone, f"zone_{new_zone_label}")
+        self.spawn_entity(new_zone, f"objects_zone_{new_zone_label}", objects=True)
+        self.current_zone = new_zone_label
     
     def pose_callback(self, msg):
         self.pose_x = msg.pose.position.x

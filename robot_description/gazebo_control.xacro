@@ -130,8 +130,8 @@
             <robot_base_frame>base_link</robot_base_frame>
 
             <ros>
-                <!-- <argument>/cmd_vel:=/skid_steer/cmd_vel_joy</argument> -->
-                <argument>/odom:=/marinero/odom</argument>
+                <namespace>/</namespace>
+                <remapping>odom:=/marinero/odom</remapping>
             </ros>
 
             <covariance_x>0.001</covariance_x>
