@@ -129,13 +129,13 @@ def generate_launch_description():
     world_odom_trans_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments="--x 0 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id world --child-frame-id odom".split(' '),
+        arguments="--x 0 --y 0 --z -1.26 --roll 0 --pitch 0 --yaw 0 --frame-id world --child-frame-id odom".split(' '),
     )
 
     world_map_trans_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments="--x 0 --y 0 --z 1.25 --roll 0 --pitch 0 --yaw 0 --frame-id world --child-frame-id map".split(' '),
+        arguments="--x 0 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id world --child-frame-id map".split(' '),
     )
 
     marinero_spawner_node = Node(
@@ -154,17 +154,19 @@ def generate_launch_description():
         output= "screen"
     )
 
-    joy_launch = IncludeLaunchDescription(
+    _4wis4wid_drive_joy_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(pkg_name),'launch','joystick.launch.py')
+            os.path.join(get_package_share_directory(pkg_name),'launch','_4wis4wid_drive_joystick.launch.py')
         ]),
-        condition=UnlessCondition(use_ros2_control)
+        condition=IfCondition(use_ros2_control)
     )
 
-    joy_node = Node(
-        package='joy',
-        executable='joy_node',
-        condition=IfCondition(use_ros2_control)
+    omni_drive_joy_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory(pkg_name),'launch','diff_drive_joystick.launch.py')
+            # os.path.join(get_package_share_directory(pkg_name),'launch','omni_drive_joystick.launch.py')
+        ]),
+        condition=UnlessCondition(use_ros2_control)
     )
 
     marina_marker_node = Node(
@@ -175,19 +177,6 @@ def generate_launch_description():
     pointcloud_node = Node(
         package='marinero_pointclouds',
         executable='remapped_segmented_pcd_publisher_thread',
-    )
-
-    odometry_node = Node(
-        package='marinero_control',
-        executable='marinero_odometry',
-        condition=IfCondition(use_ros2_control)
-    )
-
-    control_node = Node(
-        package='marinero_control',
-        executable='marinero_control',
-        remappings=[('/fcc/cmd_vel','/cmd_vel_joy')],
-        condition=IfCondition(use_ros2_control)
     )
 
     marinero_yolo_node = Node(
@@ -210,7 +199,15 @@ def generate_launch_description():
     gazebo_marker_node = Node(
         package='marinero_control',
         executable='gazebo_marker',
-    )   
+    ) 
+
+    map_server_node = Node(
+        package='nav2_map_server',
+        executable='map_server',
+        name='map_server',
+        output='screen',
+        parameters=[{'yaml_filename': '/home/albert/marinero_ws/src/marinero_simulations/config/marina_punat_map/marina_punat.yaml'}],
+    )
 
     rviz2_node = Node(
         executable='rviz2',
@@ -222,7 +219,7 @@ def generate_launch_description():
         period = 2.0,
         actions = [marinero_spawner_node]
     )
-    
+
     delayed_controller_manager = TimerAction(
         period = 4.0,
         actions = [launch_controller_manager]
@@ -230,7 +227,13 @@ def generate_launch_description():
 
     delayed_nodes = TimerAction(
         period = 6.0,
-        actions = [odometry_node, tracker_node, gazebo_marker_node, marina_marker_node, pointcloud_node, marinero_yolo_node]
+        actions = [tracker_node, 
+                    gazebo_marker_node, 
+                    marina_marker_node, 
+                    pointcloud_node, 
+                    marinero_yolo_node, 
+                    map_server_node
+                ]
     )
 
     delayed_mapviz = TimerAction(
@@ -251,15 +254,11 @@ def generate_launch_description():
         delayed_marinero_spawner_node,
         world_odom_trans_publisher,
         world_map_trans_publisher,
-        joy_node,
-        joy_launch,
-        control_node,
+        _4wis4wid_drive_joy_launch,
+        omni_drive_joy_launch,
         zones_spawner_node,
         delayed_controller_manager,
         delayed_nodes,
         # delayed_mapviz,
         rviz2_node,
     ])
-
-# ros2 topic pub -1 /set_joint_trajectory trajectory_msgs/msg/JointTrajectory '{header: {frame_id: base_link},
-# joint_names: [camera_base_joint, left_camera_joint, right_camera_joint], points: [{ positions: {0, 1.5, -2.5}}]}'

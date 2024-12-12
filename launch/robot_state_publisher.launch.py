@@ -22,9 +22,7 @@ def generate_launch_description():
     # robot_description_xacro = xacro.process_file(xacro_location).toxml()                        ## NE RADI U GAZEBO
     xacro_location = os.path.join(get_package_share_directory(pkg_name))
     robot_description_xacro = os.path.join(xacro_location, dir_name, xacro_file)
-    
-    # model_path = os.path.join(get_package_share_directory(pkg_name), 'models', 'marinero_robot', 'model.sdf')
-    
+
     robot_description_config = Command([
         'xacro ', robot_description_xacro, 
         ' use_ros2_control:=', use_ros2_control, 

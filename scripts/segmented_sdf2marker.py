@@ -23,17 +23,17 @@ class SDF2Marker(Node):
         self.zone_A = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf",
             "euler_angles": [0.0, 0.0, 3.896],
-            "translation": [0.0, 0.0, 0.08]
+            "translation": [0.0, 0.0, -1.18] # 0.08]
         }
         self.zone_B = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
             "euler_angles": [0.0, 0.0, 3.8732],
-            "translation": [170.954, 353.30, 0.08]
+            "translation": [170.954, 353.30, -1.18] # 0.08]
         }
         self.zone_C = {
             "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
             "euler_angles": [0.0, 0.0, 3.925],
-            "translation": [196.9555, 650.585, 0.08]
+            "translation": [196.9555, 650.585, -1.18] # 0.08]
         }
         
         self.current_zone = None
@@ -149,7 +149,7 @@ class SDF2Marker(Node):
         visual_marker.color.r = 0.278
         visual_marker.color.g = 0.129
         visual_marker.color.b = 0.02
-        visual_marker.color.a = 0.8
+        visual_marker.color.a = 0.7
         visual_marker.mesh_resource = "file://" + os.path.abspath(visual_uri)
         visual_marker.mesh_use_embedded_materials = True
         visual_marker.id = 0

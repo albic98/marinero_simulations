@@ -60,8 +60,9 @@ class GazeboSpawner(Node):
         new_zone = self.ZONES[new_zone_label]
         self.spawn_entity(new_zone, f"zone_{new_zone_label}")
         self.spawn_entity(new_zone, f"objects_zone_{new_zone_label}", objects=True)
+        self.get_logger().info(f"Inital zone {new_zone_label} generated.")
         self.current_zone = new_zone_label
-    
+
     def pose_callback(self, msg):
         self.pose_x = msg.pose.position.x
         self.pose_y = msg.pose.position.y

@@ -98,7 +98,7 @@
         <plugin name="skid_steer_drive" filename="libgazebo_ros_diff_drive.so">
 
             <!-- Update rate -->
-            <update_rate>150</update_rate>
+            <update_rate>100</update_rate>
 
             <!-- Number of wheel pairs -->
             <num_wheel_pairs>2</num_wheel_pairs>
@@ -118,7 +118,7 @@
             <wheel_diameter>0.2032</wheel_diameter>
 
             <!-- limits -->
-            <max_wheel_torque>150.0</max_wheel_torque>
+            <max_wheel_torque>100.0</max_wheel_torque>
             <max_wheel_acceleration>7.0</max_wheel_acceleration>
 
             <!-- output -->
@@ -130,8 +130,7 @@
             <robot_base_frame>base_link</robot_base_frame>
 
             <ros>
-                <namespace>/</namespace>
-                <remapping>odom:=/marinero/odom</remapping>
+                <remapping>/odom:=/marinero/odom</remapping>
             </ros>
 
             <covariance_x>0.001</covariance_x>
@@ -143,7 +142,7 @@
     <gazebo>
         <plugin name="gazebo_ros_joint_state_publisher" 
             filename="libgazebo_ros_joint_state_publisher.so">
-            <update_rate>150</update_rate>
+            <update_rate>200</update_rate>
             <joint_name>camera_base_joint</joint_name>
             <joint_name>left_camera_joint</joint_name>
             <joint_name>right_camera_joint</joint_name>
@@ -153,7 +152,7 @@
     <gazebo>
         <plugin name="gazebo_ros_joint_pose_trajectory" 
             filename="libgazebo_ros_joint_pose_trajectory.so">
-            <update_rate>150</update_rate>
+            <update_rate>200</update_rate>
         </plugin>
     </gazebo>
 

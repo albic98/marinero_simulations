@@ -19,8 +19,8 @@ class SdfToUrdfConverter(Node):
         super().__init__("sdf_to_urdf_converter")
         self.output_urdf_file_path = output_urdf_file_path
         self.declare_parameter("euler_angles", [0.0, 0.0, 0.0])         # in degrees
-        # self.declare_parameter("translation", [-100.0, -48.0, 1.25])  # for the other sdf model written in line 180
-        self.declare_parameter("translation", [-100.0, -48.0, 0.2])
+        # self.declare_parameter("translation", [-100.0, -48.0, 0.08])  # for the other sdf model written in line 180
+        self.declare_parameter("translation", [-100.0, -48.0, 0.08])
         self.euler_angles = [angle * math.pi / 180 for angle in self.get_parameter("euler_angles").get_parameter_value().double_array_value]
         self.translation = self.get_parameter("translation").get_parameter_value().double_array_value
 

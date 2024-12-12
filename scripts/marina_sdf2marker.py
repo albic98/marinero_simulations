@@ -25,11 +25,13 @@ class SDF2Marker(Node):
 
         self.declare_parameter("euler_angles", [0.0, 0.0, 3.896,
                                                 0.0, 0.0, 3.8732,
-                                                0.0, 0.0, 3.925])
+                                                0.0, 0.0, 3.925
+                                            ])
 
-        self.declare_parameter("translation", [0.0, 0.0, 0.08,
-                                                170.954, 353.30, 0.08, 
-                                                196.9555, 650.585, 0.08])
+        self.declare_parameter("translation", [0.0, 0.0, -1.18, # 0.08,
+                                                170.954, 353.30, -1.18, # 0.08, 
+                                                196.9555, 650.585, -1.18, # 0.08
+                                            ])
 
         self.labels = ["A", "B", "C"]
         self.sdf_publishers = [self.create_publisher(MarkerArray, f"/sdf_marker_{self.labels[i]}", 10) for i in range (len(self.labels))]   
@@ -41,11 +43,9 @@ class SDF2Marker(Node):
         euler_inline = self.get_parameter("euler_angles").get_parameter_value().double_array_value
         euler_radians = [angle * math.pi / 180 for angle in euler_inline] 
         self.euler_angles = [euler_radians[i:i+3] for i in range(0, len(euler_radians), 3)]
-        
         time.sleep(0.5)
-        
         self.publish_markers()
-        
+
     def publish_markers(self):
         for i in range(len(self.sdf_file_path)):
             file_path = self.sdf_file_path[i]
@@ -67,9 +67,9 @@ class SDF2Marker(Node):
 
 
     def static_transform_publisher(self, frame_id, translation, euler_angles):
-        
+
         rotation_angle = tf.quaternion_from_euler(euler_angles[0], euler_angles[1], euler_angles[2])
-        
+
         try:
             t = TransformStamped()
             t.header.stamp = self.get_clock().now().to_msg()
@@ -83,14 +83,14 @@ class SDF2Marker(Node):
             t.transform.rotation.z = rotation_angle[2]
             t.transform.rotation.w = rotation_angle[3]
             self.tf_broad.sendTransform(t)
-            
+
         except Exception as e:
             self.get_logger().error(f"Failed to publish SDF file: {e}")
-            
+
     def create_marker_array_from_sdf(self, sdf_xml_string, frame_id):
         root = ET.fromstring(sdf_xml_string)
 
-        
+
         # Create MarkerArray for visualization
         marker_array = MarkerArray()
 
@@ -115,7 +115,7 @@ class SDF2Marker(Node):
         visual_marker.color.r = 0.278
         visual_marker.color.g = 0.129
         visual_marker.color.b = 0.02
-        visual_marker.color.a = 0.8
+        visual_marker.color.a = 0.7
         visual_marker.mesh_resource = "file://" + os.path.abspath(visual_uri)
         visual_marker.mesh_use_embedded_materials = True
         visual_marker.id = 0

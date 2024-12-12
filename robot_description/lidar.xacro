@@ -48,7 +48,7 @@
     <gazebo reference="lidar_link">
         <sensor name="3D_lidar" type="gpu_ray">
             <pose>0 0 0 0 0 0</pose>
-            <update_rate>15</update_rate>
+            <update_rate>15.0</update_rate>
             <visualize>false</visualize>
             <ray>
                 <scan>
@@ -87,7 +87,7 @@
     <gazebo reference="lidar_link">
         <sensor name="2D_lidar" type="gpu_ray">
             <pose> 0 0 0 0 0 0 </pose>
-            <update_rate>15</update_rate>
+            <update_rate>20.0</update_rate>
             <visualize>false</visualize>
             <ray>
                 <scan>
