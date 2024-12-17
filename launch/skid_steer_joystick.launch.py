@@ -7,7 +7,7 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
-    joy_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','joystick.yaml')
+    joy_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','skid_steer_joystick.yaml')
     twist_mux_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','twist_mux.yaml')
 
     joy_node = Node(

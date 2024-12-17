@@ -11,33 +11,31 @@ from gazebo_msgs.srv import SpawnEntity, DeleteEntity
 
 class GazeboSpawner(Node):
 
-    ZONES = {
-        "A": {
-            "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
-            "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_A_objects.world",
-            "euler_angles": [0.0, 0.0, 3.896], # 0.068 rad
-            "translation": [96.710, 55.0214, 0.0],
-            },
-        "B": {
-            "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
-            "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
-            "euler_angles": [0.0, 0.0, 3.8732], # 0.0676 rad
-            "translation": [96.6318, 54.7578, 0.0],
-            },
-        "C": {
-            "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
-            "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
-            "euler_angles": [0.0, 0.0, 3.925], # 0.0685 rad
-            "translation": [97.16365, 54.75736, 0.0],
-            }
-        }
-
     def __init__(self, x_pose, y_pose):
         super().__init__("gazebo_spawner")
 
+        self.ZONES = {
+            "A": {
+                "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
+                "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_A_objects.world",
+                "euler_angles": [0.0, 0.0, 3.896], # 0.068 rad
+                "translation": [96.710, 55.0214, 0.0],
+                },
+            "B": {
+                "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
+                "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
+                "euler_angles": [0.0, 0.0, 3.8732], # 0.0676 rad
+                "translation": [96.6318, 54.7578, 0.0],
+                },
+            "C": {
+                "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
+                "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
+                "euler_angles": [0.0, 0.0, 3.925], # 0.0685 rad
+                "translation": [97.16365, 54.75736, 0.0],
+                }
+            }
+        
         self.pose_subscriber = self.create_subscription(PoseStamped, "/robot_pose", self.pose_callback, 10)
-        self.pause_client = self.create_client(Empty, "/pause_physics")
-        self.unpause_client = self.create_client(Empty, "/unpause_physics")
         self.spawn_client = self.create_client(SpawnEntity, "/spawn_entity")
         self.delete_client = self.create_client(DeleteEntity, "/delete_entity")
         

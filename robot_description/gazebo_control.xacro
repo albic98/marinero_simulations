@@ -98,7 +98,7 @@
         <plugin name="skid_steer_drive" filename="libgazebo_ros_diff_drive.so">
 
             <!-- Update rate -->
-            <update_rate>100</update_rate>
+            <update_rate>150</update_rate>
 
             <!-- Number of wheel pairs -->
             <num_wheel_pairs>2</num_wheel_pairs>

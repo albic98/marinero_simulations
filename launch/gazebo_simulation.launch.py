@@ -3,11 +3,15 @@
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.events import Shutdown
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
 from ament_index_python.packages import get_package_share_directory
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, TimerAction
+from launch.actions import (IncludeLaunchDescription, DeclareLaunchArgument, 
+                            TimerAction, RegisterEventHandler, LogInfo, EmitEvent)
+from launch.event_handlers import OnProcessExit
+
 
 def generate_launch_description():
 
@@ -52,37 +56,37 @@ def generate_launch_description():
 
     x_pose_arg = DeclareLaunchArgument(
         'x_pose',
-        default_value= '0.68', # zone A
+        default_value= # '0.68', # zone A
                         # '194.195', # zone A
                         # '189.384', # zone A
-                        # '212.37', # zone B
+                        #'212.37', # zone B
                         # '199.80', # zone B
                         # '191.31', # zone C
-                        # '-45.826', # zone C
+                        '-45.826', # zone C
         description='Define x coordinate when spawning marinero robot'
     )
 
     y_pose_arg = DeclareLaunchArgument(
         'y_pose',
-        default_value= '0.70', # zone A
+        default_value= # '0.70', # zone A
                         # '50.486', # zone A
                         # '236.609', # zone A
                         # '388.67', # zone B
                         # '651.51', # zone B
                         # '826.93', # zone C
-                        # '711.306', # zone C
+                        '711.306', # zone C
         description='Define y coordinate when spawning marinero robot'
     )
 
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
-        default_value= '0.85', # zone A
+        default_value= # '0.85', # zone A
                         # -3.025', # zone A
                         # '2.481', # zone A
                         # '2.51', # zone B
                         # '2.288', # zone B
                         # '-2.332', # zone C
-                        # '0.856', # zone C
+                        '0.856', # zone C
         description='Direction in which the robot will be oriented'
     )
 
@@ -161,9 +165,9 @@ def generate_launch_description():
         condition=IfCondition(use_ros2_control)
     )
 
-    omni_drive_joy_launch = IncludeLaunchDescription(
+    skid_steer_joy_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(pkg_name),'launch','diff_drive_joystick.launch.py')
+            os.path.join(get_package_share_directory(pkg_name),'launch','skid_steer_joystick.launch.py')
             # os.path.join(get_package_share_directory(pkg_name),'launch','omni_drive_joystick.launch.py')
         ]),
         condition=UnlessCondition(use_ros2_control)
@@ -184,7 +188,7 @@ def generate_launch_description():
         executable='marinero_yolo',
     )
 
-    tracker_node = Node(
+    rviz_marker_node = Node(
         package='marinero_control',
         executable='marinero_tracker',
     )
@@ -201,12 +205,10 @@ def generate_launch_description():
         executable='gazebo_marker',
     ) 
 
-    map_server_node = Node(
-        package='nav2_map_server',
-        executable='map_server',
-        name='map_server',
-        output='screen',
-        parameters=[{'yaml_filename': '/home/albert/marinero_ws/src/marinero_simulations/config/marina_punat_map/marina_punat.yaml'}],
+    map_server_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory(pkg_name),'launch','marina_punat_map.launch.py')
+        ])
     )
 
     rviz2_node = Node(
@@ -221,18 +223,25 @@ def generate_launch_description():
     )
 
     delayed_controller_manager = TimerAction(
-        period = 4.0,
+        period = 5.0,
         actions = [launch_controller_manager]
     )
 
+    marker_nodes = RegisterEventHandler(
+        OnProcessExit(
+            target_action=marinero_spawner_node,
+            on_exit=[rviz_marker_node,
+                    gazebo_marker_node,
+            ]
+        )
+    )
+
     delayed_nodes = TimerAction(
-        period = 6.0,
-        actions = [tracker_node, 
-                    gazebo_marker_node, 
-                    marina_marker_node, 
+        period = 8.0,
+        actions = [marina_marker_node, 
                     pointcloud_node, 
                     marinero_yolo_node, 
-                    map_server_node
+                    map_server_launch, 
                 ]
     )
 
@@ -254,11 +263,12 @@ def generate_launch_description():
         delayed_marinero_spawner_node,
         world_odom_trans_publisher,
         world_map_trans_publisher,
-        _4wis4wid_drive_joy_launch,
-        omni_drive_joy_launch,
         zones_spawner_node,
+        _4wis4wid_drive_joy_launch,
+        skid_steer_joy_launch,
         delayed_controller_manager,
         delayed_nodes,
-        # delayed_mapviz,
+        marker_nodes,
+        delayed_mapviz,
         rviz2_node,
     ])

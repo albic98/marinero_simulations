@@ -53,8 +53,7 @@
             lower="1.0"
             effort="100"
             velocity="100" />
-        <!-- <dynamics damping="1.0" friction="10.0" /> -->
-        <dynamics damping="10.0" friction="5.0" />
+        <dynamics damping="10.0" friction="10.0" />
     </joint>
 
     <link name="right_camera_link">
