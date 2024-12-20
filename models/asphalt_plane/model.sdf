@@ -24,7 +24,7 @@
         <geometry>
           <box>
             <size>70 20 0.5</size>
-          </box>t
+          </box>
         </geometry>
         <material>
           <script>
@@ -55,8 +55,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
               <fdir1>0 0 0</fdir1>
               <slip1>0.001</slip1>
               <slip2>1e-05</slip2>

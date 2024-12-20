@@ -9,12 +9,20 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
-    # joy_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','joystick.yaml')
-    # twist_mux_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','twist_mux.yaml')
+    joy_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','_4wis4wid_joystick.yaml')
+    twist_mux_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','twist_mux.yaml')
 
     joy_node = Node(
         package='joy',
         executable='joy_node',
+    )
+
+    teleop_node = Node(
+        package='teleop_twist_joy',
+        executable='teleop_node',
+        name='teleop_node',
+        parameters=[joy_params],
+        remappings=[('/fcc/cmd_vel','/cmd_vel_joy')]
     )
 
     odometry_node = Node(
@@ -28,15 +36,16 @@ def generate_launch_description():
         remappings=[('/fcc/cmd_vel','/cmd_vel_joy')],
     )
 
-    # twist_mux_node = Node(
-    #     package='twist_mux',
-    #     executable='twist_mux',
-    #     parameters=[twist_mux_params],
-    #     remappings=[('/cmd_vel_out','/cmd_vel')],
-    # )
+    twist_mux_node = Node(
+        package='twist_mux',
+        executable='twist_mux',
+        parameters=[twist_mux_params],
+        remappings=[('/cmd_vel_out','/cmd_vel')],
+    )
 
     return LaunchDescription([
         joy_node,
         odometry_node,
-        control_node
+        control_node,
+        twist_mux_node
     ])

@@ -14,6 +14,13 @@ class GazeboSpawner(Node):
     def __init__(self, x_pose, y_pose):
         super().__init__("gazebo_spawner")
 
+        self.pose_subscriber = self.create_subscription(PoseStamped, "/robot_pose", self.pose_callback, 10)
+        self.spawn_client = self.create_client(SpawnEntity, "/spawn_entity")
+        self.delete_client = self.create_client(DeleteEntity, "/delete_entity")
+        
+        self.spawn_client.wait_for_service(timeout_sec=5.0)
+        self.delete_client.wait_for_service(timeout_sec=5.0)
+        
         self.ZONES = {
             "A": {
                 "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
@@ -35,13 +42,6 @@ class GazeboSpawner(Node):
                 }
             }
         
-        self.pose_subscriber = self.create_subscription(PoseStamped, "/robot_pose", self.pose_callback, 10)
-        self.spawn_client = self.create_client(SpawnEntity, "/spawn_entity")
-        self.delete_client = self.create_client(DeleteEntity, "/delete_entity")
-        
-        self.spawn_client.wait_for_service(timeout_sec=1.0)
-        self.delete_client.wait_for_service(timeout_sec=1.0)
-
         self.current_zone = None
         self.previous_zone = None
 

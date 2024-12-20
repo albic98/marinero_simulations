@@ -43,9 +43,26 @@
         </xacro:inertial_sphere>
     </link>
 
+    <joint name="lidar_2D_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="lidar_link"/>
+        <child link="lidar_2D_link"/>
+    </joint>
+
+    <link name="lidar_2D_link"></link>
+
+    <joint name="lidar_3D_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>   
+        <parent link="lidar_link"/>
+        <child link="lidar_3D_link"/>
+    </joint>
+
+    <link name="lidar_3D_link"></link>
+
+
     <!-- 3D LIDAR -->
 
-    <gazebo reference="lidar_link">
+    <gazebo reference="lidar_3D_link">
         <sensor name="3D_lidar" type="gpu_ray">
             <pose>0 0 0 0 0 0</pose>
             <update_rate>15.0</update_rate>
@@ -75,19 +92,19 @@
                 <ros>
                     <remapping>~/out:=/lidar_3D/scan</remapping>
                 </ros>
+                <update_rate>15.0</update_rate>
                 <output_type>sensor_msgs/PointCloud2</output_type>
-                <frame_name>lidar_link</frame_name>
+                <frame_name>lidar_3D_link</frame_name>
             </plugin>
         </sensor>
     </gazebo>
 
-
     <!-- 2D LIDAR -->
 
-    <gazebo reference="lidar_link">
+    <gazebo reference="lidar_2D_link">
         <sensor name="2D_lidar" type="gpu_ray">
             <pose> 0 0 0 0 0 0 </pose>
-            <update_rate>20.0</update_rate>
+            <update_rate>15.0</update_rate>
             <visualize>false</visualize>
             <ray>
                 <scan>
@@ -108,11 +125,11 @@
                 <ros>
                     <remapping>~/out:=/scan</remapping>
                 </ros>
+                <update_rate>15.0</update_rate>
                 <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>lidar_link</frame_name>
+                <frame_name>lidar_2D_link</frame_name>
             </plugin>
         </sensor>
     </gazebo>
-
 
 </robot>
