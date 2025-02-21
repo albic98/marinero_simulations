@@ -48,6 +48,7 @@ install(PROGRAMS
   scripts/parse_sdf2marker.py
   scripts/segmented_sdf2marker.py
   scripts/marina_sdf2marker.py
+  scripts/marina_gazebo_publisher.py
   scripts/segmented_gazebo_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )

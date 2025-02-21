@@ -23,7 +23,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/zona_B_ormarici/meshes/Ormarici_zona_B.dae</uri>
+            <uri>/marinero_simulations/models/zona_B_ormarici/meshes/Ormarici_zona_B.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -36,7 +36,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/zona_B_ormarici/meshes/Ormarici_zona_B.dae</uri>
+            <uri>/marinero_simulations/models/zona_B_ormarici/meshes/Ormarici_zona_B.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

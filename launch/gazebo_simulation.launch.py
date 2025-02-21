@@ -57,9 +57,9 @@ def generate_launch_description():
     x_pose_arg = DeclareLaunchArgument(
         'x_pose',
         default_value= # '0.68', # zone A
-                        '194.195', # zone A
+                        # '194.195', # zone A
                         # '189.384', # zone A
-                        #'212.37', # zone B
+                        '212.37', # zone B
                         # '199.80', # zone B
                         # '191.31', # zone C
                         # '-45.826', # zone C
@@ -69,9 +69,9 @@ def generate_launch_description():
     y_pose_arg = DeclareLaunchArgument(
         'y_pose',
         default_value= # '0.70', # zone A
-                        '50.486', # zone A
+                        # '50.486', # zone A
                         # '236.609', # zone A
-                        # '388.67', # zone B
+                        '388.67', # zone B
                         # '651.51', # zone B
                         # '826.93', # zone C
                         # '711.306', # zone C
@@ -81,9 +81,9 @@ def generate_launch_description():
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
         default_value= # '0.85', # zone A
-                        '-3.025', # zone A
+                        # '-3.025', # zone A
                         # '2.481', # zone A
-                        # '2.51', # zone B
+                        '2.51', # zone B
                         # '2.288', # zone B
                         # '-2.332', # zone C
                         # '0.856', # zone C
@@ -162,7 +162,6 @@ def generate_launch_description():
     skid_steer_joy_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(pkg_name),'launch','skid_steer_joystick.launch.py')
-            # os.path.join(get_package_share_directory(pkg_name),'launch','omni_drive_joystick.launch.py')
         ]),
         condition=UnlessCondition(use_ros2_control)
     )
@@ -186,14 +185,14 @@ def generate_launch_description():
         package='marinero_control',
         executable='marinero_tracker',
     )
-    
+
     zones_spawner_node = Node(
         package='marinero_simulations',
         executable='segmented_gazebo_publisher.py',
         arguments= [x_pose, y_pose],
         output= "screen"
     )
-    
+
     gazebo_marker_node = Node(
         package='marinero_control',
         executable='gazebo_marker',
@@ -207,8 +206,7 @@ def generate_launch_description():
 
     delayed_gazebo_spawner_nodes = TimerAction(
         period = 2.0,
-        actions = [zones_spawner_node,
-                    marinero_spawner_node]
+        actions = [marinero_spawner_node]
     )
 
     delayed_controller_manager = TimerAction(
@@ -228,7 +226,7 @@ def generate_launch_description():
     delayed_nodes = TimerAction(
         period = 8.0,
         actions = [marina_marker_node, 
-                    pointcloud_node, 
+                    # pointcloud_node, 
                     marinero_yolo_node,
                 ]
     )
@@ -247,6 +245,7 @@ def generate_launch_description():
         y_pose_arg,
         direction_arg,
         launch_gazebo,
+        zones_spawner_node,
         launch_robot_state_publisher,
         delayed_gazebo_spawner_nodes,
         map_odom_trans_publisher,
@@ -255,6 +254,6 @@ def generate_launch_description():
         delayed_controller_manager,
         delayed_nodes,
         marker_nodes,
-        # delayed_mapviz,
         rviz2_node,
+        # delayed_mapviz,
     ])

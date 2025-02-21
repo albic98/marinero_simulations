@@ -148,7 +148,7 @@
 
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>/home/albert/marinero_ws/install/marinero_simulations/share/marinero_simulations/config/controllers.yaml</parameters>
+            <parameters>$(find marinero_simulations)/config/controllers.yaml</parameters>
         </plugin>
     </gazebo>
 
@@ -157,7 +157,7 @@
             <ros>
                 <remapping>~/out:=/joint_states</remapping>
             </ros>
-            <update_rate>500.0</update_rate>
+            <update_rate>200</update_rate>
             <joint_name>fl_rotation_joint</joint_name>
             <joint_name>fr_rotation_joint</joint_name>
             <joint_name>rl_rotation_joint</joint_name>
@@ -180,7 +180,7 @@
             </ros>
             <frame_name>map</frame_name>
             <body_name>base_link</body_name>
-            <update_rate>150</update_rate>
+            <update_rate>100</update_rate>
             <gaussian_noise>0.01</gaussian_noise>
         </plugin>
     </gazebo>

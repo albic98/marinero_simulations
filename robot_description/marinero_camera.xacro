@@ -19,7 +19,7 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Camera_Base.stl" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Camera_Base.stl" scale="1.0 1.0 1.0"/>
             </geometry>
             <material name="dark"/>
         </visual>
@@ -60,7 +60,7 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Camera_L.stl" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Camera_L.stl" scale="1.0 1.0 1.0"/>
             </geometry>
             <material name="grey" />
         </visual>
@@ -117,7 +117,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Camera_R.stl" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Camera_R.stl" scale="1.0 1.0 1.0"/>
             </geometry>
             <material name="grey" />
         </visual>

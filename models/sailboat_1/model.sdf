@@ -7,7 +7,7 @@
         <pose>0 0 1.0 0 0 -1.507</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1/meshes/Sailboat.stl</uri>
+            <uri>/marinero_simulations/models/sailboat_1/meshes/Sailboat.stl</uri>
             <scale>1.8 1.8 1.8</scale>
           </mesh>
         </geometry>
@@ -22,7 +22,7 @@
         <pose>0 0 1.0 0 0 -1.507</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/sailboat_1/meshes/Sailboat.stl</uri>
+            <uri>/marinero_simulations/models/sailboat_1/meshes/Sailboat.stl</uri>
             <scale>1.8 1.8 1.8</scale>
           </mesh>
         </geometry>

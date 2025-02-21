@@ -21,7 +21,7 @@
         <visual>
             <origin xyz="0.0 0.0 0.014" />
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes//MARINERO_chassis_no_driving_assembly.dae" scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/MARINERO_chassis_no_driving_assembly.dae" scale="1.0 1.0 1.0" />
             </geometry>
         </visual>
 
@@ -78,7 +78,7 @@
         <visual>
             <origin xyz="0 0 0.1466" rpy="0 0 ${pi/2}"/>    <!-- xyz="0 0 ${0.156697-0.01}" -->
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel_Assembly.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel_Assembly.stl" scale="1.0 1.0 1.0" />
             </geometry>
             <material name="dark" />
         </visual>
@@ -121,13 +121,13 @@
         <dynamics friction="2.0"/>
     </joint>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Camera_R.stl" scale="1.0 1.0 1.0"/>
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Camera_R.stl" scale="1.0 1.0 1.0"/>
             </geometry>
     <link name="fl_wheel">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
             </geometry>
             <material name="black"/>
         </visual>
@@ -169,7 +169,7 @@
         <visual>
             <origin xyz="0 0 0.1466" rpy="0 0 ${pi/2}"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel_Assembly.stl"  scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel_Assembly.stl"  scale="1.0 1.0 1.0" />
             </geometry>
             <material name="dark" />
         </visual>
@@ -216,7 +216,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
             </geometry>
             <material name="black"/>
         </visual>
@@ -258,7 +258,7 @@
         <visual>
             <origin xyz="0 0 0.1466" rpy="0 0 ${pi/2}"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel_Assembly.stl"  scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel_Assembly.stl"  scale="1.0 1.0 1.0" />
             </geometry>
             <material name="dark" />
         </visual>
@@ -305,7 +305,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
             </geometry>
             <material name="black"/>
         </visual>
@@ -347,7 +347,7 @@
         <visual>
             <origin xyz="0 0 0.1466" rpy="0 0 ${pi/2}"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel_Assembly.stl"  scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel_Assembly.stl"  scale="1.0 1.0 1.0" />
             </geometry>
             <material name="dark" />
         </visual>
@@ -393,7 +393,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/albert/marinero_ws/src/marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://marinero_simulations/robot_description/meshes/Wheel.stl" scale="1.0 1.0 1.0" />
             </geometry>
             <material name="black"/>
         </visual>

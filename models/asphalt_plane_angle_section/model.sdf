@@ -23,14 +23,14 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/meshes/asphalt_plane_angle_section.dae</uri>
+            <uri>/marinero_simulations/models/asphalt_plane_angle_section/meshes/asphalt_plane_angle_section.dae</uri>
             <scale>1 1 5</scale>
           </mesh>
         </geometry>
         <material>
           <script>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/materials/scripts</uri>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/materials/textures/tarmac.png</uri>
+            <uri>/marinero_simulations/models/asphalt_plane_angle_section/materials/scripts</uri>
+            <uri>/marinero_simulations/models/asphalt_plane_angle_section/materials/textures/tarmac.png</uri>
             <name>asphalt/texture</name>
           </script>
 			<shader type='pixel'>
@@ -50,7 +50,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_angle_section/meshes/asphalt_plane_angle_section.dae</uri>
+            <uri>/marinero_simulations/models/asphalt_plane_angle_section/meshes/asphalt_plane_angle_section.dae</uri>
             <scale>1 1 5</scale>
           </mesh>
         </geometry>

@@ -3,7 +3,5 @@ robot_description/meshes/MARINERO_chassis_06_11.zip
 models/zona_A_ormarici/meshes/
 models/zona_B_ormarici/meshes/
 models/zona_C_ormarici/meshes/
-models/model_bush_pattern_old.sdf
-models/model_bush_pattern_2_old.sdf
 .vscode/
 build/

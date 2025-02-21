@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 import math
 import rclpy
 from rclpy.node import Node
-from std_srvs.srv import Empty
 import tf_transformations as tf
 from geometry_msgs.msg import PoseStamped
 from gazebo_msgs.srv import SpawnEntity, DeleteEntity
+from ament_index_python.packages import get_package_share_directory
+
+package_name = "marinero_simulations"
+package_path = get_package_share_directory(package_name)
 
 class GazeboSpawner(Node):
 
@@ -20,23 +24,23 @@ class GazeboSpawner(Node):
         
         self.spawn_client.wait_for_service(timeout_sec=5.0)
         self.delete_client.wait_for_service(timeout_sec=5.0)
-        
+
         self.ZONES = {
             "A": {
-                "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_environment/model.sdf",
-                "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_A_objects.world",
+                "sdf_path_1": os.path.join(package_path, "models/world_zona_A_environment/model.sdf"),
+                "sdf_path_2": os.path.join(package_path, "models/world_zona_A_objects/model.sdf"),
                 "euler_angles": [0.0, 0.0, 3.896], # 0.068 rad
                 "translation": [96.710, 55.0214, 0.0],
                 },
             "B": {
-                "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_B_environment/model.sdf",
-                "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_B_objects.world",
+                "sdf_path_1": os.path.join(package_path, "models/world_zona_B_environment/model.sdf"),
+                "sdf_path_2": os.path.join(package_path, "models/world_zona_B_objects/model.sdf"),
                 "euler_angles": [0.0, 0.0, 3.8732], # 0.0676 rad
                 "translation": [96.6318, 54.7578, 0.0],
                 },
             "C": {
-                "sdf_path_1": "/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_C_environment/model.sdf",
-                "sdf_path_2": "/home/albert/marinero_ws/src/marinero_simulations/worlds/world_zona_C_objects.world",
+                "sdf_path_1": os.path.join(package_path, "models/world_zona_C_environment/model.sdf"),
+                "sdf_path_2": os.path.join(package_path, "models/world_zona_C_objects/model.sdf"),
                 "euler_angles": [0.0, 0.0, 3.925], # 0.0685 rad
                 "translation": [97.16365, 54.75736, 0.0],
                 }
@@ -60,6 +64,7 @@ class GazeboSpawner(Node):
         self.spawn_entity(new_zone, f"objects_zone_{new_zone_label}", objects=True)
         self.get_logger().info(f"Inital zone {new_zone_label} generated.")
         self.current_zone = new_zone_label
+
 
     def pose_callback(self, msg):
         self.pose_x = msg.pose.position.x

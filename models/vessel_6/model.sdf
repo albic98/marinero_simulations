@@ -22,7 +22,7 @@
         <pose>0 0 0 1.5708 -0 1.5708</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/vessel f/2/meshes/Boat06.dae</uri>
+            <uri>/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/vessel f/2/meshes/Boat06.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -51,7 +51,7 @@
         <pose>0 0 0 1.5708 -0 1.5708</pose>
         <geometry>
           <mesh>
-            <uri>/home/albert/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/vessel f/2/meshes/Boat06.dae</uri>
+            <uri>/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/vessel f/2/meshes/Boat06.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

@@ -28,8 +28,8 @@
         </geometry>
         <material>
           <script>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_XS/materials/scripts</uri>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/grass_plane_XS/materials/textures/grass.jpg</uri>
+            <uri>/marinero_simulations/models/grass_plane_XS/materials/scripts</uri>
+            <uri>/marinero_simulations/models/grass_plane_XS/materials/textures/grass.jpg</uri>
             <name>grass_V1/texture</name>
           </script>
           <shader type='pixel'>

@@ -118,6 +118,45 @@
         <kinematic>0</kinematic>
       </link>
     </model>
+    <model name='Bush 1_clone_1'>
+      <static>1</static>
+      <pose>-0.061951 -13.4135 1.265 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>5 5 5</scale>
+              <uri>model://bush_1/meshes/bush_1.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>5 5 5</scale>
+              <uri>model://bush_1/meshes/bush_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
     <model name='Bush 1_clone_10'>
       <static>1</static>
       <pose>-0.414612 -41.8186 1.265 1.57079 -0 0</pose>
@@ -394,6 +433,45 @@
     <model name='Bush 1_clone_15_clone'>
       <static>1</static>
       <pose>-1.7821 -111.923 1.265 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>5 5 5</scale>
+              <uri>model://bush_1/meshes/bush_1.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>5 5 5</scale>
+              <uri>model://bush_1/meshes/bush_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Bush 1_clone_2'>
+      <static>1</static>
+      <pose>-0.114975 -16.5927 1.265 1.57079 -0 0</pose>
       <link name='link'>
         <pose>0 0 0 0 -0 0</pose>
         <collision name='collision'>

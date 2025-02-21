@@ -12,16 +12,19 @@ from rclpy.parameter import Parameter
 from geometry_msgs.msg import TransformStamped
 from visualization_msgs.msg import Marker, MarkerArray
 from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
+from ament_index_python.packages import get_package_share_directory
 
+package_name = "marinero_simulations"
+package_path = get_package_share_directory(package_name)
 
 class SDF2Marker(Node):
 
     def __init__(self):
         super().__init__("sdf_2_marker_publisher")
         
-        self.declare_parameter("sdf_file_path", ["/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf",
-                                                "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
-                                                "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf"])
+        self.declare_parameter("sdf_file_path", [os.path.join(package_path, "models/Marina_Zona_A/model.sdf"),
+                                                os.path.join(package_path, "models/Marina_Zona_B/model.sdf"),
+                                                os.path.join(package_path, "models/Marina_Zona_C/model.sdf")])
 
         self.declare_parameter("euler_angles", [0.0, 0.0, 3.896,
                                                 0.0, 0.0, 3.8732,
@@ -116,7 +119,7 @@ class SDF2Marker(Node):
         visual_marker.color.g = 0.129
         visual_marker.color.b = 0.02
         visual_marker.color.a = 0.7
-        visual_marker.mesh_resource = "file://" + os.path.abspath(visual_uri)
+        visual_marker.mesh_resource = f"package:/{visual_uri}"
         visual_marker.mesh_use_embedded_materials = True
         visual_marker.id = 0
         marker_array.markers.append(visual_marker)

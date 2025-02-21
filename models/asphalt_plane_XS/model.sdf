@@ -28,8 +28,8 @@
         </geometry>
         <material>
           <script>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XS/materials/scripts</uri>
-            <uri>/home/albert/marinero_ws/src/marinero_simulations/models/asphalt_plane_XS/materials/textures/tarmac.png</uri>
+            <uri>/marinero_simulations/models/asphalt_plane_XS/materials/scripts</uri>
+            <uri>/marinero_simulations/models/asphalt_plane_XS/materials/textures/tarmac.png</uri>
             <name>asphalt_XS/texture</name>
           </script>
           <shader type='pixel'>

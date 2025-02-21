@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-
 import rclpy
 import math
 from rclpy.node import Node
@@ -13,7 +12,10 @@ from rclpy.parameter import Parameter
 from geometry_msgs.msg import TransformStamped
 from visualization_msgs.msg import Marker, MarkerArray
 from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
+from ament_index_python.packages import get_package_share_directory
 
+package_name = "marinero_simulations"
+package_path = get_package_share_directory(package_name)
 
 class SDF2Marker(Node):
 
@@ -21,17 +23,17 @@ class SDF2Marker(Node):
         super().__init__("sdf_2_marker_publisher")
 
         self.zone_A = {
-            "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_A/model.sdf",
+            "sdf_file_path": os.path.join(package_path, "models/Marina_Zona_A/model.sdf"),
             "euler_angles": [0.0, 0.0, 3.896],
             "translation": [0.0, 0.0, -1.18] # 0.08]
         }
         self.zone_B = {
-            "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_B/model.sdf",
+            "sdf_file_path": os.path.join(package_path, "models/Marina_Zona_B/model.sdf"),
             "euler_angles": [0.0, 0.0, 3.8732],
             "translation": [170.954, 353.30, -1.18] # 0.08]
         }
         self.zone_C = {
-            "sdf_file_path": "/home/albert/marinero_ws/src/marinero_simulations/models/Marina_Zona_C/model.sdf",
+            "sdf_file_path": os.path.join(package_path, "models/Marina_Zona_C/model.sdf"),
             "euler_angles": [0.0, 0.0, 3.925],
             "translation": [196.9555, 650.585, -1.18] # 0.08]
         }
@@ -150,7 +152,7 @@ class SDF2Marker(Node):
         visual_marker.color.g = 0.129
         visual_marker.color.b = 0.02
         visual_marker.color.a = 0.7
-        visual_marker.mesh_resource = "file://" + os.path.abspath(visual_uri)
+        visual_marker.mesh_resource = f"package:/{visual_uri}"
         visual_marker.mesh_use_embedded_materials = True
         visual_marker.id = 0
         marker_array.markers.append(visual_marker)
