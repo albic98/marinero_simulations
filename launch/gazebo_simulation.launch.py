@@ -226,7 +226,7 @@ def generate_launch_description():
     delayed_nodes = TimerAction(
         period = 8.0,
         actions = [marina_marker_node, 
-                    # pointcloud_node, 
+                    pointcloud_node, 
                     marinero_yolo_node,
                 ]
     )

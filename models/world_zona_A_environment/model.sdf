@@ -5,17 +5,17 @@
     <pose>0 0 0 0 0 0</pose>
 
     <include>
-      <uri>/marinero_ws/src/marinero_simulations/models/Marina_Zona_A</uri>
+      <uri>/marinero_simulations/models/Marina_Zona_A</uri>
       <pose>-100.225000 -48.323200 0.08 0 0 0</pose>
     </include>
 
     <include>
-      <uri>/marinero_ws/src/marinero_simulations/models/sea_plane_A</uri>
+      <uri>/marinero_simulations/models/sea_plane_A</uri>
       <pose>-1.12 126.455 0 0 0 0</pose>
     </include>
 
     <include>
-      <uri>/marinero_ws/src/marinero_simulations/models/asphalt_plane</uri>
+      <uri>/marinero_simulations/models/asphalt_plane</uri>
       <name>asphalt_plane_0</name>
       <pose>105.656586 22.996641 0.0 0 0 -1.498</pose>
     </include>
