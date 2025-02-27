@@ -27,12 +27,12 @@ def generate_launch_description():
 
     rviz2_base = os.path.join(get_package_share_directory(pkg_name), 'config')
     rviz2_full_config = os.path.join(rviz2_base, 'marinero_rviz.rviz')
-    gazebo_params_file = os.path.join(get_package_share_directory(pkg_name),'config','gazebo_params.yaml')
+    bridge_params = os.path.join(get_package_share_directory(pkg_name),'config','gz_bridge.yaml')
 
     world_arg = DeclareLaunchArgument(
         'world',
         # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base_with_sensors.world'),
         description='Full path to new world.'
     )
 
@@ -56,10 +56,10 @@ def generate_launch_description():
 
     x_pose_arg = DeclareLaunchArgument(
         'x_pose',
-        default_value= # '0.68', # zone A
+        default_value= '0.68', # zone A
                         # '194.195', # zone A
                         # '189.384', # zone A
-                        '212.37', # zone B
+                        # '212.37', # zone B
                         # '199.80', # zone B
                         # '191.31', # zone C
                         # '-45.826', # zone C
@@ -68,10 +68,10 @@ def generate_launch_description():
 
     y_pose_arg = DeclareLaunchArgument(
         'y_pose',
-        default_value= # '0.70', # zone A
+        default_value= '0.70', # zone A
                         # '50.486', # zone A
                         # '236.609', # zone A
-                        '388.67', # zone B
+                        # '388.67', # zone B
                         # '651.51', # zone B
                         # '826.93', # zone C
                         # '711.306', # zone C
@@ -80,10 +80,10 @@ def generate_launch_description():
 
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
-        default_value= # '0.85', # zone A
+        default_value= '0.85', # zone A
                         # '-3.025', # zone A
                         # '2.481', # zone A
-                        '2.51', # zone B
+                        # '2.51', # zone B
                         # '2.288', # zone B
                         # '-2.332', # zone C
                         # '0.856', # zone C
@@ -93,13 +93,10 @@ def generate_launch_description():
     launch_gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [
-                os.path.join(get_package_share_directory('gazebo_ros'),'launch','gazebo.launch.py')
+                os.path.join(get_package_share_directory('ros_gz_sim'),'launch','gz_sim.launch.py')
             ]
         ),
-        launch_arguments={
-            'world': world,
-            'extra_gazebo_args': f'--ros-args --params_file{gazebo_params_file}',
-        }.items(),
+        launch_arguments={'gz_args': ['-r -s -v4 ', world], 'on_exit_shutdown': 'true'}.items()
     )
 
     launch_mapviz = IncludeLaunchDescription(
@@ -133,23 +130,23 @@ def generate_launch_description():
     map_odom_trans_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments="--x 0 --y 0 --z -1.26 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom".split(' '),
+        arguments='--x 0 --y 0 --z -1.26 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom'.split(' '),
     )
 
     marinero_spawner_node = Node(
-        package="gazebo_ros",
-        executable="spawn_entity.py",
+        package='ros_gz_sim',
+        executable='create',
         arguments=[
-            "-topic", "robot_description",
-            "-entity", "marinero",
-            "-x", x_pose,
-            "-y", y_pose,
-            "-z", "1.30",
-            "-R", "0.0",
-            "-P", "0.0",
-            "-Y", yaw_pose
+            '-topic', 'robot_description',
+            '-name', 'marinero',
+            '-x', x_pose,
+            '-y', y_pose,
+            '-z', '1.30',
+            '-R', '0.0',
+            '-P', '0.0',
+            '-Y', yaw_pose
         ],
-        output= "screen"
+        output= 'screen'
     )
 
     _4wis4wid_drive_joy_launch = IncludeLaunchDescription(
@@ -166,6 +163,24 @@ def generate_launch_description():
         condition=UnlessCondition(use_ros2_control)
     )
 
+    gz_bridge_node = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '--ros-args',
+            '-p',
+            f'config_file:={bridge_params}',
+        ],
+        output='screen',
+    )
+
+    gz_bridge_image_node = Node(
+        package='ros_gz_image',
+        executable='image_bridge',
+        arguments=['/right_depth_camera/image_raw'],
+        output='screen',
+    )
+    
     marina_marker_node = Node(
         package='marinero_simulations',
         executable='segmented_sdf2marker.py',
@@ -190,7 +205,7 @@ def generate_launch_description():
         package='marinero_simulations',
         executable='segmented_gazebo_publisher.py',
         arguments= [x_pose, y_pose],
-        output= "screen"
+        output= 'screen'
     )
 
     gazebo_marker_node = Node(
@@ -226,8 +241,8 @@ def generate_launch_description():
     delayed_nodes = TimerAction(
         period = 8.0,
         actions = [marina_marker_node, 
-                    pointcloud_node, 
-                    marinero_yolo_node,
+                    # pointcloud_node, 
+                    # marinero_yolo_node,
                 ]
     )
 
@@ -251,9 +266,11 @@ def generate_launch_description():
         map_odom_trans_publisher,
         _4wis4wid_drive_joy_launch,
         skid_steer_joy_launch,
+        gz_bridge_node,
+        gz_bridge_image_node,
         delayed_controller_manager,
         delayed_nodes,
-        marker_nodes,
+        # marker_nodes,
         rviz2_node,
         # delayed_mapviz,
     ])

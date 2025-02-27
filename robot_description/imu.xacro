@@ -22,29 +22,59 @@
                 <box size="0.2 0.2 0.02" />
             </geometry>   
         </collision>
-    </link>
 
-    <gazebo reference="imu_link">
-        <gravity>true</gravity>
         <sensor name="imu_sensor" type="imu">
             <always_on>true</always_on>
             <update_rate>100</update_rate>
             <visualize>true</visualize>
-            <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-                <ros>
-                    <remapping>~/out:=/marinero/imu_sensor</remapping>
-                </ros>
-                <body_name>imu_link</body_name>
-                <update_rate_hz>10.0</update_rate_hz>
-                <gaussian_noise>0.0</gaussian_noise>
-                <xyz_offset>0 0 0</xyz_offset>
-                <rpy_offset>0 0 0</rpy_offset>
-                <frame_name>imu_link</frame_name>
-                <initial_orientation_as_reference>false</initial_orientation_as_reference>
-            </plugin>
-            <pose>0 0 0 0 0 0</pose>
+            <topic>marinero/imu_sensor</topic>
+            <gz_frame_id>imu_link</gz_frame_id>
+            <imu>
+                <angular_velocity>
+                    <x>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                        </noise>
+                    </x>
+                    <y>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                        </noise>
+                    </y>
+                    <z>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                        </noise>
+                    </z>
+                </angular_velocity>
+                <linear_acceleration>
+                    <x>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                        </noise>
+                    </x>
+                    <y>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                        </noise>
+                    </y>
+                    <z>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                        </noise>
+                    </z>
+                </linear_acceleration>
+            </imu>
         </sensor>
-    </gazebo>
+    </link>
+
+
 
     <joint name="gps_joint" type="fixed">
         <parent link="base_link"/>
@@ -67,18 +97,17 @@
                 <box size="0.2 0.2 0.02" />
             </geometry>   
         </collision>
-    </link>
 
-    <gazebo reference="gps_link">
         <sensor name="gps_sensor" type="gps">
             <always_on>true</always_on>
             <update_rate>10</update_rate>
-            <plugin name="my_gps_plugin" filename="libgazebo_ros_gps_sensor.so">
-                <ros>
-                    <remapping>~/out:=/marinero/gps_sensor</remapping>
-                </ros>
-            </plugin>
+            <topic>marinero/gps_sensor</topic>
+            <gz_frame_id>gps_link</gz_frame_id>
         </sensor>
-    </gazebo>
 
+    </link>
+    
+    <gazebo reference="imu_link"></gazebo>
+    <gazebo reference="gps_link"></gazebo>
+    
 </robot>

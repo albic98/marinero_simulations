@@ -38,10 +38,18 @@ def generate_launch_description():
         parameters=[twist_mux_params]
     )
 
+    twist_stamper_node = Node(
+        package='twist_stamper',
+        executable='twist_stamper',
+        remappings=[('/cmd_vel_in', 'cmd_vel_unstamped'),
+                    ('/cmd_vel_out', '/cmd_vel')]
+    )
+
     return LaunchDescription([
         joy_node,
         odometry_node,
         teleop_node,
         control_node,
-        twist_mux_node
+        # twist_mux_node,
+        # twist_stamper_node
     ])

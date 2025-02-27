@@ -3,7 +3,7 @@
 
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            <plugin>gazebo_ros2_control/GazeboSimSystem</plugin>
         </hardware>
 
         <!-- ROTATION JOINTS -->
@@ -153,11 +153,9 @@
     </gazebo>
 
     <!-- <gazebo>
-        <plugin name="marinero_robot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
-            <ros>
-                <remapping>~/out:=/joint_states</remapping>
-            </ros>
-            <update_rate>200</update_rate>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+            <topic>/joint_states</topic>
+            <update_rate>100</update_rate>
             <joint_name>fl_rotation_joint</joint_name>
             <joint_name>fr_rotation_joint</joint_name>
             <joint_name>rl_rotation_joint</joint_name>
@@ -172,19 +170,6 @@
         </plugin>
     </gazebo> -->
 
-    <gazebo>
-        <plugin name="libgazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
-            <ros>
-                <namespace>/</namespace>
-                <remapping>odom:=/marinero/odom</remapping>
-            </ros>
-            <frame_name>map</frame_name>
-            <body_name>base_link</body_name>
-            <update_rate>100</update_rate>
-            <gaussian_noise>0.01</gaussian_noise>
-        </plugin>
-    </gazebo>
-
     <gazebo reference="chassis">
         <mu1>1.0</mu1>
         <mu2>1.0</mu2>
@@ -193,71 +178,56 @@
     <gazebo reference="fl_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
-        <material>Gazebo/Black</material>
     </gazebo>
 
     <gazebo reference="fr_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
-        <material>Gazebo/Black</material>
     </gazebo>
 
     <gazebo reference="rl_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
-        <material>Gazebo/Black</material>
     </gazebo>
 
     <gazebo reference="rr_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
-        <material>Gazebo/Black</material>
     </gazebo>
 
     <gazebo reference="fl_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <gazebo reference="fr_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <gazebo reference="rl_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <gazebo reference="rr_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <gazebo reference="camera_base">
         <mu1>5.0</mu1>
         <mu2>5.0</mu2>
-        <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <gazebo reference="left_camera_link">
         <mu1>5.0</mu1>
         <mu2>5.0</mu2>
-        <material>Gazebo/Grey</material>
     </gazebo>
 
     <gazebo reference="right_camera_link">
         <mu1>5.0</mu1>
         <mu2>5.0</mu2>
-        <material>Gazebo/Grey</material>
     </gazebo>
-
-    <gazebo reference="lidar_link">
-        <material>Gazebo/Grey</material>
-    </gazebo> 
 
 </robot>

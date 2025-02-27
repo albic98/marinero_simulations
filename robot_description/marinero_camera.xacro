@@ -95,7 +95,28 @@
         <child link="right_camera_depth_frame"/>
     </joint>
 
-    <link name="right_camera_depth_frame"></link>
+    <link name="right_camera_depth_frame">
+        <sensor name="right_depth_camera" type="depth">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>50</update_rate>
+            <topic>right_depth_camera/image_raw</topic>
+            <gz_frame_id>right_camera_depth_frame</gz_frame_id>
+            <camera name="right_dep_cam">
+                <camera_info_topic>right_depth_camera/camera_info</camera_info_topic>
+                <horizontal_fov>1.3962634</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>B8G8R8</format>
+                </image>
+                <clip>
+                    <near>0.025</near>
+                    <far>20</far>
+                </clip>
+            </camera>
+        </sensor>
+    </link>
 
 
     <!-- LEFT CAMERA -->
@@ -152,16 +173,15 @@
         <child link="left_camera_depth_frame"/>
     </joint>
 
-    <link name="left_camera_depth_frame"></link>
-
-
-    <!-- GAZEBO PLUGINS -->
-
-    <gazebo reference="right_camera_center_link">
-        <sensor name="right_depth_camera" type="depth">
-            <update_rate>50.0</update_rate>
-            <visualize>false</visualize>
+    <link name="left_camera_depth_frame">
+        <!-- <sensor name="left_depth_camera" type="depth">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>50</update_rate>
+            <topic>left_depth_camera/image_raw</topic>
+            <gz_frame_id>left_camera_depth_frame</gz_frame_id>
             <camera name="right_dep_cam">
+                <camera_info_topic>left_depth_camera/camera_info</camera_info_topic>
                 <horizontal_fov>1.3962634</horizontal_fov>
                 <image>
                     <width>640</width>
@@ -173,39 +193,11 @@
                     <far>20</far>
                 </clip>
             </camera>
-            <plugin name="right_camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>right_camera_depth_frame</frame_name>
-                <update_rate>50.0</update_rate>
-                <min_depth>0.025</min_depth>
-                <max_depth>20</max_depth>
-            </plugin>
-        </sensor>
-    </gazebo>
+        </sensor> -->
+    </link>
 
-    <!-- <gazebo reference="left_camera_center_link">
-        <sensor name="left_depth_camera" type="depth">
-            <update_rate>20</update_rate>
-            <visualize>false</visualize>
-            <camera name="left_dep_cam">
-                <horizontal_fov>1.3962634</horizontal_fov>
-                <image>
-                    <width>640</width>
-                    <height>480</height>
-                    <format>B8G8R8</format>
-                </image>
-                <clip>
-                    <near>0.1</near>
-                    <far>25</far>
-                </clip>
-            </camera>
-            <plugin name="left_camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>left_camera_depth_frame</frame_name>
-                <imageTopicName>camera/image_left</imageTopicName>
-                <depthImageTopicName>camera/depth_image_left</depthImageTopicName>
-                <min_depth>0.1</min_depth>
-                <max_depth>25</max_depth>
-            </plugin>
-        </sensor>
-    </gazebo> -->
+
+    <gazebo reference="right_camera_center_link"></gazebo>
+    <gazebo reference="left_camera_center_link"></gazebo>
 
 </robot>
