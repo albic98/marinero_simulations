@@ -1,52 +1,28 @@
-<?xml version='1.0'?>
-<sdf version='1.7'>
-  <model name='asphalt_plane'>
-    <link name='link'>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="asphalt_plane">
+    <static>true</static>
+    <link name="link">
       <pose>0 0 1.015 0 0 0</pose>
-      <gravity>1</gravity>
-      <inertial>
-        <mass>1</mass>
-        <pose>0 0 0 0 0 0</pose>
-        <inertia>
-          <ixx>1</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1</iyy>
-          <iyz>0</iyz>
-          <izz>1</izz>
-        </inertia>
-      </inertial>
-      <visual name='visual'>
-        <cast_shadows>0</cast_shadows>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
         <geometry>
           <box>
             <size>70 20 0.5</size>
           </box>
         </geometry>
         <material>
-          <script>
-            <uri>model://asphalt_plane/materials/scripts</uri>
-            <uri>model://asphalt_plane/materials/textures</uri>
-            <name>vrc/asphalt</name>
-          </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <ambient>0.5 0.5 0.5 1</ambient>
-          <diffuse>0.5 0.5 0.5 1</diffuse>
-          <specular>0.2 0.2 0.2 1</specular>
-          <emissive>0 0 0 1</emissive>
+          <ambient>0.5 0.5 0.5 1.0</ambient>
+          <diffuse>0.5 0.5 0.5 1.0</diffuse>
+          <specular>0.2 0.2 0.2 1.0</specular>
+          <!-- <pbr>
+            <metal>
+              <albedo_map>model://asphalt_plane/materials/textures/tarmac.png</albedo_map>
+            </metal>
+          </pbr> -->
         </material>
-        <pose>0 0 0 0 0 0</pose>
-        <transparency>0</transparency>
       </visual>
-      <collision name='collision'>
-        <laser_retro>0</laser_retro>
-        <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 0 0</pose>
+      <collision name="collision">
         <geometry>
           <box>
             <size>70 20 0.5</size>
@@ -99,7 +75,5 @@
         </surface>
       </collision>
     </link>
-    <static>1</static>
-    <allow_auto_disable>1</allow_auto_disable>
   </model>
 </sdf>

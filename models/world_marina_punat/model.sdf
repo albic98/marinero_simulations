@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name="world_marina_punat">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_A_environment</uri>
+      <pose>96.710 55.0214 0.0 0.0 0.0 0.068</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_B_environment</uri>
+      <pose>96.6318 54.7578 0.0 0.0 0.0 0.0676</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_C_environment</uri>
+      <pose>97.16365 54.75736 0.0 0.0 0.0 0.0685</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_A_objects</uri>
+      <pose>96.710 55.0214 0.0 0.0 0.0 0.068</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_B_objects</uri>
+      <pose>96.6318 54.7578 0.0 0.0 0.0 0.0676</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_C_objects</uri>
+      <pose>97.16365 54.75736 0.0 0.0 0.0 0.0685</pose>
+    </include>
+
+  </model>
+</sdf>

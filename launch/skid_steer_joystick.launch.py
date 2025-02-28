@@ -48,5 +48,5 @@ def generate_launch_description():
         teleop_node,
         camera_node,
         # twist_mux_node,
-        twist_stamper_node
+        # twist_stamper_node
     ])

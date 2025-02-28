@@ -10,14 +10,14 @@
       <inertial>
         <mass>5.27875e+06</mass>
         <pose>0 0 0 0 -0 0</pose>
-        <inertia>
+        <!-- <inertia>
           <ixx>4.66688e+09</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>1.84866e+10</iyy>
           <iyz>0</iyz>
           <izz>2.31535e+10</izz>
-        </inertia>
+        </inertia> -->
       </inertial>
       <visual name='visual'>
         <cast_shadows>0</cast_shadows>
@@ -27,18 +27,14 @@
           </box>
         </geometry>
         <material>
-          <script>
-            <uri>model://sea_plane/materials/scripts</uri>
-            <uri>model://sea_plane/materials/textures</uri>
-            <name>vrc/sea</name>
-          </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
-          <ambient>0 0.4 0.6 0</ambient>
-          <diffuse>0 0.4 0.6 1</diffuse>
-          <specular>0.2 0.2 0.2 1</specular>
-          <emissive>0 0 0 1</emissive>
+          <ambient>0.0 0.4 0.6 1.0</ambient>
+          <diffuse>0.0 0.4 0.6 1.0</diffuse>
+          <specular>0.2 0.2 0.2 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://sea_plane/materials/textures/sea_plane.jpg</albedo_map>
+            </metal>
+          </pbr>
         </material>
         <pose>0 0 0 0 -0 0</pose>
         <transparency>0</transparency>

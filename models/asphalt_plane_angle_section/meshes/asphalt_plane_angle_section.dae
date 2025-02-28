@@ -41,7 +41,7 @@
   </library_effects>
   <library_images>
     <image id="tarmac_png" name="tarmac_png">
-      <init_from>tarmac.png</init_from>
+      <init_from>marinero_simulations/models/asphalt_plane_angle_section/materials/textures/tarmac.png</init_from>
     </image>
   </library_images>
   <library_materials>
