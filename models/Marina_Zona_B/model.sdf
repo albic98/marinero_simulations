@@ -23,7 +23,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/Marina_Zona_B/meshes/Marina_Zona_B.stl</uri>
+            <uri>model://Marina_Zona_B/meshes/Marina_Zona_B.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -45,7 +45,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/Marina_Zona_B/meshes/Marina_Zona_B.stl</uri>
+            <uri>model://Marina_Zona_B/meshes/Marina_Zona_B.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

@@ -23,14 +23,14 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/asphalt_plane_zone_B/meshes/asphalt_plane_zone_B.dae</uri>
+            <uri>model://asphalt_plane_zone_B/meshes/asphalt_plane_zone_B.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
         <material>
-          <ambient>0.5 0.5 0.5 1.0</ambient>
-          <diffuse>0.5 0.5 0.5 1.0</diffuse>
-          <specular>0.2 0.2 0.2 1.0</specular>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
           <!-- <pbr>
             <metal>
               <albedo_map>model://asphalt_plane/materials/textures/tarmac.png</albedo_map>
@@ -46,7 +46,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/asphalt_plane_zone_B/meshes/asphalt_plane_zone_B.dae</uri>
+            <uri>model://asphalt_plane_zone_B/meshes/asphalt_plane_zone_B.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

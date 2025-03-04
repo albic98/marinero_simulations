@@ -7,16 +7,15 @@
         <geometry>
           <mesh>
             <scale>0.02 0.02 0.02</scale>
-            <uri>/marinero_simulations/models/palm_tree/meshes/palm_tree.dae</uri>
+            <uri>model://palm_tree/meshes/palm_tree.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-
             <scale>0.02 0.02 0.02</scale>
-            <uri>/marinero_simulations/models/palm_tree/meshes/palm_tree.dae</uri>
+            <uri>model://palm_tree/meshes/palm_tree.dae</uri>
           </mesh>
         </geometry>
       </visual>

@@ -23,7 +23,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/SMART_FIRE_cabinet/meshes/SMART_FIRE_cabinet.stl</uri>
+            <uri>model://SMART_FIRE_cabinet/meshes/SMART_FIRE_cabinet.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -45,7 +45,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/SMART_FIRE_cabinet/meshes/SMART_FIRE_cabinet.stl</uri>
+            <uri>model://SMART_FIRE_cabinet/meshes/SMART_FIRE_cabinet.stl</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

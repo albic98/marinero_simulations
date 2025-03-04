@@ -70,7 +70,7 @@
     </include>
 
     <include>
-      <uri>model://grass_plane</uri>
+      <uri>/marinero_simulations/models/grass_plane</uri>
       <name>grass_4</name>
       <pose>94.16 72.5637 0 0 0 0.0925</pose>
     </include>

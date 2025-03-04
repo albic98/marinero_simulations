@@ -7,22 +7,21 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/yacht_2/meshes/Yacht_2.stl</uri>
+            <uri>model://yacht_2/meshes/Yacht_2.stl</uri>
             <scale>5.0 5.0 5.0</scale>
           </mesh>
         </geometry>
         <material>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
-          </script>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
         </material>
       </visual>
       <collision name='collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/yacht_2/meshes/Yacht_2.stl</uri>
+            <uri>model://yacht_2/meshes/Yacht_2.stl</uri>
             <scale>5.0 5.0 5.0</scale>
           </mesh>
         </geometry>

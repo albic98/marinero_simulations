@@ -32,7 +32,7 @@ def generate_launch_description():
     world_arg = DeclareLaunchArgument(
         'world',
         # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base_with_sensors.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base_harmonic_world.world'),
         description='Full path to new world.'
     )
 
@@ -99,11 +99,11 @@ def generate_launch_description():
         launch_arguments={'gz_args': ['-r -s -v4 ', world], 'on_exit_shutdown': 'true'}.items()
     )
 
-    launch_mapviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-                os.path.join(get_package_share_directory('mapviz'),'launch','mapviz.launch.py')
-        )
-    )
+    # launch_mapviz = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #             os.path.join(get_package_share_directory('mapviz'),'launch','mapviz.launch.py')
+    #     )
+    # )
 
     launch_robot_state_publisher = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -246,10 +246,10 @@ def generate_launch_description():
                 ]
     )
 
-    delayed_mapviz = TimerAction(
-        period = 30.0,
-        actions = [launch_mapviz]
-    )
+    # delayed_mapviz = TimerAction(
+    #     period = 30.0,
+    #     actions = [launch_mapviz]
+    # )
 
     return LaunchDescription([
         world_arg,
@@ -260,7 +260,7 @@ def generate_launch_description():
         y_pose_arg,
         direction_arg,
         launch_gazebo,
-        zones_spawner_node,
+        # zones_spawner_node,
         launch_robot_state_publisher,
         delayed_gazebo_spawner_nodes,
         map_odom_trans_publisher,

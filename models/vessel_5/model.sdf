@@ -23,7 +23,7 @@
         <pose>0 0 0 0 0 -1.5708</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/vessel_5/meshes/Boat05.dae</uri>
+            <uri>model://vessel_5/meshes/Boat05.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -47,7 +47,7 @@
         <pose>0 0 0 0 0 -1.5708</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/vessel_5/meshes/Boat05.dae</uri>
+            <uri>model://vessel_5/meshes/Boat05.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

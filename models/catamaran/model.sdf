@@ -7,7 +7,7 @@
         <pose>0 0 -0.7 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/catamaran/meshes/Catamaran.stl</uri>
+            <uri>model://catamaran/meshes/Catamaran.stl</uri>
             <scale>1.0 1.0 1.0</scale>
           </mesh>
         </geometry>
@@ -22,7 +22,7 @@
         <pose>0 0 -0.7 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>/marinero_simulations/models/catamaran/meshes/Catamaran.stl</uri>
+            <uri>model://catamaran/meshes/Catamaran.stl</uri>
             <scale>1.0 1.0 1.0</scale>
           </mesh>
         </geometry>

@@ -12,9 +12,9 @@
           </box>
         </geometry>
         <material>
-          <ambient>0.5 0.5 0.5 1.0</ambient>
-          <diffuse>0.5 0.5 0.5 1.0</diffuse>
-          <specular>0.2 0.2 0.2 1.0</specular>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
           <!-- <pbr>
             <metal>
               <albedo_map>model://asphalt_plane/materials/textures/tarmac.png</albedo_map>

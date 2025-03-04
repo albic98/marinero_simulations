@@ -68,7 +68,7 @@
     </include>
 
     <include>
-      <uri>model://grass_plane</uri>
+      <uri>/marinero_simulations/models/grass_plane</uri>
       <name>grass_6</name>
       <pose>142.555176 487.275604 0 0 0 0</pose>
     </include>
@@ -86,7 +86,7 @@
     </include>
 
     <include>
-      <uri>model://grass_plane</uri>
+      <uri>/marinero_simulations/models/grass_plane</uri>
       <name>grass_9</name>
       <pose>141.559189 435.483673 0 0 0 0</pose>
     </include>
@@ -98,7 +98,7 @@
     </include>
 
     <include>
-      <uri>model://grass_plane</uri>
+      <uri>/marinero_simulations/models/grass_plane</uri>
       <name>grass_11</name>
       <pose>140.760880 386.513733 0 0 0 0</pose>
     </include>

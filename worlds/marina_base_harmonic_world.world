@@ -1,13 +1,5 @@
 <sdf version='1.7'>
-  <world name='marina_base'>
-
-
-    <!-- <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
-      <ros>
-        <namespace>/gazebo</namespace>
-      </ros>
-      <update_rate>1.0</update_rate>
-    </plugin> -->
+  <world name='marina_harmonic_world'>
 
     <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"></plugin>
     <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"></plugin>
@@ -18,7 +10,7 @@
       <render_engine>ogre2</render_engine>
     </plugin>
 
-    <light name='sun' type='directional'>
+    <light name='0_sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
@@ -30,6 +22,25 @@
         <quadratic>0.001</quadratic>
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+    <light name='sun_clone' type='directional'>
+      <pose>-7.81637 198.095 40 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.483368 0.096674 -0.870063</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
       <spot>
         <inner_angle>0</inner_angle>
         <outer_angle>0</outer_angle>
@@ -84,6 +95,42 @@
       </link>
     </model>
 
+    <include>
+      <uri>/marinero_simulations/models/world_zona_A_environment</uri>
+      <name>zona_A</name>
+      <pose>96.710 55.0214 0.0 0.0 0.0 0.068</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_B_environment</uri>
+      <name>zona_B</name>
+      <pose>96.6318 54.7578 0.0 0.0 0.0 0.0676</pose>
+    </include>
+
+    <include>
+      <uri>/marinero_simulations/models/world_zona_C_environment</uri>
+      <name>zona_C</name>
+      <pose>97.16365 54.75736 0.0 0.0 0.0 0.0685</pose>
+    </include>
+
+    <!-- <include>
+      <uri>/marinero_simulations/models/world_zona_A_objects</uri>
+      <name>zona_A_objects</name>
+      <pose>96.710 55.0214 0.0 0.0 0.0 0.068</pose>
+    </include> -->
+
+    <!-- <include>
+      <uri>/marinero_simulations/models/world_zona_B_objects</uri>
+      <name>zona_B_objects</name>
+      <pose>96.6318 54.7578 0.0 0.0 0.0 0.0676</pose>
+    </include> -->
+
+    <!-- s<include>
+      <uri>/marinero_simulations/models/world_zona_C_objects</uri>
+      <name>zona_C_objects</name>
+      <pose>97.16365 54.75736 0.0 0.0 0.0 0.0685</pose>
+    </include> -->
+
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -103,7 +150,6 @@
     <audio>
       <device>default</device>
     </audio>
-    <wind/>
 
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -113,26 +159,7 @@
       <heading_deg>180</heading_deg>
     </spherical_coordinates>
 
-    <light name='sun_clone' type='directional'>
-      <pose>-7.81637 198.095 40 0 -0 0</pose>
-      <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <direction>-0.483368 0.096674 -0.870063</direction>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <cast_shadows>0</cast_shadows>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
-    </light>
-
-    <state world_name='marina_base'>
+    <state world_name='marina_harmonic_world'>
       <sim_time>1931 367000000</sim_time>
       <real_time>286 834474999</real_time>
       <wall_time>1732270848 804629631</wall_time>
@@ -147,7 +174,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <light name='sun'>
+      <light name='0_sun'>
         <pose>0 50 40 0 -0 0</pose>
       </light>
       <light name='sun_clone'>
