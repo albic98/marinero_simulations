@@ -152,7 +152,7 @@ class SDF2Marker(Node):
         visual_marker.color.g = 0.129
         visual_marker.color.b = 0.02
         visual_marker.color.a = 0.7
-        visual_marker.mesh_resource = f"package:/{visual_uri}"
+        visual_marker.mesh_resource = f"package://marinero_simulations/models/{visual_uri.removeprefix("model://")}"
         visual_marker.mesh_use_embedded_materials = True
         visual_marker.id = 0
         marker_array.markers.append(visual_marker)

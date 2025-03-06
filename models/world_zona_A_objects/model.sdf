@@ -4,12 +4,6 @@
     <static>true</static>
 
     <include>
-      <uri>/marinero_simulations/models/parking_version_2</uri>
-      <name>parking_0</name>
-      <pose>101.486943 1.055754 1.265 0 0 -3.072</pose>
-    </include>
-
-    <include>
       <uri>/marinero_simulations/models/parking_version_3</uri>
       <name>parking_1</name>
       <pose>100.662942 13.026883 1.265 0 0 -3.072</pose>

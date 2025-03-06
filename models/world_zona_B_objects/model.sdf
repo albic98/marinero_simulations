@@ -5,7 +5,7 @@
 
     <include>
       <uri>/marinero_simulations/models/parking_version_1</uri>
-      <name>parking</name>
+      <name>parking_01</name>
       <pose>100.755426 306.285596 1.265000 0 0 -3.072601</pose>
     </include>
 
@@ -592,5 +592,3 @@
 
   </model>
 </sdf>
-
-

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 
-    <gazebo reference="chassis">
+    <!-- <gazebo reference="chassis">
         <mu1>1.0</mu1>
         <mu2>1.0</mu2>
     </gazebo>
@@ -71,13 +71,7 @@
         <mu2>2.0</mu2>
         <kp>5e10</kp>
         <kd>10.0</kd>
-    </gazebo>
-
-    <gazebo reference="left_camera_link"></gazebo>
-
-    <gazebo reference="right_camera_link"></gazebo>
-
-    <gazebo reference="lidar_link"></gazebo>
+    </gazebo> -->
 
     <gazebo>
         <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
@@ -100,24 +94,27 @@
             <wheel_radius>0.1016</wheel_radius>
 
             <!-- limits -->
-            <max_wheel_torque>20.0</max_wheel_torque>
-            <max_wheel_acceleration>10.0</max_wheel_acceleration>
-            <max_linear_acceleration>1.0</max_linear_acceleration>
+            <max_wheel_torque>50.0</max_wheel_torque>
+            <max_wheel_acceleration>5.0</max_wheel_acceleration>
+            <max_linear_acceleration>5.0</max_linear_acceleration>
+
+            <!-- input -->
+            <topic>cmd_vel_stamped</topic>
 
             <!-- output -->
-            <topic>/cmd_vel</topic>
-            <odom_topic>/marinero/odom</odom_topic>
+            <odom_topic>marinero/odom</odom_topic>
             <frame_id>odom</frame_id>
             <child_frame_id>base_link</child_frame_id>
-            <odom_publisher_frequency>50</odom_publisher_frequency>
+            <odom_publisher_frequency>100</odom_publisher_frequency>
             <tf_topic>/tf</tf_topic>
-
         </plugin>
-    </gazebo>
+        
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin" >
+            <parameters>$(find marinero_simulations)/config/camera_controller.yaml</parameters>
+        </plugin>
 
-    <gazebo>
         <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
-            <topic>/joint_states</topic>
+            <topic>joint_states</topic>
             <joint_name>fl_wheel_joint</joint_name>
             <joint_name>fr_wheel_joint</joint_name>
             <joint_name>rl_wheel_joint</joint_name>
@@ -128,11 +125,57 @@
         </plugin>
     </gazebo>
 
+    <ros2_control name="GazeboSimSystem" type="system">
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+        <joint name="camera_base_joint">
+            <command_interface name="position">
+                <param name="min">-1.57</param>
+                <param name="max">1.57</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity" />
+            <state_interface name="effort" />
+        </joint>
+
+        <joint name="right_camera_joint">
+            <command_interface name="position">
+                <param name="min">-1.57</param>
+                <param name="max">1.57</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">1.6</param>
+            </state_interface>
+            <state_interface name="velocity" />
+            <state_interface name="effort" />
+        </joint>
+
+        <joint name="left_camera_joint">
+            <command_interface name="position">
+                <param name="min">-1.57</param>
+                <param name="max">1.57</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">1.5</param>
+            </state_interface>
+            <state_interface name="velocity" />
+            <state_interface name="effort" />
+        </joint>
+    </ros2_control>
+
     <!-- <gazebo>
-        <plugin name="gazebo_ros_joint_pose_trajectory" 
-            filename="libgazebo_ros_joint_pose_trajectory.so">
-            <update_rate>100</update_rate>
+        <plugin filename="gz-sim-joint-state-broadcaster-system" name="gz::sim::systems::JointStateBroadcaster">
+            <topic>/joint_states</topic>
+            <joint_name>fl_wheel_joint</joint_name>
+            <joint_name>fr_wheel_joint</joint_name>
+            <joint_name>rl_wheel_joint</joint_name>
+            <joint_name>rr_wheel_joint</joint_name>
+            <joint_name>camera_base_joint</joint_name>
+            <joint_name>left_camera_joint</joint_name>
+            <joint_name>right_camera_joint</joint_name>
         </plugin>
     </gazebo> -->
-
 </robot>

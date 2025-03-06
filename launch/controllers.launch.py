@@ -1,5 +1,7 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import RegisterEventHandler
+from launch.event_handlers import OnProcessExit
 
 def generate_launch_description():
     
@@ -26,6 +28,12 @@ def generate_launch_description():
         executable='spawner',
         arguments=['joint_state_broadcaster']
     )
+    # start_controllers = RegisterEventHandler(
+    #     event_handler=OnProcessExit(
+    #         target_action=joint_state_broadcaster,
+    #         on_exit=[forward_velocity_controller,
+    #                  forward_position_controller])
+    # )
     
     return LaunchDescription([
         joint_state_broadcaster,

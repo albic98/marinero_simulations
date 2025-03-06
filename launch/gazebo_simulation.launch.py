@@ -31,8 +31,8 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base_harmonic_world.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base_with_sensors.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','empty.world'),
         description='Full path to new world.'
     )
 
@@ -96,7 +96,7 @@ def generate_launch_description():
                 os.path.join(get_package_share_directory('ros_gz_sim'),'launch','gz_sim.launch.py')
             ]
         ),
-        launch_arguments={'gz_args': ['-r -s -v4 ', world], 'on_exit_shutdown': 'true'}.items()
+        launch_arguments={'gz_args': ['-r -v4 ', world], 'on_exit_shutdown': 'true'}.items()
     )
 
     # launch_mapviz = IncludeLaunchDescription(
@@ -127,10 +127,19 @@ def generate_launch_description():
         condition=IfCondition(use_ros2_control)
     )
 
+
+    camera_position_controller = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_trajectory_controller'],
+        condition=UnlessCondition(use_ros2_control),
+        output='screen'
+    )
+
     map_odom_trans_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments='--x 0 --y 0 --z -1.26 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom'.split(' '),
+        arguments='--x 0 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom'.split(' '),
     )
 
     marinero_spawner_node = Node(
@@ -144,23 +153,25 @@ def generate_launch_description():
             '-z', '1.30',
             '-R', '0.0',
             '-P', '0.0',
-            '-Y', yaw_pose
+            '-Y', yaw_pose,
         ],
-        output= 'screen'
+        output='screen'
     )
 
     _4wis4wid_drive_joy_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(pkg_name),'launch','_4wis4wid_drive_joystick.launch.py')
         ]),
-        condition=IfCondition(use_ros2_control)
+        condition=IfCondition(use_ros2_control),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
     skid_steer_joy_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(pkg_name),'launch','skid_steer_joystick.launch.py')
         ]),
-        condition=UnlessCondition(use_ros2_control)
+        condition=UnlessCondition(use_ros2_control),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
     gz_bridge_node = Node(
@@ -169,16 +180,13 @@ def generate_launch_description():
         arguments=[
             '--ros-args',
             '-p',
-            f'config_file:={bridge_params}',
-        ],
-        output='screen',
+            f'config_file:={bridge_params}']
     )
 
     gz_bridge_image_node = Node(
         package='ros_gz_image',
         executable='image_bridge',
-        arguments=['/right_depth_camera/image_raw'],
-        output='screen',
+        arguments=['/right_depth_camera/image_raw']
     )
     
     marina_marker_node = Node(
@@ -205,7 +213,7 @@ def generate_launch_description():
         package='marinero_simulations',
         executable='segmented_gazebo_publisher.py',
         arguments= [x_pose, y_pose],
-        output= 'screen'
+        output='screen'
     )
 
     gazebo_marker_node = Node(
@@ -229,6 +237,11 @@ def generate_launch_description():
         actions = [launch_controller_manager]
     )
 
+    delayed_camera_controller_manager = TimerAction(
+        period = 4.0,
+        actions = [camera_position_controller]
+    )
+
     marker_nodes = RegisterEventHandler(
         OnProcessExit(
             target_action=marinero_spawner_node,
@@ -241,7 +254,7 @@ def generate_launch_description():
     delayed_nodes = TimerAction(
         period = 8.0,
         actions = [marina_marker_node, 
-                    # pointcloud_node, 
+                    pointcloud_node, 
                     # marinero_yolo_node,
                 ]
     )
@@ -261,14 +274,15 @@ def generate_launch_description():
         direction_arg,
         launch_gazebo,
         # zones_spawner_node,
-        launch_robot_state_publisher,
-        delayed_gazebo_spawner_nodes,
         map_odom_trans_publisher,
+        delayed_gazebo_spawner_nodes,
         _4wis4wid_drive_joy_launch,
         skid_steer_joy_launch,
         gz_bridge_node,
         gz_bridge_image_node,
+        launch_robot_state_publisher,
         delayed_controller_manager,
+        delayed_camera_controller_manager,
         delayed_nodes,
         # marker_nodes,
         rviz2_node,
