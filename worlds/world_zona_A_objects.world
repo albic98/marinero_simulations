@@ -3,7 +3,7 @@
   <world name="world_zona_A_objects">
 
     <include>
-      <uri>/home/albert/marinero_ws/src/marinero_simulations/models/world_zona_A_objects</uri>
+      <uri>/marinero_simulations/models/world_zona_A_objects</uri>
     </include>
 
     <plugin name="factory" filename="libfactory.so"/>

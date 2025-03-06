@@ -1,7 +1,9 @@
+worlds/marina_gazebo_fortress.world
 robot_description/meshes/MARINERO_chassis.dae
 robot_description/meshes/MARINERO_chassis_06_11.zip
 models/zona_A_ormarici/meshes/
 models/zona_B_ormarici/meshes/
 models/zona_C_ormarici/meshes/
+models/ormarici_MarinaPunat.zip
 .vscode/
 build/
