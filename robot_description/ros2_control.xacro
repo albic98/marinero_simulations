@@ -150,6 +150,9 @@
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
             <parameters>$(find marinero_simulations)/config/controllers.yaml</parameters>
         </plugin>
+
+
+
     </gazebo>
 
     <!-- <gazebo>
@@ -181,6 +184,7 @@
             <frame_name>map</frame_name>
             <body_name>base_link</body_name>
             <update_rate>100</update_rate>
+            <xyz_offset>0 0 -1.26</xyz_offset>
             <gaussian_noise>0.01</gaussian_noise>
         </plugin>
     </gazebo>

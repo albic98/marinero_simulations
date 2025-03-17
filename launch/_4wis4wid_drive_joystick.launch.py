@@ -9,7 +9,6 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
-    # joy_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','_4wis4wid_drive_joystick.yaml')
     twist_mux_params = os.path.join(get_package_share_directory('marinero_simulations'),'config','twist_mux_4wis4wid.yaml')
 
     joy_node = Node(
