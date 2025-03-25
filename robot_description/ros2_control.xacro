@@ -150,9 +150,6 @@
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
             <parameters>$(find marinero_simulations)/config/controllers.yaml</parameters>
         </plugin>
-
-
-
     </gazebo>
 
     <!-- <gazebo>

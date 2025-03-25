@@ -30,13 +30,67 @@
             <always_on>true</always_on>
             <update_rate>100</update_rate>
             <visualize>true</visualize>
+            <imu>
+                <angular_velocity>
+                    <x>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.0001</stddev>
+                        <bias_mean>0.0</bias_mean>
+                        <bias_stddev>0.0</bias_stddev>
+                    </noise>
+                    </x>
+                    <y>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.0001</stddev>
+                        <bias_mean>0.0</bias_mean>
+                        <bias_stddev>0.0</bias_stddev>
+                    </noise>
+                    </y>
+                    <z>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.0001</stddev>
+                        <bias_mean>0.0</bias_mean>
+                        <bias_stddev>0.0</bias_stddev>
+                    </noise>
+                    </z>
+                </angular_velocity>
+                <linear_acceleration>
+                    <x>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.0001</stddev>
+                        <bias_mean>0.0</bias_mean>
+                        <bias_stddev>0.0</bias_stddev>
+                    </noise>
+                    </x>
+                    <y>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.0001</stddev>
+                        <bias_mean>0.0</bias_mean>
+                        <bias_stddev>0.0</bias_stddev>
+                    </noise>
+                    </y>
+                    <z>
+                    <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.0001</stddev>
+                        <bias_mean>0.0</bias_mean>
+                        <bias_stddev>0.0</bias_stddev>
+                    </noise>
+                    </z>
+                </linear_acceleration>
+            </imu>
+
             <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
                 <ros>
                     <remapping>~/out:=/marinero/imu_sensor</remapping>
                 </ros>
                 <body_name>imu_link</body_name>
-                <update_rate_hz>10.0</update_rate_hz>
-                <gaussian_noise>0.0</gaussian_noise>
+                <gaussian_noise>0.005</gaussian_noise>
                 <xyz_offset>0 0 0</xyz_offset>
                 <rpy_offset>0 0 0</rpy_offset>
                 <frame_name>imu_link</frame_name>

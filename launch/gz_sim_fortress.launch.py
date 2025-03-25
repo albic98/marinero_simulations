@@ -56,10 +56,10 @@ def generate_launch_description():
 
     x_pose_arg = DeclareLaunchArgument(
         'x_pose',
-        default_value= '0.68', # zone A
+        default_value= # '0.68', # zone A
                         # '194.195', # zone A
                         # '189.384', # zone A
-                        # '212.37', # zone B
+                        '212.37', # zone B
                         # '199.80', # zone B
                         # '191.31', # zone C
                         # '-45.826', # zone C
@@ -68,10 +68,10 @@ def generate_launch_description():
 
     y_pose_arg = DeclareLaunchArgument(
         'y_pose',
-        default_value= '0.70', # zone A
+        default_value= # '0.70', # zone A
                         # '50.486', # zone A
                         # '236.609', # zone A
-                        # '388.67', # zone B
+                        '388.67', # zone B
                         # '651.51', # zone B
                         # '826.93', # zone C
                         # '711.306', # zone C
@@ -80,10 +80,10 @@ def generate_launch_description():
 
     direction_arg = DeclareLaunchArgument(
         'yaw_pose',
-        default_value= '0.85', # zone A
+        default_value= # '0.85', # zone A
                         # '-3.025', # zone A
                         # '2.481', # zone A
-                        # '2.51', # zone B
+                        '2.51', # zone B
                         # '2.288', # zone B
                         # '-2.332', # zone C
                         # '0.856', # zone C
