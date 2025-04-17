@@ -129,5 +129,11 @@
       <pose>94.449425 172.158798 0 0 0 -1.510000</pose>
     </include>
 
+    <include>
+      <uri>/marinero_simulations/models/punionica</uri>
+      <name>MARINERO_punionica</name>
+      <pose>116.70 218.55 0 0 0 -1.53</pose>
+    </include>
+
   </model>
 </sdf>

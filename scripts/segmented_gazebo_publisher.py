@@ -45,7 +45,7 @@ class GazeboSpawner(Node):
                 "translation": [97.16365, 54.75736, 0.0],
                 }
             }
-        
+
         self.current_zone = None
         self.previous_zone = None
 

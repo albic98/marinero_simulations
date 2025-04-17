@@ -89,7 +89,7 @@
                 <ros>
                     <remapping>~/out:=/marinero/imu_sensor</remapping>
                 </ros>
-                <body_name>imu_link</body_name>
+                <body_name>base_link</body_name>
                 <gaussian_noise>0.005</gaussian_noise>
                 <xyz_offset>0 0 0</xyz_offset>
                 <rpy_offset>0 0 0</rpy_offset>
