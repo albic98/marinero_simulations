@@ -9,12 +9,13 @@
     <xacro:include filename="imu.xacro" />
     <xacro:include filename="lidar.xacro" />
     <xacro:include filename="marinero_camera.xacro" />
+    <xacro:include filename="SUNELL_camera.xacro" />
 
     <xacro:if value="$(arg use_4wis4wid)">
         <xacro:include filename="robot_core_4WIS4WID.xacro" />
     </xacro:if>
     <xacro:unless value="$(arg use_4wis4wid)">
-        <xacro:include filename="robot_core.xacro" />
+        <xacro:include filename="robot_core_SKID_STEER.xacro" />
     </xacro:unless>
 
     <xacro:if value="$(arg use_ros2_control)">

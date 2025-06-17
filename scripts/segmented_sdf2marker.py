@@ -38,7 +38,7 @@ class SDF2Marker(Node):
             "translation": [196.9555, 650.585, -1.18] # 0.08]
         }
         
-        self.current_zone = None
+        self.current_zone = self.zone_A
         self.sdf_published = False
 
         self.sdf_publisher = self.create_publisher(MarkerArray, "/sdf_markers", 10)
@@ -55,11 +55,11 @@ class SDF2Marker(Node):
 
             self.static_transform_publisher()
             self.sdf_publisher.publish(self.marker_array)
-        
+
     def odom_callback(self, msg):
         self.pose_x = msg.pose.pose.position.x
         self.pose_y = msg.pose.pose.position.y
-        
+
         zone_A_limit_1, zone_A_limit_2 = 301.0, 357.45
         zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 357.45, 661.1, 668.5
         zone_C_limit = 661.1
@@ -129,7 +129,8 @@ class SDF2Marker(Node):
 
         # Create MarkerArray for visualization
         marker_array = MarkerArray()
-
+        marker_array.markers = []
+        
         # Parse visual geometry
         visual = root.find(".//visual")
         visual_pose = visual.find("pose").text.split()

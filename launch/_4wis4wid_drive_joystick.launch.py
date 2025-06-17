@@ -18,7 +18,7 @@ def generate_launch_description():
 
     odometry_node = Node(
         package='marinero_control',
-        executable='marinero_odometry',
+        executable='marinero_odometry_new_model',
     )
 
     teleop_node = Node(

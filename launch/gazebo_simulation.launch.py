@@ -31,7 +31,6 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','R3_marina.world'),
         default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
         description='Full path to new world.'
     )
@@ -133,10 +132,18 @@ def generate_launch_description():
         condition=IfCondition(use_ros2_control)
     )
 
-    map_odom_trans_publisher = Node(
+    map_odom_trans_publisher_01 = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         arguments="--x 0 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom".split(' '),
+        condition=IfCondition(use_ros2_control)
+    )
+
+    map_odom_trans_publisher_02 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments="--x 0 --y 0 --z -1.26 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom".split(' '),
+        condition=UnlessCondition(use_ros2_control)
     )
 
     marinero_spawner_node = Node(
@@ -214,7 +221,8 @@ def generate_launch_description():
 
     delayed_controller_manager = TimerAction(
         period = 4.0,
-        actions = [launch_controller_manager]
+        actions = [launch_controller_manager],
+        condition=IfCondition(use_ros2_control)
     )
 
     marker_nodes = RegisterEventHandler(
@@ -251,12 +259,13 @@ def generate_launch_description():
         zones_spawner_node,
         launch_robot_state_publisher,
         delayed_gazebo_spawner_nodes,
-        map_odom_trans_publisher,
+        map_odom_trans_publisher_01,
+        map_odom_trans_publisher_02,
         _4wis4wid_drive_joy_launch,
         skid_steer_joy_launch,
         delayed_controller_manager,
         delayed_nodes,
-        marker_nodes,
+        # marker_nodes,
         rviz2_node,
         # delayed_mapviz,
     ])

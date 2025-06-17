@@ -40,7 +40,7 @@ class SDF2Marker(Node):
         self.sdf_publishers = [self.create_publisher(MarkerArray, f"/sdf_marker_{self.labels[i]}", 10) for i in range (len(self.labels))]   
         self.tf_broad = StaticTransformBroadcaster(self)
 
-        self.sdf_file_path = self.get_parameter("sdf_file_path").get_parameter_value().string_array_value
+        self.sdf_file_path = list(self.get_parameter("sdf_file_path").get_parameter_value().string_array_value)
         translations_inline = self.get_parameter("translation").get_parameter_value().double_array_value
         self.translation = [translations_inline[i:i+3] for i in range(0, len(translations_inline), 3)]
         euler_inline = self.get_parameter("euler_angles").get_parameter_value().double_array_value
@@ -96,6 +96,7 @@ class SDF2Marker(Node):
 
         # Create MarkerArray for visualization
         marker_array = MarkerArray()
+        marker_array.markers = []
 
         # Parse visual geometry
         visual = root.find(".//visual")

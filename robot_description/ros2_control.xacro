@@ -157,7 +157,7 @@
             <ros>
                 <remapping>~/out:=/joint_states</remapping>
             </ros>
-            <update_rate>200</update_rate>
+            <update_rate>100</update_rate>
             <joint_name>fl_rotation_joint</joint_name>
             <joint_name>fr_rotation_joint</joint_name>
             <joint_name>rl_rotation_joint</joint_name>
@@ -186,57 +186,63 @@
         </plugin>
     </gazebo>
 
+
     <gazebo reference="chassis">
         <mu1>1.0</mu1>
         <mu2>1.0</mu2>
+        <mesh>model://marinero_simulations/robot_description/meshes/MARINERO_chassis_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="fl_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
         <material>Gazebo/Black</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="fr_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
         <material>Gazebo/Black</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="rl_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
         <material>Gazebo/Black</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="rr_wheel">
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
         <material>Gazebo/Black</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="fl_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_Assembly_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="fr_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_Assembly_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="rl_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_Assembly_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="rr_axle_link">
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
-        <material>Gazebo/DarkGrey</material>
+        <mesh>model://marinero_simulations/robot_description/meshes/Wheel_Assembly_FINAL.dae</mesh>
     </gazebo>
 
     <gazebo reference="camera_base">
@@ -256,9 +262,5 @@
         <mu2>5.0</mu2>
         <material>Gazebo/Grey</material>
     </gazebo>
-
-    <gazebo reference="lidar_link">
-        <material>Gazebo/Grey</material>
-    </gazebo> 
 
 </robot>

@@ -1,12 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:property name="wheel_length" value="0.04" />
-    <xacro:property name="wheel_radius" value="0.1016" />
-    <xacro:property name="wheel_mass" value="1.469" />
-    <xacro:property name="axle_length" value="0.1234" />
-    <xacro:property name="axle_radius" value="0.035" />
-    <xacro:property name="axle_mass" value="1.5" />
+    <xacro:property name="wheel_length" value="0.06" />
+    <xacro:property name="wheel_radius" value="0.1" />
 
     <material name="white">
         <color rgba="1.0 1.0 1.0 1.0"/>
