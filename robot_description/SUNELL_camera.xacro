@@ -155,7 +155,7 @@
 
     <gazebo reference="right_camera_center_link">
         <sensor name="right_depth_camera" type="depth">
-            <update_rate>50</update_rate>
+            <update_rate>20</update_rate>
             <visualize>false</visualize>
             <camera name="right_dep_cam">
                 <horizontal_fov>1.3962634</horizontal_fov>
@@ -171,9 +171,7 @@
             </camera>
             <plugin name="right_camera_controller" filename="libgazebo_ros_camera.so">
                 <frame_name>right_camera_depth_frame</frame_name>
-                <imageTopicName>camera/image_right</imageTopicName>
-                <depthImageTopicName>camera/depth_image_right</depthImageTopicName>
-                <update_rate>50</update_rate>
+                <update_rate>20</update_rate>
                 <min_depth>0.05</min_depth>
                 <max_depth>10</max_depth>
             </plugin>

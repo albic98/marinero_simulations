@@ -6,7 +6,7 @@ import math
 import rclpy
 from rclpy.node import Node
 import tf_transformations as tf
-from geometry_msgs.msg import PoseStamped
+from nav_msgs.msg import Odometry
 from gazebo_msgs.srv import SpawnEntity, DeleteEntity
 from ament_index_python.packages import get_package_share_directory
 
@@ -18,7 +18,8 @@ class GazeboSpawner(Node):
     def __init__(self, x_pose, y_pose):
         super().__init__("gazebo_spawner")
 
-        self.pose_subscriber = self.create_subscription(PoseStamped, "/robot_pose", self.pose_callback, 10)
+        # self.pose_subscriber = self.create_subscription(PoseStamped, "/robot_pose", self.pose_callback, 10)
+        self.odom_sub = self.create_subscription(Odometry, "/marinero/odom", self.odom_callback, 10)
         self.spawn_client = self.create_client(SpawnEntity, "/spawn_entity")
         self.delete_client = self.create_client(DeleteEntity, "/delete_entity")
         
@@ -66,9 +67,9 @@ class GazeboSpawner(Node):
         self.current_zone = new_zone_label
 
 
-    def pose_callback(self, msg):
-        self.pose_x = msg.pose.position.x
-        self.pose_y = msg.pose.position.y
+    def odom_callback(self, msg):
+        self.pose_x = msg.pose.pose.position.x
+        self.pose_y = msg.pose.pose.position.y
 
         zone_A_limit_1, zone_A_limit_2 = 301.0, 357.45
         zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 357.45, 661.1, 668.5

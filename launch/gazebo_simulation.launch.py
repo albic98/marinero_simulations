@@ -88,7 +88,7 @@ def generate_launch_description():
                         # '2.288', # zone B
                         # '-2.332', # zone C
                         # '0.856', # zone C
-                        '-3.0176', # docking station
+                        '-3.0755', # docking station
         description='Direction in which the robot will be oriented'
     )
 
@@ -228,7 +228,7 @@ def generate_launch_description():
     marker_nodes = RegisterEventHandler(
         OnProcessExit(
             target_action=marinero_spawner_node,
-            on_exit=[rviz_marker_node,
+            on_exit=[# rviz_marker_node,
                     gazebo_marker_node,
             ]
         )
@@ -265,7 +265,7 @@ def generate_launch_description():
         skid_steer_joy_launch,
         delayed_controller_manager,
         delayed_nodes,
-        # marker_nodes,
+        marker_nodes,
         rviz2_node,
         # delayed_mapviz,
     ])
