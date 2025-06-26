@@ -277,14 +277,14 @@
       <uri>model://person_walking</uri>
       <name>walking_person_0</name>
       <static>1</static>
-      <pose>135.372 642.284 0.42096 0 0 0.849752</pose>
+      <pose>135.372 638.284 1.26 0 0 0.849752</pose>
     </include>
 
     <include>
       <uri>model://person_walking</uri>
       <name>walking_person_1</name>
       <static>1</static>
-      <pose>114.648 641.962 0.421 0 0 0.87534</pose>
+      <pose>114.648 638.5 1.26 0 0 0.87534</pose>
     </include>
 
     <include>

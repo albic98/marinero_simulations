@@ -26,7 +26,8 @@ def generate_launch_description():
     pkg_name='marinero_simulations'
 
     rviz2_base = os.path.join(get_package_share_directory(pkg_name), 'config')
-    rviz2_full_config = os.path.join(rviz2_base, 'marinero_rviz.rviz')
+    segmented_rviz2_config = os.path.join(rviz2_base, 'seg_marinero_rviz.rviz')
+    marina_rviz2_config = os.path.join(rviz2_base, 'marina_marinero_rviz.rviz')
     gazebo_params_file = os.path.join(get_package_share_directory(pkg_name),'config','gazebo_params.yaml')
 
     world_arg = DeclareLaunchArgument(
@@ -179,11 +180,13 @@ def generate_launch_description():
     marina_marker_node = Node(
         package='marinero_simulations',
         executable='segmented_sdf2marker.py',
+        # executable='marina_sdf2marker.py',
     )
 
     pointcloud_node = Node(
         package='marinero_pointclouds',
         executable='remapped_segmented_pcd_publisher_thread',
+        # executable='remapped_marina_pcd_publisher',
     )
 
     marinero_yolo_node = Node(
@@ -199,6 +202,7 @@ def generate_launch_description():
     zones_spawner_node = Node(
         package='marinero_simulations',
         executable='segmented_gazebo_publisher.py',
+        # executable='marina_gazebo_publisher.py',
         arguments= [x_pose, y_pose],
         output= "screen"
     )
@@ -211,7 +215,8 @@ def generate_launch_description():
     rviz2_node = Node(
         executable='rviz2',
         output='log',
-        arguments=['-d', rviz2_full_config],
+        arguments=['-d', segmented_rviz2_config],
+        # arguments=['-d', marina_rviz2_config],
     )
 
     delayed_gazebo_spawner_nodes = TimerAction(
@@ -228,7 +233,7 @@ def generate_launch_description():
     marker_nodes = RegisterEventHandler(
         OnProcessExit(
             target_action=marinero_spawner_node,
-            on_exit=[# rviz_marker_node,
+            on_exit=[rviz_marker_node,
                     gazebo_marker_node,
             ]
         )
