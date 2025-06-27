@@ -66,15 +66,15 @@
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>360.0</samples>
+                        <samples>360</samples>
                         <resolution>1.0</resolution>
-                        <min_angle>${-pi/2.25}</min_angle>
-                        <max_angle>${pi/2.25}</max_angle>
+                        <min_angle>${-pi/2.1}</min_angle>
+                        <max_angle>${pi/2.1}</max_angle>
                     </horizontal>
                     <vertical>
-                        <samples>180.0</samples>
+                        <samples>180</samples>
                         <resolution>1.0</resolution>
-                        <min_angle>${-pi/2}</min_angle>
+                        <min_angle>${-pi/16}</min_angle>
                         <max_angle>${pi/2}</max_angle>
                     </vertical>
                 </scan>
@@ -105,21 +105,21 @@
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>360.0</samples>
+                        <samples>360</samples>
                         <resolution>1.0</resolution>
-                        <min_angle>${-pi/2.25}</min_angle>
-                        <max_angle>${pi/2.25}</max_angle>
+                        <min_angle>${-pi/2.1}</min_angle>
+                        <max_angle>${pi/2.1}</max_angle>
                     </horizontal>
                     <vertical>
-                        <samples>180.0</samples>
+                        <samples>180</samples>
                         <resolution>1.0</resolution>
-                        <min_angle>${-pi/2}</min_angle>
+                        <min_angle>${-pi/16}</min_angle>
                         <max_angle>${pi/2}</max_angle>
                     </vertical>
                 </scan>
                 <range>
                     <min>0.25</min>
-                    <max>20.0</max>
+                    <max>10.0</max>
                     <resolution>0.001</resolution>
                 </range>
             </ray>
