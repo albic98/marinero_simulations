@@ -20,13 +20,13 @@ def generate_launch_description():
         executable='spawner',
         arguments=['joint_trajectory_controller']
     )
-    
+
     joint_state_broadcaster = Node(
         package='controller_manager',
         executable='spawner',
         arguments=['joint_state_broadcaster']
     )
-    
+
     return LaunchDescription([
         joint_state_broadcaster,
         forward_position_controller,

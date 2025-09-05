@@ -22,9 +22,9 @@ class GazeboSpawner(Node):
         self.odom_sub = self.create_subscription(Odometry, "/marinero/odom", self.odom_callback, 10)
         self.spawn_client = self.create_client(SpawnEntity, "/spawn_entity")
         self.delete_client = self.create_client(DeleteEntity, "/delete_entity")
-        
-        self.spawn_client.wait_for_service(timeout_sec=5.0)
-        self.delete_client.wait_for_service(timeout_sec=5.0)
+
+        self.spawn_client.wait_for_service(timeout_sec=30.0)
+        self.delete_client.wait_for_service(timeout_sec=30.0)
 
         self.ZONES = {
             "A": {
