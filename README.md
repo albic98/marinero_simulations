@@ -1,27 +1,44 @@
 # Project title
 
-Marinero digital twin description files, controllers and localization logic
+Marinero digital twin description files, controllers and localization logic.
+
 ## Getting started
-
-After cloning extract files `robot_description/meshes.zip`.
-
-```
-  unzip robot_description/meshes.zip
-```
-
-If you do not have `unzip` installed use
+Firstly, clone the repositroy with all the required dependencies.
+Make sure that you have installed ROS2 packages: `ros2_control`, `controller_manager`, `twist_mux`, `joy` and `teleop_twist_joy`.
 
 ```
-  sudo apt-get install unzip
+  cd workspace_folder
+  git clone https://github.com/albic98/marinero_simulations.git
 ```
-to install it.
+
+After cloning build the package in your `workspace_folder`. For example `marinero_ws`.
+
+```
+  source /opt/ros/<distro>/setup.bash
+  colcon build --symlink-install
+  source install/setup.bash
+```
+
+For the simulation to work, clone and build this two repositories in the same `workspace_folder`:
+```
+  git clone https://github.com/albic98/marinero_control.git
+  source /opt/ros/<distro>/setup.bash
+  colcon build --symlink-install
+  source install/setup.bash
+```
+
+```
+  git clone https://github.com/albic98/marinero_pointclouds.git
+  source /opt/ros/<distro>/setup.bash
+  colcon build --symlink-install
+  source install/setup.bash
+```
 
 ## Support
 
-One `MARINERO_chassis.stl` and one `MARINERO_chassis.dae` file is missing from the repository because they are too large for Github. To access, them write an e-mail to the email written below.
-
 For support, email albert.androsic@fsb.unizg.hr.
 
+Look at the README.md files of `marinero_control` and `marinero_pointclouds` for additional information.
 
 ## Usage/Examples
 
