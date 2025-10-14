@@ -28,7 +28,7 @@ def generate_launch_description():
 
     control_node = Node(
         package='marinero_control',
-        executable='marinero_control_with_autonomy',
+        executable='marinero_control_navigator',
     )
 
     twist_mux_node = Node(

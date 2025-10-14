@@ -103,12 +103,6 @@ def generate_launch_description():
         }.items(),
     )
 
-    launch_mapviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-                os.path.join(get_package_share_directory('mapviz'),'launch','mapviz.launch.py')
-        )
-    )
-
     launch_robot_state_publisher = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [
@@ -175,6 +169,12 @@ def generate_launch_description():
         condition=UnlessCondition(use_ros2_control)
     )
 
+    navigation_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('marinero_navigation'),'launch','localization_navigation.launch.py')
+        ]),
+    )
+
     marina_marker_node = Node(
         package='marinero_simulations',
         executable='segmented_sdf2marker.py',
@@ -217,7 +217,7 @@ def generate_launch_description():
         # arguments=['-d', marina_rviz2_config],
     )
 
-    delayed_gazebo_spawner_nodes = TimerAction(
+    delayed_gazebo_spawner_node = TimerAction(
         period = 2.0,
         actions = [marinero_spawner_node]
     )
@@ -245,11 +245,6 @@ def generate_launch_description():
                 ]
     )
 
-    delayed_mapviz = TimerAction(
-        period = 30.0,
-        actions = [launch_mapviz]
-    )
-
     return LaunchDescription([
         world_arg,
         sim_time_arg,
@@ -261,7 +256,7 @@ def generate_launch_description():
         launch_gazebo,
         zones_spawner_node,
         launch_robot_state_publisher,
-        delayed_gazebo_spawner_nodes,
+        delayed_gazebo_spawner_node,
         map_odom_trans_publisher_01,
         map_odom_trans_publisher_02,
         _4wis4wid_drive_joy_launch,
@@ -269,6 +264,5 @@ def generate_launch_description():
         delayed_controller_manager,
         delayed_nodes,
         marker_nodes,
-        rviz2_node,
-        # delayed_mapviz,
+        rviz2_node
     ])
