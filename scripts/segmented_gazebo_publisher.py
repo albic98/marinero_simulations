@@ -60,17 +60,15 @@ class GazeboSpawner(Node):
         else:
             new_zone_label = "C"
 
-        new_zone = self.ZONES[new_zone_label]
-        self.spawn_entity(new_zone, f"zone_{new_zone_label}")
-        self.spawn_entity(new_zone, f"objects_zone_{new_zone_label}", objects=True)
+        self.spawn_entity(self.ZONES[new_zone_label], f"zone_{new_zone_label}")
+        self.spawn_entity(self.ZONES[new_zone_label], f"objects_zone_{new_zone_label}", objects=True)
         self.get_logger().info(f"Inital zone {new_zone_label} generated.")
         self.current_zone = new_zone_label
-
 
     def odom_callback(self, msg):
         self.pose_x = msg.pose.pose.position.x
         self.pose_y = msg.pose.pose.position.y
-
+        
         zone_A_limit_1, zone_A_limit_2 = 301.0, 357.45
         zone_B_limit_1, zone_B_limit_2, zone_B_limit_3 = 357.45, 661.1, 668.5
         zone_C_limit = 661.1
@@ -78,7 +76,7 @@ class GazeboSpawner(Node):
         x_pose_condition_1 = zone_x_min_1 < self.pose_x < zone_x_max_1
         zone_x_min_2, zone_x_max_2 = -46.0, -38.0
         x_pose_condition_2 = zone_x_min_2 < self.pose_x < zone_x_max_2
-
+        
         if zone_A_limit_1 <= self.pose_y < zone_A_limit_2 and x_pose_condition_1:
             if self.current_zone != "B":
                 self.switch_zone("B")
@@ -98,15 +96,15 @@ class GazeboSpawner(Node):
         
         if self.current_zone == new_zone_label:
             return
-
+        
         new_zone = self.ZONES[new_zone_label]
         self.spawn_entity(new_zone, f"zone_{new_zone_label}")
         self.spawn_entity(new_zone, f"objects_zone_{new_zone_label}", objects=True)
-
+        
         if self.previous_zone:
             self.delete_entity(f"objects_zone_{self.previous_zone}")
             self.delete_entity(f"zone_{self.previous_zone}")
-
+            
         self.current_zone = new_zone_label
 
 
@@ -116,10 +114,10 @@ class GazeboSpawner(Node):
         euler_angles_degrees = zone_data["euler_angles"]
         euler_angles_radians = [angle * math.pi /180 for angle in euler_angles_degrees]
         rotation_angle = tf.quaternion_from_euler(euler_angles_radians[0], euler_angles_radians[1], euler_angles_radians[2])
-
+        
         with open(file_path, "r") as f:
             sdf_content = f.read()
-
+            
         zone_request = SpawnEntity.Request()
         zone_request.name = entity_name
         zone_request.xml = sdf_content
@@ -130,7 +128,7 @@ class GazeboSpawner(Node):
         zone_request.initial_pose.orientation.y = rotation_angle[1]
         zone_request.initial_pose.orientation.z = rotation_angle[2]
         zone_request.initial_pose.orientation.w = rotation_angle[3]
-
+        
         future = self.spawn_client.call_async(zone_request)
         future.add_done_callback(self.handle_spawn_response)
 
@@ -138,8 +136,6 @@ class GazeboSpawner(Node):
     def handle_spawn_response(self, future):
         try:
             result = future.result()
-            if result:
-                pass # self.get_logger().info(f"Entity spawned successfully!")
         except Exception as e:
             self.get_logger().error(f"Spawn failed: {str(e)}")
 
@@ -147,7 +143,7 @@ class GazeboSpawner(Node):
     def delete_entity(self, entity_name):
         delete_request = DeleteEntity.Request()
         delete_request.name = entity_name
-
+        
         future = self.delete_client.call_async(delete_request)
         future.add_done_callback(self.handle_delete_response)
 
@@ -155,8 +151,6 @@ class GazeboSpawner(Node):
     def handle_delete_response(self, future):
         try:
             result = future.result()
-            if result:
-                pass # self.get_logger().info(f"Entity deleted successfully!")
         except Exception as e:
             self.get_logger().error(f"Delete failed: {str(e)}")
 
@@ -170,9 +164,9 @@ def main(args=None):
         
     x_pose = float(sys.argv[1])
     y_pose = float(sys.argv[2])
-
+    
     gazebo_spawner = GazeboSpawner(x_pose, y_pose)
-
+    
     rclpy.spin(gazebo_spawner)
     gazebo_spawner.destroy_node()
     rclpy.shutdown()

@@ -54,41 +54,41 @@ class SdfToUrdfConverter(Node):
         root = ET.fromstring(sdf_xml_string)
 
         # Extract model name
-        model_name = root.find('model').get('name')
+        model_name = root.find('model').get('name') # type: ignore
 
-        urdf_string = '<?xml version="1.0"?>\n<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="' + model_name + '">\n\n'
+        urdf_string = '<?xml version="1.0"?>\n<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="' + model_name + '">\n\n'    # type: ignore
         
         # Add visual geometry
         visual = root.find('.//visual')
-        visual_pose = visual.find('pose').text.split()
-        visual_uri = visual.find('.//mesh/uri').text
-        visual_scale = visual.find('.//mesh/scale').text.split()
+        visual_pose = visual.find('pose').text.split()              # type: ignore
+        visual_uri = visual.find('.//mesh/uri').text                # type: ignore
+        visual_scale = visual.find('.//mesh/scale').text.split()    # type: ignore
         
         # Add collision geometry
         collision = root.find('.//collision')
-        collision_pose = collision.find('pose').text.split()
-        collision_uri = collision.find('.//mesh/uri').text
-        collision_scale = collision.find('.//mesh/scale').text.split()
+        collision_pose = collision.find('pose').text.split()            # type: ignore
+        collision_uri = collision.find('.//mesh/uri').text              # type: ignore
+        collision_scale = collision.find('.//mesh/scale').text.split()  # type: ignore
 
         # Add inertial properties
         inertial = root.find('.//inertial')
-        mass = float(inertial.find('mass').text)
-        ix = float(inertial.find('.//inertia/ixx').text)
-        iy = float(inertial.find('.//inertia/iyy').text)
-        iz = float(inertial.find('.//inertia/izz').text)
+        mass = float(inertial.find('mass').text)                    # type: ignore
+        ix = float(inertial.find('.//inertia/ixx').text)            # type: ignore
+        iy = float(inertial.find('.//inertia/iyy').text)            # type: ignore
+        iz = float(inertial.find('.//inertia/izz').text)            # type: ignore
         
         urdf_string += '  <link name="odom"></link>\n\n'
         
-        urdf_string += '  <joint name="' + model_name + '_joint" type="fixed">\n'
+        urdf_string += '  <joint name="' + model_name + '_joint" type="fixed">\n'       # type: ignore
         urdf_string += '    <origin xyz="' + str(self.translation[0]) + ' ' + str(self.translation[1]) + ' ' + str(self.translation[2]) + '" rpy="0.0 0.0 0.0" />\n'
         urdf_string += '    <parent link="odom" />\n'
-        urdf_string += '    <child link="' + model_name + '_link' + '" />\n'
+        urdf_string += '    <child link="' + model_name + '_link' + '" />\n'    # type: ignore
         urdf_string += '  </joint>\n\n'
         
-        urdf_string += '  <link name="' + model_name + '">\n'
+        urdf_string += '  <link name="' + model_name + '">\n'                   # type: ignore
         urdf_string += '    <visual name="visual">\n'
         urdf_string += '      <geometry>\n'
-        urdf_string += '        <mesh filename="' + os.path.abspath(visual_uri) + '"/>\n'
+        urdf_string += '        <mesh filename="' + os.path.abspath(visual_uri) + '"/>\n'           # type: ignore
         urdf_string += '      </geometry>\n'
         urdf_string += '      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>\n'
         urdf_string += '      <material name="Gazebo/Brown">\n'
@@ -98,7 +98,7 @@ class SdfToUrdfConverter(Node):
 
         urdf_string += '    <collision name="collision">\n'
         urdf_string += '      <geometry>\n'
-        urdf_string += '        <mesh filename="' + os.path.abspath(collision_uri) + '"/>\n'
+        urdf_string += '        <mesh filename="' + os.path.abspath(collision_uri) + '"/>\n'      # type: ignore  
         urdf_string += '      </geometry>\n'
         urdf_string += '      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>\n'
         urdf_string += '    </collision>\n\n'
@@ -138,9 +138,9 @@ class SdfToUrdfConverter(Node):
 
         # Parse visual geometry
         visual = root.find('.//visual')
-        visual_pose = visual.find('pose').text.split()
-        visual_uri = visual.find('.//mesh/uri').text
-        visual_scale = visual.find('.//mesh/scale').text.split()
+        visual_pose = visual.find('pose').text.split()              # type: ignore
+        visual_uri = visual.find('.//mesh/uri').text                # type: ignore
+        visual_scale = visual.find('.//mesh/scale').text.split()    # type: ignore
 
         # Create visual marker
         visual_marker = Marker()
@@ -158,10 +158,10 @@ class SdfToUrdfConverter(Node):
         visual_marker.color.g = 0.129
         visual_marker.color.b = 0.02
         visual_marker.color.a = 0.8
-        visual_marker.mesh_resource = "file://" + os.path.abspath(visual_uri)
+        visual_marker.mesh_resource = "file://" + os.path.abspath(visual_uri)       # type: ignore
         visual_marker.mesh_use_embedded_materials = True
         visual_marker.id = 0
-        marker_array.markers.append(visual_marker)
+        marker_array.markers.append(visual_marker)      # type: ignore
 
         return marker_array
     

@@ -31,6 +31,7 @@ def generate_launch_description():
     world_arg = DeclareLaunchArgument(
         'world',
         default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_world.world'),    # marina world when no segmentation is wanted
         description='Full path to new world.'
     )
 
@@ -167,12 +168,6 @@ def generate_launch_description():
             os.path.join(get_package_share_directory(pkg_name),'launch','skid_steer_joystick.launch.py')
         ]),
         condition=UnlessCondition(use_ros2_control)
-    )
-
-    navigation_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory('marinero_navigation'),'launch','localization_navigation.launch.py')
-        ]),
     )
 
     marina_marker_node = Node(

@@ -1,7 +1,25 @@
 # MARINERO
 
 Digital twin description files, controllers, and localization logic for the **MARINERO** robot in **ROS 2**.  
-This package enables simulation of the robot in Gazebo and RViz, including both differential drive and 4WIS4WID control modes.
+This package enables simulation of the robot in Gazebo and RViz, including both `differential drive` and `4WIS4WID` control modes.
+
+---
+
+Features
+
+- Full MARINERO robot URDF/Xacro description
+
+- 4WIS4WID steering & wheel control integration
+
+- Differential drive (fallback mode)
+
+- Gazebo & RViz simulation environment
+
+- Marina world model with segmented zone loading (A, B, C)
+
+- Pointcloud integration (via marinero_pointclouds)
+
+- Utility scripts for map alignment, SDF conversion, and pier visualization
 
 ---
 
@@ -23,11 +41,11 @@ This package enables simulation of the robot in Gazebo and RViz, including both 
 Clone the repository in your ROS2 workspace.
 
 ```
-  cd workspace_folder/src
+  cd <workspace_folder>/src
   git clone https://github.com/albic98/marinero_simulations.git
 ```
 
-After cloning build the package in your `workspace_folder/src`. For example `marinero_ws/src`.
+After cloning build the package in your `<workspace_folder>/src`. For example `marinero_ws/src`.
 
 ```
   source /opt/ros/<distro>/setup.bash
@@ -35,7 +53,7 @@ After cloning build the package in your `workspace_folder/src`. For example `mar
   source install/setup.bash
 ```
 
-For the simulation to work, clone and build the following repositories in the same `workspace_folder/src`:
+For the simulation to work, clone and build the following repositories in the same `<workspace_folder>/src`:
 ```
   git clone https://github.com/albic98/marinero_control.git
   git clone https://github.com/albic98/marinero_pointclouds.git
@@ -72,6 +90,34 @@ Then build your workspace:
 ```
   ros2 launch marinero_simulations gazebo_simulation.launch.py use_ros2_control:=false use_4wis4wid:=false
 ```
+---
+
+## Script overview
+
+`marina_gazebo_publisher.py` - Publishes the full marina SDF model into Gazebo.
+
+`marina_sdf2marker.py` - Publishes the full pier model, zones A/B/C, into RViz.
+
+`parse_sdf2marker.py` - Converts SDF models into Xacro files (not used in current simulation)
+
+`pgm_image_rotator.py` - One-time tool used only when the origin or rotation of a new PGM map image is unknown. Helps align the costmap with the GPS/map/Gazebo world. Not used during normal operation.
+
+`pose_z_offset.py` - Adjusted Z-offsets for goals/initial positions (used in earlier versions)
+
+`segmented_gazebo_publisher.py` - Publishes only the current marina zone into Gazebo (improves performance)
+
+`segmented_sdf2marker.py` - Publishes only the current pier segment in RViz
+
+---
+
+## Gazebo models
+
+The `models` directory contains the Gazebo models used in the simulation.
+
+**Note**: the project was developed against an older Gazebo simulator version — the models and launch files target that simulator. They should work, but you may encounter compatibility issues on newer Gazebo releases. If you run into problems, try using the simulator version used during development or contact the address in the Support section for help or access to alternate model files.
+
+Due to file size limitations, some of the larger models could not be uploaded to the repository.
+If you need access to the full set of models, please contact the email provided in the `Support` section.
 
 ---
 
@@ -79,4 +125,7 @@ Then build your workspace:
 
 For support, email albert.androsic@fsb.unizg.hr.
 
-Look at the READMEs of `marinero_control` and `marinero_pointclouds` for additional information.
+For additional details, refer to the READMEs in:
+
+- `marinero_control`
+- `marinero_pointclouds`

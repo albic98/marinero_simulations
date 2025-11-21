@@ -133,9 +133,9 @@ class SDF2Marker(Node):
         
         # Parse visual geometry
         visual = root.find(".//visual")
-        visual_pose = visual.find("pose").text.split()
-        visual_uri = visual.find(".//mesh/uri").text
-        visual_scale = visual.find(".//mesh/scale").text.split()
+        visual_pose = visual.find("pose").text.split()              # type: ignore
+        visual_uri = visual.find(".//mesh/uri").text                # type: ignore
+        visual_scale = visual.find(".//mesh/scale").text.split()    # type: ignore
 
         # Create visual marker
         visual_marker = Marker()
