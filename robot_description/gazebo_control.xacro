@@ -1,40 +1,33 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
 
-    <!-- <gazebo reference="chassis">
+
+    <gazebo reference="chassis">
         <mu1>1.0</mu1>
         <mu2>1.0</mu2>
     </gazebo>
 
     <gazebo reference="fl_wheel">
-        <mu1>3.0</mu1>
-        <mu2>3.0</mu2>
-        <kp>1e10</kp>
-        <kd>10.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
         <fdir1>0 0 1</fdir1>
     </gazebo>
 
     <gazebo reference="fr_wheel">
-        <mu1>3.0</mu1>
-        <mu2>3.0</mu2>
-        <kp>1e10</kp>
-        <kd>10.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
         <fdir1>0 0 1</fdir1>
     </gazebo>
 
     <gazebo reference="rl_wheel">
-        <mu1>3.0</mu1>
-        <mu2>3.0</mu2>
-        <kp>1e10</kp>
-        <kd>10.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
         <fdir1>0 0 1</fdir1>
     </gazebo>
 
     <gazebo reference="rr_wheel">
-        <mu1>3.0</mu1>
-        <mu2>3.0</mu2>
-        <kp>1e10</kp>
-        <kd>10.0</kd>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
         <fdir1>0 0 1</fdir1>
     </gazebo>
 
@@ -71,7 +64,7 @@
         <mu2>2.0</mu2>
         <kp>5e10</kp>
         <kd>10.0</kd>
-    </gazebo> -->
+    </gazebo>
 
     <gazebo>
         <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
@@ -87,16 +80,15 @@
             <left_joint>rl_wheel_joint</left_joint>
             <right_joint>rr_wheel_joint</right_joint>
 
+            <!-- Physical dimensions -->
             <wheel_separation>0.425</wheel_separation>
-            <wheel_separation>0.425</wheel_separation>
-
-            <wheel_radius>0.1016</wheel_radius>
             <wheel_radius>0.1016</wheel_radius>
 
             <!-- limits -->
-            <max_wheel_torque>50.0</max_wheel_torque>
-            <max_wheel_acceleration>5.0</max_wheel_acceleration>
-            <max_linear_acceleration>5.0</max_linear_acceleration>
+            <max_linear_acceleration>5</max_linear_acceleration>
+            <max_angular_acceleration>2</max_angular_acceleration>
+            <max_linear_velocity>10</max_linear_velocity>
+            <max_angular_velocity>1</max_angular_velocity>
 
             <!-- input -->
             <topic>cmd_vel_stamped</topic>
@@ -106,7 +98,7 @@
             <frame_id>odom</frame_id>
             <child_frame_id>base_link</child_frame_id>
             <odom_publisher_frequency>100</odom_publisher_frequency>
-            <tf_topic>/tf</tf_topic>
+            <tf_topic>tf</tf_topic>
         </plugin>
         
         <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin" >

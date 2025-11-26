@@ -198,8 +198,4 @@
         </sensor> -->
     </link>
 
-
-    <gazebo reference="right_camera_depth_frame"></gazebo>
-    <gazebo reference="left_camera_depth_frame"></gazebo>
-
 </robot>

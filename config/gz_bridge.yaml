@@ -33,11 +33,39 @@
   gz_type_name: "gz.msgs.Twist"
   direction: ROS_TO_GZ
 
+# gz topic subscribed to by DiffDrive plugin
+- ros_topic_name: "cmd_vel_joy"
+  gz_topic_name: "cmd_vel_joy"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+# gz topic subscribed to by DiffDrive plugin
+- ros_topic_name: "cmd_vel_out"
+  gz_topic_name: "cmd_vel_out"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+# gz topic subscribed to by DiffDrive plugin
+- ros_topic_name: "cmd_vel"
+  gz_topic_name: "cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
 # gz topic published by IMU plugin
 - ros_topic_name: "marinero/imu_sensor"
   gz_topic_name: "marinero/imu_sensor"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+# gz topic published by IMU plugin
+- ros_topic_name: "marinero/gps_sensor"
+  gz_topic_name: "marinero/gps_sensor"
+  ros_type_name: "sensor_msgs/msg/NavSatFix"
+  gz_type_name: "gz.msgs.NavSat"
   direction: GZ_TO_ROS
 
 # gz topic published by Sensors plugin
@@ -53,13 +81,22 @@
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "gz.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
-  
+
+# gz topic published by Sensors plugin (Camera)
+- ros_topic_name: "right_depth_camera/image_raw"
+  gz_topic_name: "right_depth_camera/image_raw"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+  lazy: False
+
 # gz topic published by Sensors plugin (Camera)
 - ros_topic_name: "right_depth_camera/camera_info"
   gz_topic_name: "right_depth_camera/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "gz.msgs.CameraInfo"
   direction: GZ_TO_ROS
+  lazy: False
 
 # gz topic published by Sensors plugin
 - ros_topic_name: "right_depth_camera/points"
@@ -67,3 +104,4 @@
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "gz.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
+  lazy: False

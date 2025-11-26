@@ -32,7 +32,8 @@ def generate_launch_description():
     world_arg = DeclareLaunchArgument(
         'world',
         # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_base_with_sensors.world'),
-        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','empty.world'),
+        default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_harmonic.world'),
+        # default_value=os.path.join(get_package_share_directory(pkg_name),'worlds','marina_full_harmonic.world'),
         description='Full path to new world.'
     )
 
@@ -174,19 +175,10 @@ def generate_launch_description():
         launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
-    gz_bridge_node = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=[
-            '--ros-args',
-            '-p',
-            f'config_file:={bridge_params}']
-    )
-
-    gz_bridge_image_node = Node(
-        package='ros_gz_image',
-        executable='image_bridge',
-        arguments=['/right_depth_camera/image_raw']
+    gz_bridges_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory(pkg_name),'launch','gz_bridges.launch.py')
+        ]),
     )
     
     marina_marker_node = Node(
@@ -246,7 +238,7 @@ def generate_launch_description():
         OnProcessExit(
             target_action=marinero_spawner_node,
             on_exit=[rviz_marker_node,
-                    gazebo_marker_node,
+                    # gazebo_marker_node,
             ]
         )
     )
@@ -259,11 +251,6 @@ def generate_launch_description():
                 ]
     )
 
-    # delayed_mapviz = TimerAction(
-    #     period = 30.0,
-    #     actions = [launch_mapviz]
-    # )
-
     return LaunchDescription([
         world_arg,
         sim_time_arg,
@@ -275,16 +262,14 @@ def generate_launch_description():
         launch_gazebo,
         # zones_spawner_node,
         map_odom_trans_publisher,
+        launch_robot_state_publisher,
         delayed_gazebo_spawner_nodes,
         _4wis4wid_drive_joy_launch,
         skid_steer_joy_launch,
-        gz_bridge_node,
-        gz_bridge_image_node,
-        launch_robot_state_publisher,
+        gz_bridges_launch,
         delayed_controller_manager,
         delayed_camera_controller_manager,
         delayed_nodes,
-        # marker_nodes,
-        rviz2_node,
-        # delayed_mapviz,
+        marker_nodes,
+        rviz2_node
     ])

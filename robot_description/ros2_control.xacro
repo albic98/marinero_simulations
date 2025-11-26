@@ -120,11 +120,11 @@
 
         <joint name="right_camera_joint">
             <command_interface name="position">
-                <param name="min">-1.57</param>
-                <param name="max">1.57</param>
+                <param name="min">0.85</param>
+                <param name="max">2.25</param>
             </command_interface>
             <state_interface name="position">
-                <param name="initial_value">1.6</param>
+                <param name="initial_value">1.5</param>
             </state_interface>
             <state_interface name="velocity" />
             <state_interface name="effort" />
@@ -132,8 +132,8 @@
 
         <joint name="left_camera_joint">
             <command_interface name="position">
-                <param name="min">-1.57</param>
-                <param name="max">1.57</param>
+                <param name="min">0.85</param>
+                <param name="max">2.25</param>
             </command_interface>
             <state_interface name="position">
                 <param name="initial_value">1.5</param>
@@ -149,6 +149,15 @@
     <gazebo>
         <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin" >
             <parameters>$(find marinero_simulations)/config/controllers.yaml</parameters>
+        </plugin>
+
+        <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+            <odom_frame>odom</odom_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+            <odom_topic>marinero/odom</odom_topic>
+            <tf_topic>tf</tf_topic>
+            <dimensions>2</dimensions>
+            <odom_publish_frequency>100</odom_publish_frequency>
         </plugin>
     </gazebo>
 
@@ -176,23 +185,23 @@
     </gazebo>
 
     <gazebo reference="fl_wheel">
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
     </gazebo>
 
     <gazebo reference="fr_wheel">
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
     </gazebo>
 
     <gazebo reference="rl_wheel">
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
     </gazebo>
 
     <gazebo reference="rr_wheel">
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
     </gazebo>
 
     <gazebo reference="fl_axle_link">

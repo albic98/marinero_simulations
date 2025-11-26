@@ -53,7 +53,7 @@
         <sensor name="2D_lidar" type="gpu_lidar">
             <pose>0 0 0 0 0 0</pose>
             <update_rate>10</update_rate>
-            <visualize>false</visualize>
+            <visualize>true</visualize>
             <lidar>
                 <scan>
                     <horizontal>
@@ -88,13 +88,13 @@
             <lidar>
                 <scan>
                     <horizontal>
-                        <samples>360.0</samples>
+                        <samples>360</samples>
                         <resolution>1.0</resolution>
                         <min_angle>${-2*pi/3}</min_angle>
                         <max_angle>${2*pi/3}</max_angle>
                     </horizontal>
                     <vertical>
-                        <samples>180.0</samples>
+                        <samples>180</samples>
                         <resolution>1.0</resolution>
                         <min_angle>-0.25</min_angle>
                         <max_angle>1.25</max_angle>

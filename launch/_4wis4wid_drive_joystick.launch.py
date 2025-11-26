@@ -37,7 +37,7 @@ def generate_launch_description():
 
     control_node = Node(
         package='marinero_control',
-        executable='marinero_control_with_autonomy',
+        executable='marinero_control_navigator',
     )
 
     twist_mux_node = Node(
@@ -56,9 +56,9 @@ def generate_launch_description():
     return LaunchDescription([
         sim_time_arg,
         joy_node,
-        odometry_node,
         teleop_node,
         control_node,
+        # odometry_node,
         # twist_mux_node,
         twist_stamper_node
     ])
